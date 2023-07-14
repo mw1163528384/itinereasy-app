@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Button } from 'react-native-paper';
 
-const Question1Screen = () => {
+const GetStartedScreen = () => {
     return (
         <View style={styles.container}>
         <Text style={styles.title}>New Trip!</Text>
@@ -49,7 +49,7 @@ const Question1Screen = () => {
     },
   });
 
-  export default Question1Screen;
+  export default GetStartedScreen;
 
 
 

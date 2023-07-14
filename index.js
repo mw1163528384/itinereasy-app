@@ -7,6 +7,6 @@ import { registerRootComponent } from 'expo';
 
 //registerRootComponent(WelcomeScreen);
 
-import Question1Screen from './frontend/question1screen';
+import GetStartedScreen from './frontend/getstartedscreen';
 
-registerRootComponent(Question1Screen);
+registerRootComponent(GetStartedScreen);
