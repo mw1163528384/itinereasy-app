@@ -49,17 +49,25 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    padding: 16,
+    padding: 16
   },
   usernameInput: {
     marginBottom: 12,
-    backgroundColor: 'rgb(217,217,217)',
-    color: 'black'
+    backgroundColor: 'rgb(237,237,237)',
+    borderBottomColor: 'transparent',
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 25, 
+    borderBottomLeftRadius: 25, 
+    borderBottomRightRadius: 25,
   },
   passwordInput: {
     marginBottom: 12,
-    backgroundColor: 'rgb(217,217,217)',
-    color: 'black'
+    backgroundColor: 'rgb(237,237,237)',
+    borderBottomColor: 'transparent',
+    borderTopLeftRadius: 25,
+    borderTopRightRadius: 25, 
+    borderBottomLeftRadius: 25, 
+    borderBottomRightRadius: 25
   },
   button: {
     marginTop: 24,
