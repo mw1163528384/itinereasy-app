@@ -1,16 +1,11 @@
 {
-  "name": "backend",
+  "name": "your-package",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node generator_model.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2",
-    "mongoose": "^7.3.4"
+    "openai": "^3.3.0",
+    "openai-api": "^1.3.1"
   }
 }
