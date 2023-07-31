@@ -17,7 +17,7 @@ const NewTripFood = () => {
     }
 
     const handleBack = () => {
-        navigate('tripActivities');
+        navigate('/tripActivities');
     }
 
     const handleNext = () => {

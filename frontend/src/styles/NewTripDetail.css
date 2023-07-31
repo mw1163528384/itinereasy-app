@@ -1,0 +1,51 @@
+* { 
+    margin: 0; 
+    box-sizing: border-box; 
+    font-family: "CustomFont"; 
+} 
+ 
+@font-face { 
+    font-family: "CustomFont"; 
+    src: url("../assets/fonts/Lexend-Regular.ttf"); 
+} 
+ 
+.body { 
+    display: flex; 
+    max-width: 346px; 
+    max-height: 727px; 
+    flex-direction: column; 
+    height: 80vh; 
+    align-items: center; 
+    position: relative;
+} 
+ 
+/* Responsive styles for screen sizes up to 768px */ 
+@media (max-width: 768px) { 
+    .body { 
+      max-width: 100%; /* Adjust this value as needed */ 
+      max-height: none; /* Reset the max-height property */ 
+      height: auto; /* Reset the height property */ 
+    } 
+  } 
+ 
+.body-content { 
+    padding: 20px; 
+    flex-shrink: 0; 
+    word-wrap: break-word; 
+}
+
+.custom-calendar {
+    border: transparent;
+}
+
+.react-datepicker__day--highlighted {
+    background-color: #323232;
+}
+
+.react-datepicker__day--in-range {
+    background-color: #323232 !important;  /* your preferred color here */
+}
+
+.react-datepicker__day--selected {
+    background-color: #323232 !important;  /* your preferred color here */
+}
