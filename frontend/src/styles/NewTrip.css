@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "CustomFont";
+}
+
+@font-face {
+    font-family: "CustomFont";
+    src: url("../assets/fonts/Lexend-Regular.ttf");
+}
+
+.body {
+    display: flex;
+    max-width: 346px;
+    max-height: 727px;
+    flex-direction: column;
+    height: 80vh;
+    align-items: center;
+}
+
+.body-content {
+    padding: 20px;
+    flex-shrink: 0;
+    word-wrap: break-word;
+    text-align: left;
+}
+
+.img {
+    max-width: 232px;
+    max-height: 254px;
+    align-items: center;
+}
+
+
+.start-btn {
+    width: 302px;
+    height: 44px;
+    border-color: transparent;
+    border-radius: 25px;
+    background-color: #FFA800;
+    color: #FFFFFF;
+}
