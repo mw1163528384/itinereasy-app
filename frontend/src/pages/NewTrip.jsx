@@ -16,9 +16,9 @@ const NewTrip = () => {
                 </div>
 
                 <div className='body-description'>
-                    <h2>New Trip!</h2>
+                    <h2 className='trip-heading'>New Trip!</h2>
 
-                    <p>
+                    <p class="trip-description">
                         Fill in your trip details and preferences so that we can generate an Itinerary for you using AI!
                     </p>
                 </div>
