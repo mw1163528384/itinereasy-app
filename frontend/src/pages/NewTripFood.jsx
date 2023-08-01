@@ -53,7 +53,7 @@ const NewTripFood = () => {
             <input type='text' value={foodPreferences} onChange={handleFoodPreferencesChange} placeholder='Type here to add food' />
           </label>
 
-          <NewTripFooter handleBack={handleBack} handleNext={handleNext} />   
+          <NewTripFooter handleBack={handleBack} handleNext={handleNext} isFoodPage={true} />   
         </div>
       </div>
     </div>
