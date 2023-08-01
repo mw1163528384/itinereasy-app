@@ -9,11 +9,62 @@
     src: url("../assets/fonts/Lexend-Regular.ttf");
 }
 
-.body {
-    display: flex;
-    max-width: 346px;
-    max-height: 727px;
-    flex-direction: column;
-    height: 80vh;
+
+.body-type {
+    margin-top: 100px;
+    padding: 20px;
+    flex-shrink: 0;
+    word-wrap: break-word;
+}
+
+.body-content h2 {
+    box-sizing:border-box;
+    background-color:rgba(255,255,255,1);
+    display:flex;
+    width:100%;
+    border-radius:25px;
+    gap:0;
+    flex-direction:column;
+    padding-bottom:31px;
+    padding-left:20px;
+    padding-right:20px;
+    padding-top: 10px;
+    font-weight: lighter;
+}
+
+.trip-reason-selection {
+    font-weight:100;
+    text-align:left;
+    color:rgba(0,0,0,1);
+    gap:15px;
+    flex-grow:1;
+    justify-content:center;
+    flex-direction:column;
+    display:flex;
+    box-sizing:border-box;
+    width:250px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.vacation-btn {
+    justify-content: center;
     align-items: center;
+    display: flex;
+    height: 30px;
+    width: 269px;
+    border-radius: 25px;
+    border-color: transparent;
+    background-color: rgba(237,237,237,1);
+}
+
+.letsgo-btn {
+    border-radius: 25px;
+    background-color: #FFA800;
+    box-sizing: border-box;
+    height: 44px;
+    width: 302px;
+    margin-top: 200px;
+    color: white;
+    border-color: transparent;
 }

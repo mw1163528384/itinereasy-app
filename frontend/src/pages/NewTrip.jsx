@@ -16,14 +16,16 @@ const NewTrip = () => {
                 </div>
 
                 <div className='body-description'>
-                    <h2 className='trip-heading'>New Trip!</h2>
+                    <h2>New Trip!</h2>
 
-                    <p class="trip-description">
+                    <p>
                         Fill in your trip details and preferences so that we can generate an Itinerary for you using AI!
                     </p>
+            
+                    <div className="button-container">
+                        <button onClick={handleStart} id="start-btn" className='start-btn'> Start! </button>
+                    </div>
                 </div>
-
-                <button onClick={handleStart} id="start-btn" className='start-btn'> Start! </button>
             </div>
         </div>
     );
