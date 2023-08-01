@@ -1,40 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from "react-router-dom";
+// HomePage.js
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 import '../styles/HomePage.css';
-import menu_logo from '../assets/images/menu-logo.png'
+import menu_logo from '../assets/images/menu-logo.png';
 
-const HomePage = (getUserItineraryFromServer) => {
-    const navigate = useNavigate()
-    const [userItinerary, setuserItinerary] = useState(null);
-    
-    useEffect(() => {
-        fetchUserItinerary();
-    }, [])
+const HomePage = () => {
+  const location = useLocation();
+  const generatedItinerary = location.state?.generatedItinerary;
 
-    const fetchUserItinerary = async () => {
-        const itinerary = await getUserItineraryFromServer();
-        setuserItinerary(itinerary);
-    }
+  const handleAddTripClick = () => {
+    navigate('/newTrip');
+  };
 
-    const handleAddTripClick = async() => {
-        navigate('/');
-    }
-
-    return (
-        <div>
-            {userItinerary ? (
-            <div className='body'>
-
-                <div className='put your generated itinerary here!'> </div>
-
-            </div>
-            ) : (
-            <div className='body'>
-                <button onClick={handleAddTripClick} id="addTrip-btn" className='addTrip-btn'> Click here to add new trip </button>
-            </div>
-            )}
+  return (
+    <div>
+      {generatedItinerary ? (
+        <div className='body'>
+          {/* Display the generated itinerary data */}
+          <h2>Generated Itinerary</h2>
+          <pre>{JSON.stringify(generatedItinerary, null, 2)}</pre>
         </div>
-    );
-}
+      ) : (
+        <div className='body'>
+          <button onClick={handleAddTripClick} id="addTrip-btn" className='addTrip-btn'>
+            Click here to add a new trip
+          </button>
+        </div>
+      )}
+    </div>
+  );
+};
 
-export { HomePage }
+export { HomePage };
