@@ -33,11 +33,11 @@ const NewTripActivities = () => {
                     
                     <select value={selectedNoActivities} onChange={handleNoActivitiesChange} placeholder='Number of activities per day'>
                         <option value=""></option>
-                        <option value="">0 (I'd like to plan myself)</option>
-                        <option value="">1 to 2 per day</option>
-                        <option value="">3 to 4 per day</option>
-                        <option value="">More than 4</option>
-                        <option value="">Unspecified</option>
+                        <option value="0 (I'd like to plan myself)">0 (I'd like to plan myself)</option>
+                        <option value="1 to 2 per day">1 to 2 per day</option>
+                        <option value="3 to 4 per day">3 to 4 per day</option>
+                        <option value="More than 4">More than 4</option>
+                        <option value="Unspecified">Unspecified</option>
                     </select>
 
                     <h5>Activity preferences</h5>
