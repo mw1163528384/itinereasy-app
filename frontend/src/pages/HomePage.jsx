@@ -1,14 +1,12 @@
-// HomePage.js
-import React from 'react';
-import { useLocation } from 'react-router-dom';
-import '../styles/HomePage.css';
-import { Calendar, momentLocalizer } from 'react-big-calendar'
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import sorry_img from '../assets/images/sorry-img.png';
 import add_ring from '../assets/images/add_ring_fill.png';
 
-const HomePage = (getUserItineraryFromServer) => {
+const HomePage = (props) => {
     const navigate = useNavigate()
     const [userItinerary, setuserItinerary] = useState(null);
     const location = useLocation();
@@ -50,6 +48,12 @@ const HomePage = (getUserItineraryFromServer) => {
       
       const localizer = momentLocalizer(moment)
 
+      // Extract the itinerary text
+      let itineraryText = '';
+      if (generatedItinerary && generatedItinerary.choices && generatedItinerary.choices.length > 0) {
+        itineraryText = generatedItinerary.choices[0].text;
+      }
+
       return (
         <div>
             {generatedItinerary ? (
@@ -62,7 +66,8 @@ const HomePage = (getUserItineraryFromServer) => {
                     views={['week']}
                     style={{height:500}} 
                 />
-                <pre>{JSON.stringify(generatedItinerary, null, 2)}</pre>
+                {/* Display the itinerary text */}
+                <pre>{itineraryText}</pre>
 
                 </div>
             ) : (
@@ -78,13 +83,13 @@ const HomePage = (getUserItineraryFromServer) => {
                 <div className='addTrip_btn_container'>
                     <button onClick={handleAddTripClick} id="addTrip-btn" className='addTrip-btn'> 
                         <img src={add_ring} alt='add_ring'/>
-                        Click here to add new trip 
+                        <p>Add new trip</p>
                     </button>
                 </div>
             </div>
             )}
         </div>
-    );
+    )
 }
 
 export { HomePage };
