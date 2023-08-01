@@ -1,77 +1,90 @@
-import React, {useState} from 'react';
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/NewTripDetail.css';
 import { NewTripFooter } from '../components/NewTripFooter';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
 const NewTripDetail = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const [selectedDate, setSelectedDate] = useState(null);
-    const [selectedTiming, setSelectedTiming] = useState('');
-    const [location, setLocation] = useState('');
-    
-    const handleTimingChange = (event) => {
-        setSelectedTiming(event.target.value);
-    }
+    const [selectedArrivalTiming, setSelectedArrivalTiming] = useState('');
+    const [selectedReturnTiming, setSelectedReturnTiming] = useState('');
+    const [budget, setBudget] = useState('');
 
-    const handleLocationChange = (event) => {
-        setLocation(event.target.value);
-    }
+  const handleArrivalTimingChange = (event) => {
+    setSelectedArrivalTiming(event.target.value);
+  };
 
-    const handleBack = () => {
-        navigate('tripType');
-    }
+  const handleReturnTimingChange = (event) => {
+    setSelectedReturnTiming(event.target.value);
+  };
 
-    const handleNext = () => {
-        navigate('/tripActivities');
-    }    
+  const handleBudgetChange = (event) => {
+    setBudget(event.target.value);
+  };
 
-    return (
-        <div>
-            <div className='body'>
-                <div className='body-content'>
-                    <h2>What is the purpose of your trip?</h2>
-                    <p>Fill in your trip dates, arrival and departure times.</p>
-                    
-                    <div className='calendar-box'>
-                        <DatePicker selected={selectedDate} onChange={date => setSelectedDate(date)} />
-                        
-                        <h4>Select arrival and return timings</h4>
-                        <select value={selectedTiming} onChange={handleTimingChange} placeholder='Select arrival time'>
-                            <option value=""></option>
-                            <option value="">Morning</option>
-                            <option value="">Afternoon</option>
-                            <option value="">Night</option>
-                            <option value="">Before dawn</option>
-                            <option value="">Not specified</option>
-                        </select>
+  const handleBack = () => {
+    navigate('/tripActivities');
+  };
 
-                        <select value={selectedTiming} onChange={handleTimingChange} placeholder='Select return time'>
-                            <option value=""></option>
-                            <option value="">Morning</option>
-                            <option value="">Afternoon</option>
-                            <option value="">Night</option>
-                            <option value="">Before dawn</option>
-                            <option value="">Not specified</option>
-                        </select>
+  const handleNext = () => {
+    // Create the userPreferences object with collected data
+    const userPreferences = {
+      tripDates: selectedDate,
+      arrivalTiming: selectedArrivalTiming,
+      returnTiming: selectedReturnTiming,
+      budget: budget,
+    };
 
-                    </div>
+    // Pass userPreferences to the next component (e.g., NewTripFood)
+    navigate('/tripFood', { state: { userPreferences } });
+  };
 
-                    <div className='body-budget'>
-                        <h2>Budget</h2>
-                        <p>Input a rough estimate of your budget for the trip (excluding interntional travel and accommodations)</p>
+  return (
+    <div>
+      <div className='body'>
+        <div className='body-content'>
+          <h2>What is the purpose of your trip?</h2>
+          <p>Fill in your trip dates, arrival and departure times.</p>
+          
+          <div className='calendar-box'>
+            <DatePicker selected={selectedDate} onChange={(date) => setSelectedDate(date)} />
+            
+            <h4>Select arrival and return timings</h4>
+            <select value={selectedArrivalTiming} onChange={handleArrivalTimingChange} placeholder='Select arrival time'>
+              <option value=""></option>
+              <option value="morning">Morning</option>
+              <option value="afternoon">Afternoon</option>
+              <option value="night">Night</option>
+              <option value="before-dawn">Before dawn</option>
+              <option value="not-specified">Not specified</option>
+            </select>
 
-                        <label className='budget'>
-                            <input type='text' value={location} onChange={handleLocationChange} placeholder='SGD - Fill in your budget here' />
-                        </label>
-                    </div>
+            <select value={selectedReturnTiming} onChange={handleReturnTimingChange} placeholder='Select return time'>
+              <option value=""></option>
+              <option value="morning">Morning</option>
+              <option value="afternoon">Afternoon</option>
+              <option value="night">Night</option>
+              <option value="before-dawn">Before dawn</option>
+              <option value="not-specified">Not specified</option>
+            </select>
+          </div>
 
-                    <NewTripFooter handleBack={handleBack} handleNext={handleNext} />   
-                </div>
-            </div>
+          <div className='body-budget'>
+            <h2>Budget</h2>
+            <p>Input a rough estimate of your budget for the trip (excluding international travel and accommodations)</p>
+
+            <label className='budget'>
+              <input type='text' value={budget} onChange={handleBudgetChange} placeholder='SGD - Fill in your budget here' />
+            </label>
+          </div>
+
+          <NewTripFooter handleBack={handleBack} handleNext={handleNext} />   
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
-export { NewTripDetail }
+export { NewTripDetail };
