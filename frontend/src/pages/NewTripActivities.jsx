@@ -27,7 +27,7 @@ const NewTripActivities = () => {
     return (
         <div>
             <div className='body'>
-                <div className='body-content'>
+                <div className='body-activities'>
                     <h2>Activities</h2>
                     <p>Fill in the number of activities you would like to do in a day</p>
                     
