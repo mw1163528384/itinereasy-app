@@ -1,56 +1,63 @@
-import React, {useState} from 'react';
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/NewTripFood.css';
 import { NewTripFooter } from '../components/NewTripFooter';
 
 const NewTripFood = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const [selectedButton, setSelectedButton] = useState(null);
-    const [location, setLocation] = useState('');
-    
-    const handleClick = (button) => {
-        setSelectedButton(button);
-    }
+    const [foodPreferences, setFoodPreferences] = useState('');
 
-    const handleLocationChange = (event) => {
-        setLocation(event.target.value);
-    }
+  const handleClick = (button) => {
+    setSelectedButton(button);
+  };
 
-    const handleBack = () => {
-        navigate('/tripActivities');
-    }
+  const handleFoodPreferencesChange = (event) => {
+    setFoodPreferences(event.target.value);
+  };
 
-    const handleNext = () => {
-        navigate('/tripGenerate');
-    }    
+  const handleBack = () => {
+    navigate('tripActivities');
+  };
 
-    return (
-        <div>
-            <div className='body'>
-                <div className='body-content'>
-                    <h2>Food</h2>
-                    <h5>Food preferences</h5>
-                    <p>Add your favourite food preferences below, or specific dishes you want to try abroad.</p>
+  const handleNext = () => {
+    // Create the userPreferences object with collected data
+    const userPreferences = {
+      foodType: selectedButton,
+      specificFoodPreferences: foodPreferences,
+    };
 
-                    <div className='food-type-selection'>
-                        <button onClick={() => handleClick("Local")}>Local</button>
-                        <button onClick={() => handleClick("Korean")}>Korean</button>
-                        <button onClick={() => handleClick("Chinese")}>Chinese</button>
-                        <button onClick={() => handleClick("Burgers")}>Burgers</button>
-                        <button onClick={() => handleClick("Spam musibi")}>Spam musibi</button>
-                        <button onClick={() => handleClick("Japanese")}>Japanese</button>
-                        <button onClick={() => handleClick("Shaved ice")}>Shaved ice</button>
-                    </div>
+    // Pass userPreferences to the next component (e.g., final step)
+    navigate('/tripGenerate', { state: { userPreferences } });
+  };
 
-                    <label className='add-food'>
-                        <input type='text' value={location} onChange={handleLocationChange} placeholder='Type here to add food' />
-                    </label>
+  return (
+    <div>
+      <div className='body'>
+        <div className='body-content'>
+          <h2>Food</h2>
+          <h5>Food preferences</h5>
+          <p>Add your favourite food preferences below, or specific dishes you want to try abroad.</p>
 
-                    <NewTripFooter handleBack={handleBack} handleNext={handleNext} />   
-                </div>
-            </div>
+          <div className='food-type-selection'>
+            <button onClick={() => handleClick("Local")}>Local</button>
+            <button onClick={() => handleClick("Korean")}>Korean</button>
+            <button onClick={() => handleClick("Chinese")}>Chinese</button>
+            <button onClick={() => handleClick("Burgers")}>Burgers</button>
+            <button onClick={() => handleClick("Spam musubi")}>Spam musubi</button>
+            <button onClick={() => handleClick("Japanese")}>Japanese</button>
+            <button onClick={() => handleClick("Shaved ice")}>Shaved ice</button>
+          </div>
+
+          <label className='add-food'>
+            <input type='text' value={foodPreferences} onChange={handleFoodPreferencesChange} placeholder='Type here to add food' />
+          </label>
+
+          <NewTripFooter handleBack={handleBack} handleNext={handleNext} />   
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
-export { NewTripFood }
+export { NewTripFood };

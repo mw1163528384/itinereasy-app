@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from "react-router-dom";
+// HomePage.js
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 import '../styles/HomePage.css';
 import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment';
@@ -10,6 +11,8 @@ import add_ring from '../assets/images/add_ring_fill.png';
 const HomePage = (getUserItineraryFromServer) => {
     const navigate = useNavigate()
     const [userItinerary, setuserItinerary] = useState(null);
+    const location = useLocation();
+    const generatedItinerary = location.state?.generatedItinerary;
     const [events, setEvents] = useState([]);
     
     useEffect(() => {
@@ -29,7 +32,7 @@ const HomePage = (getUserItineraryFromServer) => {
             console.error('Error fetching user itinerary:', error);
         }
     }
-
+    
     useEffect(() => {
         if (userItinerary) {
             const formattedEvents = userItinerary.map((item) => ({
@@ -40,16 +43,16 @@ const HomePage = (getUserItineraryFromServer) => {
             setEvents(formattedEvents);
         }
     }, [userItinerary])
-    
-    const handleAddTripClick = async() => {
+
+    const handleAddTripClick = () => {
         navigate('/newTrip');
-    }
+      };
+      
+      const localizer = momentLocalizer(moment)
 
-    const localizer = momentLocalizer(moment)
-
-    return (
+      return (
         <div>
-            {userItinerary ? (
+            {generatedItinerary ? (
                 <div className='homepage-body'>
                     <Calendar 
                     localizer={localizer}
@@ -59,6 +62,7 @@ const HomePage = (getUserItineraryFromServer) => {
                     views={['week']}
                     style={{height:500}} 
                 />
+                <pre>{JSON.stringify(generatedItinerary, null, 2)}</pre>
 
                 </div>
             ) : (
@@ -83,4 +87,4 @@ const HomePage = (getUserItineraryFromServer) => {
     );
 }
 
-export { HomePage }
+export { HomePage };

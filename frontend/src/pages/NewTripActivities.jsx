@@ -1,28 +1,35 @@
-import React, {useState} from 'react';
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import '../styles/NewTripActivities.css';
 import { NewTripFooter } from '../components/NewTripFooter';
 
 const NewTripActivities = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const [selectedNoActivities, setSelectedNoActivities] = useState('');
-    const [location, setLocation] = useState('');
-    
-    const handleNoActivitiesChange = (event) => {
-        setSelectedNoActivities(event.target.value);
-    }
+    const [activities, setActivities] = useState('');
 
-    const handleLocationChange = (event) => {
-        setLocation(event.target.value);
-    }
+  const handleNoActivitiesChange = (event) => {
+    setSelectedNoActivities(event.target.value);
+  };
 
-    const handleBack = () => {
-        navigate('/tripDetail');
-    }
+  const handleActivitiesChange = (event) => {
+    setActivities(event.target.value);
+  };
 
-    const handleNext = () => {
-        navigate('/tripFood');
-    }    
+  const handleBack = () => {
+    navigate('/tripDetail');
+  };
+
+  const handleNext = () => {
+    // Create the userPreferences object with collected data
+    const userPreferences = {
+      activitiesPerDay: selectedNoActivities,
+      activityPreferences: activities,
+    };
+
+    // Pass userPreferences to the next component (e.g., NewTripDetail)
+    navigate('/tripDetail', { state: { userPreferences } });
+  };
 
     return (
         <div>
@@ -40,21 +47,21 @@ const NewTripActivities = () => {
                         <option value="Unspecified">Unspecified</option>
                     </select>
 
-                    <h5>Activity preferences</h5>
-                    <p>
-                        Add activities or sights you would like to do/see. 
-                        <br/>e.g. Cycling, Beaches, Night markets, Etc.
-                    </p>
+          <h5>Activity preferences</h5>
+          <p>
+            Add activities or sights you would like to do/see.
+            <br/>e.g. Cycling, Beaches, Night markets, Etc.
+          </p>
 
-                    <label className='add-activities'>
-                        <input type='text' value={location} onChange={handleLocationChange} placeholder='Type here to add activities' />
-                    </label>
+          <label className='add-activities'>
+            <input type='text' value={activities} onChange={handleActivitiesChange} placeholder='Type here to add activities' />
+          </label>
 
-                    <NewTripFooter handleBack={handleBack} handleNext={handleNext} />   
-                </div>
-            </div>
+          <NewTripFooter handleBack={handleBack} handleNext={handleNext} />   
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
-export { NewTripActivities }
+export { NewTripActivities };
