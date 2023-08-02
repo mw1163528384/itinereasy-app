@@ -6,16 +6,12 @@ import { NewTripDetail } from "./pages/NewTripDetail";
 import { NewTripActivities } from "./pages/NewTripActivities";
 import { NewTripFood } from "./pages/NewTripFood";
 import { NewTripGenerate } from "./pages/NewTripGenerate";
-//import { LoginPage } from "./pages/LoginPage";
-import { HomePage } from "./pages/HomePage";
-//<Route path="/" element={<LoginPage/>}></Route>
 
 function App() {
   return(
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage/>}></Route>
-        <Route path="newTrip" element={<NewTrip/>}></Route>
+        <Route path="/" element={<NewTrip/>}></Route>
         <Route path="tripType" element={<TypeOfTrip/>}></Route>
         <Route path="tripDetail" element={<NewTripDetail/>}></Route>
         <Route path="tripActivities" element={<NewTripActivities/>}></Route>

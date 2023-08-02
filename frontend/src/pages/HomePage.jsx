@@ -45,7 +45,7 @@ const HomePage = (getUserItineraryFromServer) => {
     }, [userItinerary])
 
     const handleAddTripClick = () => {
-        navigate('/newTrip');
+        navigate('/');
       };
       
       const localizer = momentLocalizer(moment)

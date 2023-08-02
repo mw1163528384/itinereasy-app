@@ -44,32 +44,37 @@ const NewTripDetail = () => {
   return (
     <div>
       <div className='body'>
-        <div className='body-content'>
-          <h2>What is the purpose of your trip?</h2>
+        <div className='body-detail'>
+          <h2>Trip details</h2>
           <p>Fill in your trip dates, arrival and departure times.</p>
           
-          <div className='calendar-box'>
-            <DatePicker selected={selectedDate} onChange={(date) => setSelectedDate(date)} />
-            
-            <h4>Select arrival and return timings</h4>
-            <select value={selectedArrivalTiming} onChange={handleArrivalTimingChange} placeholder='Select arrival time'>
-              <option value=""></option>
-              <option value="morning">Morning</option>
-              <option value="afternoon">Afternoon</option>
-              <option value="night">Night</option>
-              <option value="before-dawn">Before dawn</option>
-              <option value="not-specified">Not specified</option>
-            </select>
+          <div className='calendar-section'>
+            <div className='calendar-box'>
+              <DatePicker selected={selectedDate} onChange={(date) => setSelectedDate(date)} />
+            </div> 
+              
+            <h4 className='arrival-return-timings'> Select arrival and return timings</h4>
+            <div className='select-container'>
+                <select className="select-arrival" value={selectedArrivalTiming} onChange={handleArrivalTimingChange} placeholder='Select arrival time'>
+                    <option value="" selected disabled>Select arrival time</option>
+                    <option value="morning">Morning</option>
+                    <option value="afternoon">Afternoon</option>
+                    <option value="night">Night</option>
+                    <option value="before-dawn">Before dawn</option>
+                    <option value="not-specified">Not specified</option>
+                </select>
 
-            <select value={selectedReturnTiming} onChange={handleReturnTimingChange} placeholder='Select return time'>
-              <option value=""></option>
-              <option value="morning">Morning</option>
-              <option value="afternoon">Afternoon</option>
-              <option value="night">Night</option>
-              <option value="before-dawn">Before dawn</option>
-              <option value="not-specified">Not specified</option>
-            </select>
-          </div>
+                <select className="select-return" value={selectedReturnTiming} onChange={handleReturnTimingChange} placeholder='Select return time'>
+                    <option value="" selected disabled>Select return time</option>
+                    <option value="morning">Morning</option>
+                    <option value="afternoon">Afternoon</option>
+                    <option value="night">Night</option>
+                    <option value="before-dawn">Before dawn</option>
+                    <option value="not-specified">Not specified</option>
+                </select>
+            </div>
+        </div>
+
 
           <div className='body-budget'>
             <h2>Budget</h2>
@@ -87,4 +92,4 @@ const NewTripDetail = () => {
   );
 }
 
-export { NewTripDetail };
+export { NewTripDetail }

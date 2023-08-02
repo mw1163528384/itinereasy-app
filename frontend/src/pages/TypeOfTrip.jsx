@@ -39,11 +39,13 @@ const TypeOfTrip = () => {
                     <h3>Where are you headed to?</h3>
 
                     <label className='Location'>
-                        <input type='text' value={location} onChange={handleLocationChange} placeholder='Enter City/state/country' />
+                        <input type='text' value={location} onChange={handleLocationChange} placeholder='Enter City/state/country' className='location-input'/>
                     </label>
                 </div>
 
+                    <div className="letsgo-container">
                     <button onClick={handleGo} className='letsgo-btn'> Let's go! </button>
+                    </div>
                 </div>
             </div>
         </div>

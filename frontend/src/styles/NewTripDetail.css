@@ -1,23 +1,9 @@
-* { 
-    margin: 0; 
-    box-sizing: border-box; 
-    font-family: "CustomFont"; 
-} 
- 
-@font-face { 
-    font-family: "CustomFont"; 
-    src: url("../assets/fonts/Lexend-Regular.ttf"); 
-} 
- 
-.body { 
-    display: flex; 
-    max-width: 346px; 
-    max-height: 727px; 
-    flex-direction: column; 
-    height: 80vh; 
-    align-items: center; 
-    position: relative;
-} 
+@font-face {
+    font-family: "lexend-regular";
+    src: url("../assets/fonts/Lexend-Regular.ttf");
+    font-family: "lexend-light";
+    src: url("../assets/fonts/Lexend-Light.ttf");
+}
  
 /* Responsive styles for screen sizes up to 768px */ 
 @media (max-width: 768px) { 
@@ -27,19 +13,51 @@
       height: auto; /* Reset the height property */ 
     } 
   } 
- 
-.body-content { 
-    padding: 20px; 
-    flex-shrink: 0; 
-    word-wrap: break-word; 
+
+.body-detail h2 {
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    margin-top: 30px;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-size: 24px;
+    text-align: left;
+    font-weight: 100;
 }
 
-.custom-calendar {
-    border: transparent;
+.body-detail p {
+    font-size: 12px;
+    margin-top: 5px;
+    margin-left: 40px;
+    margin-right: 40px;
+    text-align: left;  
+    font-weight: lighter;
+    font-family: "lexend-light";
+}
+
+.calendar-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.react-datepicker__input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .react-datepicker__day--highlighted {
     background-color: #323232;
+    justify-content: center;
+    display: flex;
+}
+
+.custom-calendar {
+    border: transparent;
 }
 
 .react-datepicker__day--in-range {
@@ -48,4 +66,58 @@
 
 .react-datepicker__day--selected {
     background-color: #323232 !important;  /* your preferred color here */
+}
+
+
+.arrival-return-timings{
+    font-family: "lexend-light";
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    margin-top: 50px;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-size: 12px;
+    text-align: left;
+    color: white;
+}
+
+.select-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 5px;
+}
+
+.select-arrival {
+    font-family: "lexend-regular";
+    text-align: left;
+    font-size: 10px;
+    width: 120px;
+    height: 20px;
+    color: rgba(50,50,50,1);
+    border-radius: 25px;
+}
+
+.select-return {
+    font-family: "lexend-regular";
+    text-align: left;
+    font-size: 10px;
+    width: 120px;
+    height: 20px;
+    color: rgba(50,50,50,1);
+    border-radius: 25px;
+    margin-left: 10px;
+}
+
+.calendar-section {
+    margin-top: 5px;
+    border-radius: 25px;
+    padding: 5px;
+    box-sizing: border-box;
+    width: 80%;
+    background-color: #FFA800;
 }
