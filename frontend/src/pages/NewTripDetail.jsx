@@ -4,10 +4,12 @@ import '../styles/NewTripDetail.css';
 import { NewTripFooter } from '../components/NewTripFooter';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { eachDayOfInterval } from 'date-fns';
 
 const NewTripDetail = () => {
     const navigate = useNavigate();
-    const [selectedDate, setSelectedDate] = useState(null);
+    const [startDate, setStartDate] = useState(null);
+    const [endDate, setEndDate] = useState(null);
     const [selectedArrivalTiming, setSelectedArrivalTiming] = useState('');
     const [selectedReturnTiming, setSelectedReturnTiming] = useState('');
     const [budget, setBudget] = useState('');
@@ -24,6 +26,21 @@ const NewTripDetail = () => {
     setBudget(event.target.value);
   };
 
+  const handleDateChange = (dates) => {
+    const [start, end] = dates;
+    setStartDate(start);
+    setEndDate(end);
+  }
+
+  let highlightedDates = [];
+
+  if (startDate && endDate) {
+    highlightedDates = eachDayOfInterval({
+      start: new Date(startDate),
+      end: new Date(endDate)
+    })
+  }
+
   const handleBack = () => {
     navigate('/tripActivities');
   };
@@ -31,7 +48,8 @@ const NewTripDetail = () => {
   const handleNext = () => {
     // Create the userPreferences object with collected data
     const userPreferences = {
-      tripDates: selectedDate,
+      tripStartDate: startDate,
+      tripEndDate: endDate,
       arrivalTiming: selectedArrivalTiming,
       returnTiming: selectedReturnTiming,
       budget: budget,
@@ -50,7 +68,16 @@ const NewTripDetail = () => {
           
           <div className='calendar-section'>
             <div className='calendar-box'>
-              <DatePicker selected={selectedDate} onChange={(date) => setSelectedDate(date)} />
+              <DatePicker 
+                selected={startDate}
+                onChange={handleDateChange}
+                startDate={startDate}
+                endDate={endDate}
+                selectsRange
+                inline
+                highlightDates={highlightedDates}
+                calendarClassName='custom-calendar'
+               />
             </div> 
               
             <h4 className='arrival-return-timings'> Select arrival and return timings</h4>
@@ -74,7 +101,6 @@ const NewTripDetail = () => {
                 </select>
             </div>
         </div>
-
 
           <div className='body-budget'>
             <h2>Budget</h2>
