@@ -8,7 +8,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import sorry_img from '../assets/images/sorry-img.png';
 import add_ring from '../assets/images/add_ring_fill.png';
 
-const HomePage = (getUserItineraryFromServer) => {
+const HomePage = () => {
     const navigate = useNavigate()
     const [userItinerary, setuserItinerary] = useState(null);
     const location = useLocation();
