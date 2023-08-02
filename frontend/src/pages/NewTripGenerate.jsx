@@ -14,7 +14,7 @@ const NewTripGenerate = () => {
     useEffect(() => {
         const timerId = setTimeout(() => {
             setIsGenerating(false);
-        }, 5000);
+        }, 5000); 
         
         return () => {
             clearTimeout(timerId)
@@ -32,13 +32,13 @@ const NewTripGenerate = () => {
     return (
         <div>
             {isGenerating ? (
-            <div className='body'>
-                <div className='body-content'>
+            <div className='generating-body'>
+                <div className='body-generate'>
                     <img src={loading_logo} alt='loading-logo'/>
                     <img src={flying_aiplane} alt='flying-airplane'/>
                 </div>
 
-                <div className='body-description'>
+                <div className='generate-description'>
                     <h3>Generating your Itinerary</h3>
 
                     <p>
@@ -49,13 +49,14 @@ const NewTripGenerate = () => {
                 </div>
             </div>
             ) : (
-            <div className='body'>
-                <div className='body-content'>
+            <div className='completed-body'>
+                <div className='completed'>
                     <img src={check_logo} alt='check-logo'/>
                     <img src={landed_airplane} alt='landed-airplane'/>
+                    <div className='line'></div>
                 </div>
 
-                <div className='body-description'>
+                <div className='completed-description'>
                     <h3>Itinerary complete!</h3>
 
                     <p>

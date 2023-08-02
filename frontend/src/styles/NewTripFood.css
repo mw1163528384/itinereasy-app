@@ -60,7 +60,12 @@ html, .body {
     color: white;
   }
 
-  .add-food {
+.food-type-selection button.selected {
+    background-color: rgb(255, 115, 0);
+}
+  
+
+.add-food {
     justify-content: left;
     padding-left: 20px;
     display: flex;
@@ -69,18 +74,20 @@ html, .body {
     height: 40px;
     width: 270px;
     border-radius: 25px;
-    margin-left: auto;
-    margin-right: auto;
     margin-top: 10px;
-  }
+    position: absolute;
+    top: 540px;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
-  .add-food input {
+.add-food input {
     background-color: transparent;
     border: none;
     width: 200px;
     font-size: 12px;
     font-family: "lexend-light" ;
-  }
+}
 
 .finish-btn {
     background-color: #FFA800;; /* Green color - You can change this to any color you prefer */
