@@ -71,7 +71,7 @@ html, .body {
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    margin-top: 10px;
+    margin-top: 5px;
     margin-bottom: 10px;
 }
 
@@ -79,21 +79,23 @@ html, .body {
     text-align: left;
     font-size: 12px;
     width: 150px;
-    height: 20px;
+    height: 25px;
     color: rgba(50,50,50,1);
     border-radius: 25px;
     font-family: "lexend-light" ;
+    background-color: white;
 }
 
 .select-return {
     text-align: left;
     font-size: 12px;
     width: 150px;
-    height: 20px;
+    height: 25px;
     color: rgba(50,50,50,1);
     border-radius: 25px;
     margin-left: 10px;
     font-family: "lexend-light" ;
+    background-color: white;
 }
 
 .calendar-section {
