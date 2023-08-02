@@ -10,12 +10,12 @@ const NewTrip = () => {
     }
     return (
         <div>
-            <div className='body'>
+            <div className='new-body'>
                 <div className='body-content'>
                     <img src={ai_logo} alt='ai-logo'/>
                 </div>
 
-                <div className='body-description'>
+                <div className='newtrip-body-description'>
                     <h2>New Trip!</h2>
 
                     <p>

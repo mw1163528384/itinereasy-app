@@ -7,7 +7,7 @@ const NewTripFooter = ({handleBack, handleNext, isFoodPage}) => {
             <footer className='footer'>
                 <button onClick={handleBack} id="back-btn" className='back-btn'> Back </button>
                 {isFoodPage ? (
-                    <button onClick={handleNext} id="finish-btn" className='finsh-btn'> Finish </button>
+                    <button onClick={handleNext} id="finish-btn" className='finish-btn'> Finish </button>
                 ) : (
                     <button onClick={handleNext} id="next-btn" className='next-btn'> Next </button>
                 )}
