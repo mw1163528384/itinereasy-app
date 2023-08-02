@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import '../styles/TypeOfTrip.css';
 
-const TypeOfTrip = () => {
+const TypeOfTrip = ({ onNext, onBack }) => {
     const navigate = useNavigate();
     const [location, setLocation] = useState('');
 
@@ -11,8 +11,12 @@ const TypeOfTrip = () => {
     }
 
     const handleGo = async () => {
-        navigate("/tripDetail");
-    }
+        const newData = {
+            location
+          };
+          onNext(newData);
+      };
+
     return (
         <div>
             <div className='body'>

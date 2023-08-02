@@ -5,7 +5,7 @@ import { NewTripFooter } from '../components/NewTripFooter';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-const NewTripDetail = () => {
+const NewTripDetail = ({ onNext, onBack }) => {
     const navigate = useNavigate();
     const [selectedDate, setSelectedDate] = useState(null);
     const [selectedArrivalTiming, setSelectedArrivalTiming] = useState('');
@@ -29,9 +29,16 @@ const NewTripDetail = () => {
     };
 
     const handleNext = () => {
-        // Pass the collected data to the next step
-        navigate('/tripActivities', { state: { selectedDate, selectedArrivalTiming, selectedReturnTiming, budget } });
-    };
+        const newData = {
+          selectedDate,
+          selectedArrivalTiming,
+          selectedReturnTiming,
+          budget
+        };
+        onNext(newData);
+      };
+    
+    
 
     return (
         <div>
@@ -66,7 +73,7 @@ const NewTripDetail = () => {
                             <input type='text' value={budget} onChange={handleBudgetChange} placeholder='SGD - Fill in your budget here' />
                         </label>
                     </div>
-                    <NewTripFooter handleBack={handleBack} handleNext={handleNext} />   
+                    <NewTripFooter handleBack={onBack} handleNext={handleNext} />   
                 </div>
             </div>
         </div>

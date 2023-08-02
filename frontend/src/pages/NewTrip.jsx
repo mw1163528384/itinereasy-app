@@ -1,12 +1,10 @@
 import React from 'react';
 import ai_logo from '../assets/images/ai-logo.png';
-import { useNavigate } from "react-router-dom";
 import '../styles/NewTrip.css';
 
-const NewTrip = () => {
-    const navigate = useNavigate()
-    const handleStart = async() => {
-        navigate("/tripType")
+const NewTrip = ({ onNext }) => {
+    const handleStart = () => {
+        onNext({});
     }
     return (
         <div>

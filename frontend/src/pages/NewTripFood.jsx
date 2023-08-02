@@ -1,9 +1,10 @@
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/NewTripFood.css';
 import { NewTripFooter } from '../components/NewTripFooter';
 
-const NewTripFood = () => {
+const NewTripFood = ({ onNext, onBack }) => {
     const navigate = useNavigate();
     const [selectedButton, setSelectedButton] = useState(null);
     const [foodPreferences, setFoodPreferences] = useState('');
@@ -21,9 +22,12 @@ const NewTripFood = () => {
     };
 
     const handleNext = () => {
-        // Pass the collected data to the next step
-        navigate('/tripGenerate', { state: { selectedButton, foodPreferences } });
+        const newData = {
+          foodPreferences
+        };
+        onNext(newData);
     };
+    
 
     return (
         <div>
@@ -44,7 +48,7 @@ const NewTripFood = () => {
                     <label className='add-food'>
                         <input type='text' value={foodPreferences} onChange={handleFoodPreferencesChange} placeholder='Type here to add food' />
                     </label>
-                    <NewTripFooter handleBack={handleBack} handleNext={handleNext} isFoodPage={true} />   
+                    <NewTripFooter handleBack={onBack} handleNext={handleNext} isFoodPage={true} />   
                 </div>
             </div>
         </div>

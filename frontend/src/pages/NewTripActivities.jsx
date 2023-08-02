@@ -1,16 +1,12 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/NewTripActivities.css';
 import { NewTripFooter } from '../components/NewTripFooter';
-import { ItineraryContext } from '../contexts/itinerarycontext'; 
 
-
-const NewTripActivities = () => {
+const NewTripActivities = ({ onNext, onBack }) => {
     const navigate = useNavigate();
     const [selectedNoActivities, setSelectedNoActivities] = useState('');
     const [activities, setActivities] = useState('');
-    
-    const { userPreferences, setUserPreferences } = useContext(ItineraryContext);
 
     const handleNoActivitiesChange = (event) => {
         setSelectedNoActivities(event.target.value);
@@ -25,15 +21,12 @@ const NewTripActivities = () => {
     };
 
     const handleNext = () => {
-        // Update the userPreferences with the collected data
-        setUserPreferences({
-            ...userPreferences,
-            activitiesPerDay: selectedNoActivities,
-            activityPreferences: activities,
-        });
+        const newData = {
+            selectedNoActivities,
+            activities
+        };
+        onNext(newData);
 
-        // Navigate to the next step
-        navigate('/tripFood', { state: { userPreferences } });
     };
 
     return (
@@ -42,7 +35,7 @@ const NewTripActivities = () => {
                 <div className='body-activities'>
                     <h2>Activities</h2>
                     <p>Fill in the number of activities you would like to do in a day</p>
-                    
+
                     <select value={selectedNoActivities} onChange={handleNoActivitiesChange} placeholder='Number of activities per day'>
                         <option value=""></option>
                         <option value="0 (I'd like to plan myself)">0 (I'd like to plan myself)</option>
@@ -55,18 +48,18 @@ const NewTripActivities = () => {
                     <h5>Activity preferences</h5>
                     <p>
                         Add activities or sights you would like to do/see.
-                        <br/>e.g. Cycling, Beaches, Night markets, Etc.
+                        <br />e.g. Cycling, Beaches, Night markets, Etc.
                     </p>
 
                     <label className='add-activities'>
                         <input type='text' value={activities} onChange={handleActivitiesChange} placeholder='Type here to add activities' />
                     </label>
 
-                    <NewTripFooter handleBack={handleBack} handleNext={handleNext} />   
+                    <NewTripFooter handleBack={onBack} handleNext={handleNext} />
                 </div>
             </div>
         </div>
     );
-}
+};
 
 export { NewTripActivities };
