@@ -79,6 +79,15 @@ const NewTripDetail = () => {
                 calendarClassName='custom-calendar'
                />
             </div> 
+
+            <hr style={{ 
+                marginTop: "20px",
+                color:"white",
+                backgroundColor:"white", 
+                height: "1.5px",
+                marginLeft: "15px",
+                marginRight: "15px",
+                border: "none"}} />
               
             <h4 className='arrival-return-timings'> Select arrival and return timings</h4>
             <div className='select-container'>
@@ -102,7 +111,7 @@ const NewTripDetail = () => {
             </div>
         </div>
 
-          <div className='body-budget'>
+        <div className='body-budget'>
             <h2>Budget</h2>
             <p>Input a rough estimate of your budget for the trip (excluding international travel and accommodations)</p>
 
@@ -111,7 +120,7 @@ const NewTripDetail = () => {
             </label>
           </div>
 
-          <NewTripFooter handleBack={handleBack} handleNext={handleNext} />   
+          <NewTripFooter handleBack={handleBack} handleNext={handleNext} />
         </div>
       </div>
     </div>

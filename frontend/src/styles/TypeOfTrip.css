@@ -1,11 +1,25 @@
 @font-face {
-    font-family: "lexend-regular";
+    font-family: "CustomFont";
     src: url("../assets/fonts/Lexend-Regular.ttf");
     font-family: "lexend-light";
     src: url("../assets/fonts/Lexend-Light.ttf");
 }
 
-.body-type h2 {
+html, .type-body {
+    height: 100%; /* Ensure the html and body elements take up full height */
+    margin: 0;
+    padding: 0; /* Remove any potential default padding */
+}
+
+.type-body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* This will push everything apart */
+}
+
+.type-body h2 {
     display: flex;
     flex-direction: column;
     word-wrap: break-word;
@@ -15,6 +29,7 @@
     font-size: 24px;
     text-align: left;
     font-weight: 100;
+    font-family: "CustomFont";
 }
 
 .trip-reason-selection {
@@ -23,124 +38,39 @@
     flex-direction:column;
     display:flex;
     box-sizing:border-box;
-    width:250px;
+    width:270px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
-.vacation-btn {
+.vacation-btn, .business-btn, .event-btn, .volunteering-btn, .family-btn, .pilgrimage-btn, .education-btn, .others-btn {
     justify-content: center;
     align-items: center;
     display: flex;
     height: 30px;
-    width: 269px;
+    width: 270px;
     border-radius: 25px;
     border-color: transparent;
     background-color: rgba(237,237,237,1);
     font-size: 12px;
-}
-
-.business-btn {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    height: 30px;
-    width: 269px;
-    border-radius: 25px;
-    border-color: transparent;
-    background-color: rgba(237,237,237,1);
-    font-size: 12px;
-}
-
-.event-btn {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    height: 30px;
-    width: 269px;
-    border-radius: 25px;
-    border-color: transparent;
-    background-color: rgba(237,237,237,1);
-    font-size: 12px;
-}
-
-.volunteering-btn {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    height: 30px;
-    width: 269px;
-    border-radius: 25px;
-    border-color: transparent;
-    background-color: rgba(237,237,237,1);
-    font-size: 12px;
-}
-
-.family-btn {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    height: 30px;
-    width: 269px;
-    border-radius: 25px;
-    border-color: transparent;
-    background-color: rgba(237,237,237,1);
-    font-size: 12px;
-}
-
-.pilgrimage-btn {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    height: 30px;
-    width: 269px;
-    border-radius: 25px;
-    border-color: transparent;
-    background-color: rgba(237,237,237,1);
-    font-size: 12px;
-}
-
-.education-btn {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    height: 30px;
-    width: 269px;
-    border-radius: 25px;
-    border-color: transparent;
-    background-color: rgba(237,237,237,1);
-    font-size: 12px;
-}
-
-.others-btn {
-    justify-content: center;
-    align-items: center;
-    display: flex;
-    height: 30px;
-    width: 269px;
-    border-radius: 25px;
-    border-color: transparent;
-    background-color: rgba(237,237,237,1);
-    font-size: 12px;
+    font-family: "CustomFont";
 }
 
 .body-description h3 {
     display: flex;
     flex-direction: column;
     word-wrap: break-word;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-left: 40px;
     margin-right: 40px;
     font-size: 24px;
     text-align: left;
     font-weight: 100;
+    font-family: "CustomFont";
 }
 
 .body-description {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
 }
 
@@ -148,14 +78,17 @@
     justify-content: center;
     align-items: center;
     display: flex;
-    height: 30px;
-    width: 269px;
+    height: 40px;
+    width: 270px;
     border-radius: 25px;
     border-color: transparent;
     background-color: rgba(237,237,237,1);
     font-size: 12px;
-    margin-top: 30px;
+    margin-top: 10px;
     font-weight: 100;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "CustomFont";
 }
 
 .location-input {
@@ -166,22 +99,27 @@
 
 .location-input::placeholder {
     color: rgba(110,110,110);
+    font-family: "CustomFont";
 }
 
 .letsgo-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: 15px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .letsgo-btn {
-    width: 302px;
-    height: 44px;
+    width: 300px;
+    height: 45px;
     border-color: transparent;
     border-radius: 25px;
     background-color: #FFA800;
     color: #FFFFFF;
-    margin-top: 70px;
     font-size: 16px;
     text-align: center;
+    font-family: "CustomFont";
 }

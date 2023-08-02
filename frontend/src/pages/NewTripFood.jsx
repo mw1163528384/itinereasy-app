@@ -34,7 +34,7 @@ const NewTripFood = () => {
   return (
     <div>
       <div className='body'>
-        <div className='body-content'>
+        <div className='body-food'>
           <h2>Food</h2>
           <h5>Food preferences</h5>
           <p>Add your favourite food preferences below, or specific dishes you want to try abroad.</p>

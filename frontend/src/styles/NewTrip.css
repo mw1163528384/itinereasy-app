@@ -1,25 +1,28 @@
 * {
     margin: 0;
     box-sizing: border-box;
-    font-family: "CustomFont";
+    padding: 0;
 }
 
 @font-face {
-    font-family: "lexend-regular";
+    font-family: "CustomFont";
     src: url("../assets/fonts/Lexend-Regular.ttf");
     font-family: "lexend-light";
     src: url("../assets/fonts/Lexend-Light.ttf");
 }
 
-@media(min-width:768px) {
-    .body {
-        min-height: 100vh;
-        max-width: 500px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
+html, .new-body {
+    height: 100%; /* Ensure the html and body elements take up full height */
+    margin: 0;
+    padding: 0; /* Remove any potential default padding */
+}
+
+.new-body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* This will push everything apart */
 }
 
 .body-content {
@@ -29,41 +32,44 @@
     align-items: center;
     word-wrap: break-word;
     margin-top: 80px;
+    flex: 1;
 }
 
-.body-description h2 {
-    margin-top: 80px;
+.newtrip-body-description h2 {
+    margin-top: 40px;
+    margin-bottom: 10px;
     color:rgba(0,0,0,1);
     font-size:24px;
     font-weight: lighter;
     font-family:"CustomFont";
     margin-left: 50px;
-    align-self: start;    
 }
 
-.body-description p {
+.newtrip-body-description p {
     font-size: 12px;
-    margin-top: 40px;
     margin-left: 50px;
     margin-right: 50px;
     font-family: "lexend-light";
 }
 
 .button-container {
+    margin-top: 50px;
     display: flex;
     justify-content: center;
+    margin-bottom: 10px;
 }
 
 .start-btn {
-    width: 302px;
+    width: 300px;
     height: 44px;
     border-color: transparent;
     border-radius: 25px;
     background-color: #FFA800;
     color: #FFFFFF;
-    margin-top: 70px;
     font-size: 16px;
     text-align: center;
+    margin-bottom: 10px;
+    font-family: "CustomFont";
 }
 
 
