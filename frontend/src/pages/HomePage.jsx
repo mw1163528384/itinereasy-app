@@ -1,6 +1,6 @@
 // HomePage.js
-import React from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useLocation } from "react-router-dom";
 import '../styles/HomePage.css';
 import { Calendar, momentLocalizer } from 'react-big-calendar'
 import moment from 'moment';
@@ -48,7 +48,7 @@ const HomePage = () => {
         navigate('/');
       };
       
-      const localizer = momentLocalizer(moment)
+    const localizer = momentLocalizer(moment)
 
       return (
         <div>
