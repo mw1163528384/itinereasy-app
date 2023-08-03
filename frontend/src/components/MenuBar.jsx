@@ -6,13 +6,12 @@ import search_icon from '../assets/images/search-icon.png';
 import setting_icon from '../assets/images/setting-icon.png';
 import signout_icon from '../assets/images/signout-icon.png';
 
-const Menubar = ({handleCloseMenuClick}) => {
-    const navigate = useNavigate()
+const Menubar = ({ handleMenuClose, handleSettingOpen }) => {
     return (
         <div>
             <div className='body'>
                 <header className='menuBar-header-container'>
-                    <button onClick={handleCloseMenuClick}>
+                    <button onClick={handleMenuClose}>
                         <img src={left_icon} alt='left-icon'/>
                     </button>
 
@@ -29,7 +28,7 @@ const Menubar = ({handleCloseMenuClick}) => {
 
                 <footer className='menuBar-footer-container'>
                     <div className='setting-container'>
-                        <button onClick={handleCloseMenuClick}>
+                        <button onClick={handleSettingOpen}>
                             <img src={setting_icon} alt='setting-icon'/>
                         </button>
                     </div>

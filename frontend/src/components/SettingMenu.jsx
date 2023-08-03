@@ -7,14 +7,14 @@ import language_icon from '../assets/images/lanuage-icon.png';
 import help_icon from '../assets/images/help-icon.png';
 import about_icon from '../assets/images/about-icon.png';
 
-const OptionMenu = ({handleCloseSettingClick}) => {
+const SettingMenu = ({ handleSettingClose }) => {
     return (
         <div>
             <div className='body'>
                 <header className='settingMenu-header-container'>
                     {/* To Yingyu: if you dont want the title and button tgt, just shift the </h3> beside the title */}
                     <h3>Settings
-                        <button onClick={handleCloseSettingClick}>
+                        <button onClick={handleSettingClose}>
                             <img src={close_icon} alt='close-icon' />
                         </button>
                     </h3>
@@ -51,4 +51,4 @@ const OptionMenu = ({handleCloseSettingClick}) => {
     );
 }
 
-export { OptionMenu }
+export { SettingMenu }

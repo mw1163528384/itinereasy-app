@@ -48,7 +48,7 @@ const HomePage = () => {
         navigate('/');
       };
       
-      const localizer = momentLocalizer(moment)
+    const localizer = momentLocalizer(moment)
 
       return (
         <div>
