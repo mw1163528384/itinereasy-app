@@ -5,59 +5,64 @@ import { NewTripFooter } from '../components/NewTripFooter';
 
 const NewTripFood = () => {
     const navigate = useNavigate();
-    const [selectedButton, setSelectedButton] = useState(null);
+    const [selectedButtons, setSelectedButtons] = useState([]);
     const [foodPreferences, setFoodPreferences] = useState('');
 
-  const handleClick = (button) => {
-    setSelectedButton(button);
-  };
-
-  const handleFoodPreferencesChange = (event) => {
-    setFoodPreferences(event.target.value);
-  };
-
-  const handleBack = () => {
-    navigate('tripActivities');
-  };
-
-  const handleNext = () => {
-    // Create the userPreferences object with collected data
-    const userPreferences = {
-      foodType: selectedButton,
-      specificFoodPreferences: foodPreferences,
+    const handleClick = (button) => {
+      if (selectedButtons.includes(button)) {
+        setSelectedButtons(selectedButtons.filter(b => b !== button));
+      } else {
+        setSelectedButtons([...selectedButtons, button]);
+      }
     };
 
-    // Pass userPreferences to the next component (e.g., final step)
-    navigate('/tripGenerate', { state: { userPreferences } });
-  };
+    const handleFoodPreferencesChange = (event) => {
+      setFoodPreferences(event.target.value);
+    };
 
-  return (
-    <div>
-      <div className='body'>
-        <div className='body-content'>
-          <h2>Food</h2>
-          <h5>Food preferences</h5>
-          <p>Add your favourite food preferences below, or specific dishes you want to try abroad.</p>
+    const handleBack = () => {
+      navigate('tripActivities');
+    };
 
-          <div className='food-type-selection'>
-            <button onClick={() => handleClick("Local")}>Local</button>
-            <button onClick={() => handleClick("Korean")}>Korean</button>
-            <button onClick={() => handleClick("Chinese")}>Chinese</button>
-            <button onClick={() => handleClick("Burgers")}>Burgers</button>
-            <button onClick={() => handleClick("Spam musubi")}>Spam musubi</button>
-            <button onClick={() => handleClick("Japanese")}>Japanese</button>
-            <button onClick={() => handleClick("Shaved ice")}>Shaved ice</button>
+    const handleNext = () => {
+      const userPreferences = {
+        foodType: selectedButtons,
+        specificFoodPreferences: foodPreferences,
+      };
+      navigate('/tripGenerate', { state: { userPreferences } });
+    };
+
+    const buttons = ["Local", "Korean", "Chinese", "Burgers", "Spam musubi", "Japanese", "Shaved ice"];
+
+    return (
+      <div>
+        <div className='body'>
+          <div className='body-food'>
+            <h2>Food</h2>
+            <h5>Food preferences</h5>
+            <p>Add your favourite food preferences below, or specific dishes you want to try abroad.</p>
+
+            <div className='food-type-selection'>
+              {buttons.map(button => (
+                <button 
+                  key={button}
+                  onClick={() => handleClick(button)}
+                  className={selectedButtons.includes(button) ? 'selected' : ''} // Add 'selected' class if the button is selected
+                >
+                  {button}
+                </button>
+              ))}
+            </div>
+
+            <label className='add-food'>
+              <input type='text' value={foodPreferences} onChange={handleFoodPreferencesChange} placeholder='Type here to add food' />
+            </label>
+
+            <NewTripFooter handleBack={handleBack} handleNext={handleNext} isFoodPage={true} />   
           </div>
-
-          <label className='add-food'>
-            <input type='text' value={foodPreferences} onChange={handleFoodPreferencesChange} placeholder='Type here to add food' />
-          </label>
-
-          <NewTripFooter handleBack={handleBack} handleNext={handleNext} isFoodPage={true} />   
         </div>
       </div>
-    </div>
-  );
+    );
 }
 
 export { NewTripFood };

@@ -1,0 +1,101 @@
+@font-face {
+    font-family: "CustomFont";
+    src: url("../assets/fonts/Lexend-Regular.ttf");
+    font-family: "lexend-light";
+    src: url("../assets/fonts/Lexend-Light.ttf");
+}
+
+html, .body {
+    height: 100%; /* Ensure the html and body elements take up full height */
+    margin: 0;
+    padding: 0; /* Remove any potential default padding */
+}
+
+.body-food h2 {
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    margin-top: 30px;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-size: 24px;
+    text-align: left;
+    font-weight: 100;
+    font-family: "CustomFont";
+}
+
+.body-food h5 {
+    font-size: 12px;
+    margin-top: 5px;
+    margin-left: 40px;
+    margin-right: 40px;
+    text-align: left;  
+    font-family: "CustomFont";
+}
+
+.body-food p {
+    font-size: 12px;
+    margin-top: 5px;
+    margin-left: 40px;
+    margin-right: 40px;
+    text-align: left;  
+    font-weight: lighter;
+    font-family: "lexend-light";
+}
+
+.food-type-selection {
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-top: 15px;
+}
+
+.food-type-selection button {
+    padding: 5px 10px; 
+    margin: 5px; 
+    background-color: #FFA800; 
+    border: none; 
+    border-radius: 25px; 
+    font-size: 12px; 
+    font-family: "CustomFont";
+    color: white;
+  }
+
+.food-type-selection button.selected {
+    background-color: rgb(255, 115, 0);
+}
+  
+
+.add-food {
+    justify-content: left;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(237,237,237,1);
+    height: 40px;
+    width: 270px;
+    border-radius: 25px;
+    margin-top: 10px;
+    position: absolute;
+    top: 540px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.add-food input {
+    background-color: transparent;
+    border: none;
+    width: 200px;
+    font-size: 12px;
+    font-family: "lexend-light" ;
+}
+
+.finish-btn {
+    background-color: #FFA800;; /* Green color - You can change this to any color you prefer */
+    color: white;
+    width: 100px;
+    height: 45px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-family: "CustomFont";
+}

@@ -1,5 +1,88 @@
 @font-face {
     font-family: "CustomFont";
     src: url("../assets/fonts/Lexend-Regular.ttf");
+    font-family: "lexend-light";
+    src: url("../assets/fonts/Lexend-Light.ttf");
 }
 
+html, .body {
+    height: 100%; /* Ensure the html and body elements take up full height */
+    margin: 0;
+    padding: 0; /* Remove any potential default padding */
+}
+
+.body-activities h2 {
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    margin-top: 30px;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-size: 24px;
+    text-align: left;
+    font-weight: 100;
+    font-family: "CustomFont";
+}
+
+.body-activities p {
+    font-size: 12px;
+    margin-top: 5px;
+    margin-left: 40px;
+    margin-right: 40px;
+    text-align: left;  
+    font-weight: lighter;
+    font-family: "lexend-light";
+}
+
+select {
+    margin-top: 10px;
+    width: 270px;
+    height: 30px;
+    border: transparent;
+    background-color: #FFA800; 
+    border-radius: 25px;
+    color: white;
+    padding: 5px;
+    font-size: 12px;
+    outline: none;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "CustomFont";
+}
+
+.body-activities h5 {
+    font-size: 12px;
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-right: 40px;
+    text-align: left;  
+    font-family: "CustomFont";
+}
+
+.add-activities {
+    justify-content: left;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+    background-color: rgba(237,237,237,1);
+    height: 40px;
+    width: 270px;
+    border-radius: 25px;
+    margin-top: 10px;
+    position: absolute;
+    top: 540px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.add-activities input {
+    background-color: transparent;
+    border: none;
+    width: 200px;
+    font-size: 12px;
+    font-family: "lexend-light" ;
+}
