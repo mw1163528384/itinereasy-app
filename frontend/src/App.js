@@ -7,13 +7,14 @@ import { NewTripActivities } from "./pages/NewTripActivities";
 import { NewTripFood } from "./pages/NewTripFood";
 import { NewTripGenerate } from "./pages/NewTripGenerate";
 import { HomePage } from "./pages/HomePage";
-import { ItineraryPage } from "./pages/testingchar"
+import { ItineraryPage } from "./pages/testingchar";
+import { LoginPage } from "./pages/LoginPage";
 
 function App() {
   return(
     <BrowserRouter>
       <Routes>
-      <Route path="/" element={<ItineraryPage/>}></Route>
+        <Route path="/" element={<ItineraryPage/>}></Route>
         <Route path="newTrip" element={<HomePage/>}></Route>
         <Route path="newTrip" element={<NewTrip/>}></Route>
         <Route path="tripType" element={<TypeOfTrip/>}></Route>
@@ -21,6 +22,7 @@ function App() {
         <Route path="tripActivities" element={<NewTripActivities/>}></Route>
         <Route path="tripFood" element={<NewTripFood/>}></Route>
         <Route path="tripGenerate" element={<NewTripGenerate/>}></Route>
+        <Route path="loginPage" element={<LoginPage/>}></Route>
       </Routes>
     </BrowserRouter>
   );

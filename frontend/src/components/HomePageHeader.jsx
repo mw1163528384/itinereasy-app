@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import '../styles/HomePageHeader.css';
 import menu_logo from '../assets/images/menu-logo.png';
 import { Menubar } from './MenuBar';
 import setting_logo from '../assets/images/setting-logo.png';
@@ -6,12 +7,13 @@ import { OptionMenu } from './OptionMenu';
 import { SettingMenu } from './SettingMenu';
 
 
-function MainPageHeader({generatedItinerary}) {
+function HomePageHeader({generatedItinerary}) {
   const [isMenubarOpen, setMenubarOpen] = useState(false);
   const [isSettingOpen, setSettingOpen] = useState(false);
+  const [isOptionMenuOpen, setOptionMenuOpen]  = useState(false);
 
   const toggleMenubar = () => {
-    setMenuBarOpen(!isMenubarOpen);
+    setMenubarOpen(!isMenubarOpen);
   }
 
   const handleSettingOpen = () => {
@@ -24,12 +26,22 @@ function MainPageHeader({generatedItinerary}) {
     setSettingOpen(false);
   }
 
+  const toggleOptionMenu = () => {
+    setOptionMenuOpen(!isOptionMenuOpen);
+  }
+
   return (
     <div>
-      <div className='homepage-header-container'>
-        <header>
+      <header className='homepage-header-container'>
+        {isMenubarOpen || isSettingOpen || isOptionMenuOpen ? (
+        <div>
           {isMenubarOpen && <Menubar handleMenuClose={toggleMenubar} handleSettingOpen={handleSettingOpen}/>}
           {isSettingOpen && <SettingMenu handleSettingClose={handleSettingClose}/>}
+          {isOptionMenuOpen && <OptionMenu handleCloseClick={toggleOptionMenu}/>}
+        </div>
+      ) : (
+
+        <div>
           <button onClick={toggleMenubar}>
               <img src={menu_logo} alt='menu-logo' />
           </button>
@@ -46,11 +58,11 @@ function MainPageHeader({generatedItinerary}) {
           <button onClick={toggleOptionMenu}>
               <img src={setting_logo} alt='setting-logo' />
           </button>
-          {isOptionMenuOpen && <OptionMenu handleCloseClick={toggleOptionMenu}/>}
-        </header>
-      </div>
+        </div>
+        )}
+      </header>
     </div>
   );
 }
 
-export{ MainPageHeader };
+export{ HomePageHeader };
