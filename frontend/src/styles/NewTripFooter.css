@@ -1,0 +1,31 @@
+.back-btn {
+    background-color: transparent;
+    color: rgba(110,110,110,1);
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    text-decoration: underline;
+    font-family: "CustomFont";
+}
+  
+.next-btn {
+    background-color: #FFA800;; /* Green color - You can change this to any color you prefer */
+    color: white;
+    width: 100px;
+    height: 45px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-family: "CustomFont";
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 15px; /* Adjust this value based on the space you need from the bottom of the page */
+    width: 90%; 
+    padding: 0 5%;
+}

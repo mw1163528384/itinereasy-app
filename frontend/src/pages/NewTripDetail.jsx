@@ -81,7 +81,7 @@ const NewTripDetail = () => {
             </div> 
 
             <hr style={{ 
-                marginTop: "20px",
+                marginTop: "5px",
                 color:"white",
                 backgroundColor:"white", 
                 height: "1.5px",

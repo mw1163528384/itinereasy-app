@@ -11,29 +11,21 @@ html, .type-body {
     padding: 0; /* Remove any potential default padding */
 }
 
-.type-body {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between; /* This will push everything apart */
-}
-
 .type-body h2 {
     display: flex;
     flex-direction: column;
     word-wrap: break-word;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-left: 40px;
     margin-right: 40px;
-    font-size: 24px;
+    font-size: 20px;
     text-align: left;
     font-weight: 100;
     font-family: "CustomFont";
 }
 
 .trip-reason-selection {
-    gap:15px;
+    gap: 15px;
     justify-content:center;
     flex-direction:column;
     display:flex;
@@ -41,7 +33,12 @@ html, .type-body {
     width:270px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 10px;
+    margin-top: 5px;
+}
+
+button.active {
+    background-color: #FFA800;
+    color: white;
 }
 
 .vacation-btn, .business-btn, .event-btn, .volunteering-btn, .family-btn, .pilgrimage-btn, .education-btn, .others-btn {
@@ -53,7 +50,7 @@ html, .type-body {
     border-radius: 25px;
     border-color: transparent;
     background-color: rgba(237,237,237,1);
-    font-size: 12px;
+    font-size: 11px;
     font-family: "CustomFont";
 }
 
@@ -64,7 +61,7 @@ html, .type-body {
     margin-top: 20px;
     margin-left: 40px;
     margin-right: 40px;
-    font-size: 24px;
+    font-size: 20px;
     text-align: left;
     font-weight: 100;
     font-family: "CustomFont";
@@ -78,13 +75,13 @@ html, .type-body {
     justify-content: center;
     align-items: center;
     display: flex;
-    height: 40px;
+    height: 30px;
     width: 270px;
     border-radius: 25px;
     border-color: transparent;
     background-color: rgba(237,237,237,1);
-    font-size: 12px;
-    margin-top: 10px;
+    font-size: 11px;
+    margin-top: 5px;
     font-weight: 100;
     margin-left: auto;
     margin-right: auto;
@@ -93,7 +90,7 @@ html, .type-body {
 
 .location-input {
     background-color: rgba(237,237,237,1);
-    font-size: 12px;
+    font-size: 11px;
     border: none;
 }
 
@@ -103,18 +100,16 @@ html, .type-body {
 }
 
 .letsgo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: auto;
-    margin-bottom: 15px;
-    margin-left: auto;
-    margin-right: auto;
+    border-radius: 25px;
+    position: fixed;
+    left: 50%;
+    bottom: 15px;
+    transform: translateX(-50%);
 }
 
 .letsgo-btn {
     width: 300px;
-    height: 45px;
+    height: 40px;
     border-color: transparent;
     border-radius: 25px;
     background-color: #FFA800;
