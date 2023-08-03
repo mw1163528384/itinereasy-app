@@ -26,7 +26,7 @@ const NewTripGenerate = () => {
     }
 
     const handleView = () => {
-        navigate('/');
+        navigate('/homePage');
     }
 
     return (

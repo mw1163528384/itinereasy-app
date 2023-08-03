@@ -14,9 +14,9 @@ function App() {
   return(
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<ItineraryPage/>}></Route>
-        <Route path="newTrip" element={<HomePage/>}></Route>
-        <Route path="newTrip" element={<NewTrip/>}></Route>
+        <Route path="testing" element={<ItineraryPage/>}></Route>
+        <Route path="homePage" element={<HomePage/>}></Route>
+        <Route path="/" element={<NewTrip/>}></Route>
         <Route path="tripType" element={<TypeOfTrip/>}></Route>
         <Route path="tripDetail" element={<NewTripDetail/>}></Route>
         <Route path="tripActivities" element={<NewTripActivities/>}></Route>

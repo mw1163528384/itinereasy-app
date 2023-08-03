@@ -45,7 +45,7 @@ const HomePage = () => {
     }, [userItinerary])
 
     const handleAddTripClick = () => {
-        navigate('/');
+        navigate('/testing');
       };
       
     const localizer = momentLocalizer(moment)
