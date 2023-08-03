@@ -7,35 +7,42 @@ import ReactSlider from 'react-slider';
 import ActivityBox from '../components/ActivitiesBox';
 
 const ItineraryPage = () => {
+    const [data,setData] = useState(null);
+    const scenarioNumber = 1;
     const location = useLocation();
     const [events, setEvents] = useState([]);
     const [currentDate, setCurrentDate] = useState(new Date());
     const [isLoading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    useEffect(() => {
-        fetch('https://api.example.com/itinerary') 
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw response;
+
+    const fetchData = () => {
+        console.log(`Fetching data for scenario: ${scenarioNumber}`);
+        fetch(`http://localhost:5001/getData/${scenarioNumber}`)
+            .then((response) => {
+                if (!response.ok) { 
+                    throw new Error('Network response was not ok'); 
                 }
+                return response.json();
             })
-            .then(data => {
-                const formattedEvents = data.map((item) => ({
-                    title: item.title,
-                    start: new Date(item.startDate),
-                    end: new Date(item.endDate),
-                }));
-                setEvents(formattedEvents);
-                setLoading(false);
+            .then((data) => {
+                console.log('Data:', data);
+                setData(data);
             })
-            .catch(error => {
-                setError(error);
-                setLoading(false);
+            .catch((error) => {
+                console.error('An error occurred:', error);
             });
+    };
+    
+    
+
+    useEffect(() => {
+
+        fetchData();
+    
     }, []);
+    
+    
 
     const localizer = momentLocalizer(moment)
 
@@ -92,7 +99,11 @@ const ItineraryPage = () => {
                     </div>
                 );
             })}
-            <pre>{JSON.stringify(events, null, 2)}</pre>
+            
+            <pre>{JSON.stringify(data, null, 2)}</pre>
+
+
+
         </div>
     );
 }
