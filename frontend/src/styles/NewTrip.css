@@ -39,14 +39,14 @@ html, .new-body {
     margin-top: 40px;
     margin-bottom: 10px;
     color:rgba(0,0,0,1);
-    font-size:24px;
+    font-size:20px;
     font-weight: lighter;
     font-family:"CustomFont";
     margin-left: 50px;
 }
 
 .newtrip-body-description p {
-    font-size: 12px;
+    font-size: 11px;
     margin-left: 50px;
     margin-right: 50px;
     font-family: "lexend-light";
@@ -56,19 +56,18 @@ html, .new-body {
     margin-top: 50px;
     display: flex;
     justify-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 
 .start-btn {
     width: 300px;
-    height: 44px;
+    height: 40px;
     border-color: transparent;
     border-radius: 25px;
     background-color: #FFA800;
     color: #FFFFFF;
     font-size: 16px;
     text-align: center;
-    margin-bottom: 10px;
     font-family: "CustomFont";
 }
 
