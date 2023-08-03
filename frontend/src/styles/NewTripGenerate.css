@@ -1,0 +1,138 @@
+@font-face {
+    font-family: "CustomFont";
+    src: url("../assets/fonts/Lexend-Regular.ttf");
+    font-family: "lexend-light";
+    src: url("../assets/fonts/Lexend-Light.ttf");
+}
+
+html, .completed-body {
+    height: 100%; /* Ensure the html and body elements take up full height */
+    margin: 0;
+    padding: 0; /* Remove any potential default padding */
+}
+
+/* generated part */
+.completed {
+    margin-top: 50px;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+}
+
+img[alt="check-logo"] {
+    max-width: 40%;
+}
+
+img[alt="landed-airplane"] {
+    max-width: 100%;
+    margin-top: 130px;
+}
+
+.line {
+    width: 240px; 
+    height: 2px; 
+    background-color: black
+}
+
+.completed-description h3 {
+    position: fixed;
+    top: 500px;
+    display: flex;
+    word-wrap: break-word;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-size: 24px;
+    font-weight: 100;
+    font-family: "CustomFont";
+}
+
+
+.completed-description p {
+    position: fixed;
+    top: 530px;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-left: 40px;
+    margin-right: 40px;
+    text-align: left;  
+    font-weight: lighter;
+    font-family: "lexend-light";
+}
+
+.view-btn {
+    width: 300px;
+    height: 45px;
+    border-color: transparent;
+    border-radius: 25px;
+    background-color: #FFA800;
+    color: #FFFFFF;
+    font-size: 16px;
+    text-align: center;
+    font-family: "CustomFont";
+    position: fixed;
+    left: 50%;
+    bottom: 15px;
+    transform: translateX(-50%);
+}
+
+
+/* generating part */
+.body-generate {
+    margin-top: 50px;
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+
+}
+
+img[alt="loading-logo"] {
+    max-width: 40%;
+}
+
+img[alt="flying-airplane"] {
+    max-width: 100%;
+    margin-top: 80px;
+}
+
+.generate-description h3 {
+    position: fixed;
+    top: 440px;
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    margin-top: 30px;
+    margin-left: 40px;
+    margin-right: 40px;
+    font-size: 24px;
+    text-align: left;
+    font-weight: 100;
+    font-family: "CustomFont";
+}
+
+.generate-description p {
+    position: fixed;
+    top: 530px;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-left: 40px;
+    margin-right: 40px;
+    text-align: left;  
+    font-weight: lighter;
+    font-family: "lexend-light";
+}
+
+.cancel-btn {
+    width: 300px;
+    height: 45px;
+    border-color: transparent;
+    border-radius: 25px;
+    background-color: #FFA800;
+    color: #FFFFFF;
+    font-size: 16px;
+    text-align: center;
+    font-family: "CustomFont";
+    position: fixed;
+    left: 50%;
+    bottom: 15px;
+    transform: translateX(-50%);
+}
