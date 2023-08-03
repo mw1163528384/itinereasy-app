@@ -42,7 +42,7 @@ const NewTripDetail = () => {
   }
 
   const handleBack = () => {
-    navigate('/tripActivities');
+    navigate('/tripDetail');
   };
 
   const handleNext = () => {
@@ -56,7 +56,7 @@ const NewTripDetail = () => {
     };
 
     // Pass userPreferences to the next component (e.g., NewTripFood)
-    navigate('/tripFood', { state: { userPreferences } });
+    navigate('/tripActivities', { state: { userPreferences } });
   };
 
   return (
@@ -81,7 +81,7 @@ const NewTripDetail = () => {
             </div> 
 
             <hr style={{ 
-                marginTop: "20px",
+                marginTop: "5px",
                 color:"white",
                 backgroundColor:"white", 
                 height: "1.5px",

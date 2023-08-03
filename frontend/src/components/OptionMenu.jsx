@@ -1,26 +1,11 @@
 import React from 'react';
-import { useNavigate } from "react-router-dom";
-import '../styles/NewTrip.css';
+import '../styles/OptionMenu.css';
 import regenerate_icon from '../assets/images/regenerate-icon.png';
 import share_icon from '../assets/images/share-icon.png';
 import trash_icon from '../assets/images/trash-icon.png';
 import close_icon from '../assets/images/close-icon.png';
 
 const OptionMenu = ({handleCloseClick}) => {
-    const navigate = useNavigate();
-
-    const handleRegenerateClick = async() => {
-        navigate("/")
-    }
-    
-    const handleShareClick = async() => {
-        navigate("/")
-    }
-    
-    const handleDeleteClick = async() => {
-        navigate("/")
-    }
-
     return (
         <div>
             <div className='body'>
@@ -33,20 +18,26 @@ const OptionMenu = ({handleCloseClick}) => {
                     </h3>
 
                     <div className='optionMenu-btn-conatiner'>
-                        <button className='regenerateBtn-container' onClick={handleRegenerateClick}>
-                            <img src={regenerate_icon} alt='regenerate-icon' />
-                            Regenerate
-                        </button>
+                        <div className='regenerateBtn-container'>
+                            <button className='regenerateBtn-container'>
+                                <img src={regenerate_icon} alt='regenerate-icon' />
+                            </button>
+                            <p>Regenerate</p>
+                        </div>
 
-                        <button className='ShareBtn-container' onClick={handleShareClick}>
-                            <img src={share_icon} alt='share-icon' />
-                            Share
-                        </button>
+                        <div className='ShareBtn-container'>
+                            <button>
+                                <img src={share_icon} alt='share-icon' />
+                            </button>
+                            <p>Share</p>
+                        </div>
 
-                        <button className='TrashBtn-container' onClick={handleDeleteClick}>
-                            <img src={trash_icon} alt='trash-icon' />
-                            Delete
-                        </button>
+                        <div className='TrashBtn-container'>
+                            <button>
+                                <img src={trash_icon} alt='trash-icon' />
+                            </button>
+                            <p>Delete</p>
+                        </div>
                     </div>
                 </div>
             </div>

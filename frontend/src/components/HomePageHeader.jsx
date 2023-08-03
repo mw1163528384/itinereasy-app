@@ -1,49 +1,68 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import '../styles/HomePageHeader.css';
 import menu_logo from '../assets/images/menu-logo.png';
 import { Menubar } from './MenuBar';
 import setting_logo from '../assets/images/setting-logo.png';
 import { OptionMenu } from './OptionMenu';
+import { SettingMenu } from './SettingMenu';
 
 
-function MainPageHeader({generatedItinerary}) {
+function HomePageHeader({generatedItinerary}) {
   const [isMenubarOpen, setMenubarOpen] = useState(false);
-  const [isOptionMenuOpen, setOptionMenuopen] = useState(false);
+  const [isSettingOpen, setSettingOpen] = useState(false);
+  const [isOptionMenuOpen, setOptionMenuOpen]  = useState(false);
 
   const toggleMenubar = () => {
-    setMenubarOpen(!isMenubarOpen)
+    setMenubarOpen(!isMenubarOpen);
+  }
+
+  const handleSettingOpen = () => {
+    setMenubarOpen(false);
+    setSettingOpen(true);
+  }
+
+  const handleSettingClose = () => {
+    setMenubarOpen(true);
+    setSettingOpen(false);
   }
 
   const toggleOptionMenu = () => {
-    setOptionMenuopen(!isOptionMenuOpen)
+    setOptionMenuOpen(!isOptionMenuOpen);
   }
 
   return (
     <div>
-      <div className='homepage-header-container'>
-        <header>
-            <button onClick={toggleMenubar}>
-                <img src={menu_logo} alt='menu-logo' />
-            </button>
+      <header className='homepage-header-container'>
+        {isMenubarOpen || isSettingOpen || isOptionMenuOpen ? (
+        <div>
+          {isMenubarOpen && <Menubar handleMenuClose={toggleMenubar} handleSettingOpen={handleSettingOpen}/>}
+          {isSettingOpen && <SettingMenu handleSettingClose={handleSettingClose}/>}
+          {isOptionMenuOpen && <OptionMenu handleCloseClick={toggleOptionMenu}/>}
+        </div>
+      ) : (
 
-            {generatedItinerary && generatedItinerary.location ? (
-            <>
-                <h1>{generatedItinerary.location}</h1>
-                <h5>{`${generatedItinerary.travelingDays} days`}</h5>
-            </>
-            ) : (
-            <h1>Itinerary</h1>
-            )}
-            
-            <button onClick={toggleOptionMenu}>
-                <img src={setting_logo} alt='setting-logo' />
-            </button>
+        <div>
+          <button onClick={toggleMenubar}>
+              <img src={menu_logo} alt='menu-logo' />
+          </button>
 
-        </header>
-        {isMenubarOpen && <Menubar handleCloseMenuClick={toggleMenubar}/>}
-        {isOptionMenuOpen && <OptionMenu handleCloseClick={toggleOptionMenu}/>}
-      </div>
+          {generatedItinerary && generatedItinerary.location ? (
+          <>
+              <h1>{generatedItinerary.location}</h1>
+              <h5>{`${generatedItinerary.travelingDays} days`}</h5>
+          </>
+          ) : (
+          <h1>Itinerary</h1>
+          )}
+          
+          <button onClick={toggleOptionMenu}>
+              <img src={setting_logo} alt='setting-logo' />
+          </button>
+        </div>
+        )}
+      </header>
     </div>
   );
 }
 
-export{ MainPageHeader };
+export{ HomePageHeader };

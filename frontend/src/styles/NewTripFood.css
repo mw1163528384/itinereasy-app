@@ -15,17 +15,17 @@ html, .body {
     display: flex;
     flex-direction: column;
     word-wrap: break-word;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-left: 40px;
     margin-right: 40px;
-    font-size: 24px;
+    font-size: 20px;
     text-align: left;
     font-weight: 100;
     font-family: "CustomFont";
 }
 
 .body-food h5 {
-    font-size: 12px;
+    font-size: 11px;
     margin-top: 5px;
     margin-left: 40px;
     margin-right: 40px;
@@ -34,7 +34,7 @@ html, .body {
 }
 
 .body-food p {
-    font-size: 12px;
+    font-size: 11px;
     margin-top: 5px;
     margin-left: 40px;
     margin-right: 40px;
@@ -55,7 +55,7 @@ html, .body {
     background-color: #FFA800; 
     border: none; 
     border-radius: 25px; 
-    font-size: 12px; 
+    font-size: 11px; 
     font-family: "CustomFont";
     color: white;
   }
@@ -64,7 +64,6 @@ html, .body {
     background-color: rgb(255, 115, 0);
 }
   
-
 .add-food {
     justify-content: left;
     padding-left: 20px;
@@ -76,7 +75,7 @@ html, .body {
     border-radius: 25px;
     margin-top: 10px;
     position: absolute;
-    top: 540px;
+    top: 440px;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -85,7 +84,7 @@ html, .body {
     background-color: transparent;
     border: none;
     width: 200px;
-    font-size: 12px;
+    font-size: 11px;
     font-family: "lexend-light" ;
 }
 

@@ -1,18 +1,23 @@
 import React from 'react';
+import '../styles/MenuBar.css';
 import { useNavigate } from "react-router-dom";
-import '../styles/NewTrip.css';
 import left_icon from '../assets/images/left-icon.png';
 import search_icon from '../assets/images/search-icon.png';
 import setting_icon from '../assets/images/setting-icon.png';
 import signout_icon from '../assets/images/signout-icon.png';
 
-const Menubar = ({handleCloseMenuClick}) => {
-    const navigate = useNavigate()
+const Menubar = ({ handleMenuClose, handleSettingOpen }) => {
+    const navigate = useNavigate();
+
+    const handleLogOut = () => {
+        navigate('/LoginPage');
+      };
+    
     return (
         <div>
             <div className='body'>
                 <header className='menuBar-header-container'>
-                    <button onClick={handleCloseMenuClick}>
+                    <button onClick={handleMenuClose}>
                         <img src={left_icon} alt='left-icon'/>
                     </button>
 
@@ -29,15 +34,17 @@ const Menubar = ({handleCloseMenuClick}) => {
 
                 <footer className='menuBar-footer-container'>
                     <div className='setting-container'>
-                        <button onClick={handleCloseMenuClick}>
+                        <button onClick={handleSettingOpen}>
                             <img src={setting_icon} alt='setting-icon'/>
                         </button>
+                        <p>Settings</p>
                     </div>
 
-                    <div className='signout-container'>
+                    <div className='signout-container' onClick={handleLogOut}>
                         <button>
                             <img src={signout_icon} alt='signout-icon'/>
                         </button>
+                        <p>Log Out</p>
                     </div>
 
                 </footer>

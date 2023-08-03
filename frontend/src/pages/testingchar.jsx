@@ -5,6 +5,7 @@ import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import ReactSlider from 'react-slider';
 import ActivityBox from '../components/ActivitiesBox';
+import { HomePageHeader } from '../components/HomePageHeader';
 
 const ItineraryPage = () => {
     const [data,setData] = useState(null);
@@ -58,38 +59,40 @@ const ItineraryPage = () => {
     }
 
     return (
-        <div className='homepage-body'>
-            <ReactSlider
-                min={0}
-                max={6}
-                value={daysOfWeek.findIndex(day => day.isSame(currentDate, 'day'))}
-                onChange={handleSliderChange}
-            />
-            <div className="date-row">
-                {daysOfWeek.map((day, index) => (
-                    <div key={index} className="date-item">
-                        <button onClick={() => setCurrentDate(day.toDate())}>
-                            {day.format('ddd D')}
-                        </button>
+        <div className='body'>
+            <HomePageHeader>
+                <div className='homepage-body'>
+                    <ReactSlider
+                        min={0}
+                        max={6}
+                        value={daysOfWeek.findIndex(day => day.isSame(currentDate, 'day'))}
+                        onChange={handleSliderChange}
+                    />
+                    <div className="date-row">
+                        {daysOfWeek.map((day, index) => (
+                            <div key={index} className="date-item">
+                                <button onClick={() => setCurrentDate(day.toDate())}>
+                                    {day.format('ddd D')}
+                                </button>
+                            </div>
+                        ))}
                     </div>
-                ))}
-            </div>
-            <Calendar 
-                localizer={localizer}
-                events={events}
-                startAccessor="start"
-                endAccessor="end"
-                defaultView={Views.DAY}
-                views={['day']}
-                style={{height:500}}
-                date={currentDate}
-                onNavigate={handleNavigate}
-            />
-            {events && events.map((item, index) => {
-                // Calculate the duration of the activity in minutes
-                const startTime = new Date(item.start);
-                const endTime = new Date(item.end);
-                const duration = (endTime - startTime) / 60000; // Convert milliseconds to minutes
+                    <Calendar 
+                        localizer={localizer}
+                        events={events}
+                        startAccessor="start"
+                        endAccessor="end"
+                        defaultView={Views.DAY}
+                        views={['day']}
+                        style={{height:500}}
+                        date={currentDate}
+                        onNavigate={handleNavigate}
+                    />
+                    {events && events.map((item, index) => {
+                        // Calculate the duration of the activity in minutes
+                        const startTime = new Date(item.start);
+                        const endTime = new Date(item.end);
+                        const duration = (endTime - startTime) / 60000; // Convert milliseconds to minutes
 
                 return (
                     <div key={index}>
@@ -99,11 +102,7 @@ const ItineraryPage = () => {
                     </div>
                 );
             })}
-            
-            <pre>{JSON.stringify(data, null, 2)}</pre>
-
-
-
+            <pre>{JSON.stringify(events, null, 2)}</pre>
         </div>
     );
 }
