@@ -36,12 +36,12 @@ img[alt="landed-airplane"] {
 
 .completed-description h3 {
     position: fixed;
-    top: 500px;
+    top: 430px;
     display: flex;
     word-wrap: break-word;
     margin-left: 40px;
     margin-right: 40px;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 100;
     font-family: "CustomFont";
 }
@@ -49,8 +49,8 @@ img[alt="landed-airplane"] {
 
 .completed-description p {
     position: fixed;
-    top: 530px;
-    font-size: 12px;
+    top: 450px;
+    font-size: 11px;
     margin-top: 5px;
     margin-left: 40px;
     margin-right: 40px;
@@ -96,14 +96,13 @@ img[alt="flying-airplane"] {
 
 .generate-description h3 {
     position: fixed;
-    top: 440px;
+    top: 430px;
     display: flex;
     flex-direction: column;
     word-wrap: break-word;
-    margin-top: 30px;
     margin-left: 40px;
     margin-right: 40px;
-    font-size: 24px;
+    font-size: 20px;
     text-align: left;
     font-weight: 100;
     font-family: "CustomFont";
@@ -111,8 +110,8 @@ img[alt="flying-airplane"] {
 
 .generate-description p {
     position: fixed;
-    top: 530px;
-    font-size: 12px;
+    top: 450px;
+    font-size: 11px;
     margin-top: 5px;
     margin-left: 40px;
     margin-right: 40px;
