@@ -103,6 +103,9 @@ const ItineraryPage = () => {
                 );
             })}
             <pre>{JSON.stringify(events, null, 2)}</pre>
+                </div>
+
+            </HomePageHeader>
         </div>
     );
 }
