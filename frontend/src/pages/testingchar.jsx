@@ -60,7 +60,6 @@ const ItineraryPage = () => {
 
     return (
         <div className='body'>
-            <HomePageHeader>
                 <div className='homepage-body'>
                     <ReactSlider
                         min={0}
@@ -105,7 +104,6 @@ const ItineraryPage = () => {
             <pre>{JSON.stringify(events, null, 2)}</pre>
                 </div>
 
-            </HomePageHeader>
         </div>
     );
 }
