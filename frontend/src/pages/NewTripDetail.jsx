@@ -42,7 +42,7 @@ const NewTripDetail = () => {
   }
 
   const handleBack = () => {
-    navigate('/tripDetail');
+    navigate('/tripType');
   };
 
   const handleNext = () => {
@@ -81,7 +81,7 @@ const NewTripDetail = () => {
             </div> 
 
             <hr style={{ 
-                marginTop: "5px",
+                marginTop: "20px",
                 color:"white",
                 backgroundColor:"white", 
                 height: "1.5px",

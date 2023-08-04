@@ -2,14 +2,15 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from "react-router-dom";
 import '../styles/HomePage.css';
-import { Calendar, momentLocalizer } from 'react-big-calendar'
+import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import sorry_img from '../assets/images/sorry-img.png';
 import add_ring from '../assets/images/add_ring_fill.png';
+import { HomePageHeader } from '../components/HomePageHeader';
 
 const HomePage = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const [userItinerary, setuserItinerary] = useState(null);
     const location = useLocation();
     const generatedItinerary = location.state?.generatedItinerary;
@@ -17,7 +18,7 @@ const HomePage = () => {
     
     useEffect(() => {
         fetchUserItinerary();
-    }, [])
+    }, []);
 
     const fetchUserItinerary = async () => {
         try {
@@ -45,13 +46,15 @@ const HomePage = () => {
     }, [userItinerary])
 
     const handleAddTripClick = () => {
-        navigate('/testing');
-      };
+        navigate('/');
+    };
       
-    const localizer = momentLocalizer(moment)
+    const localizer = momentLocalizer(moment);
 
-      return (
+    return (
         <div>
+            <HomePageHeader generatedItinerary={generatedItinerary} />
+
             {generatedItinerary ? (
                 <div className='homepage-body'>
                     <Calendar 
