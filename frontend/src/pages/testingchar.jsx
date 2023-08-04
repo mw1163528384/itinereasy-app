@@ -60,6 +60,7 @@ const ItineraryPage = () => {
 
     return (
         <div className='body'>
+            <HomePageHeader />
                 <div className='homepage-body'>
                     <ReactSlider
                         min={0}

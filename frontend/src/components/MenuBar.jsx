@@ -11,40 +11,51 @@ const Menubar = ({ handleMenuClose, handleSettingOpen }) => {
 
     const handleLogOut = () => {
         navigate('/LoginPage');
-      };
+    };
     
     return (
         <div>
             <div className='body'>
                 <header className='menuBar-header-container'>
-                    <button onClick={handleMenuClose}>
-                        <img src={left_icon} alt='left-icon'/>
-                    </button>
+                    <div className='left-button-container'>
+                        <button className='left-button' onClick={handleMenuClose}>
+                            <img src={left_icon} alt='left-icon'/>
+                        </button>
+                    </div>
 
-                    <h1>Itineraries</h1>
+                    <div className='title-container'>
+                        <h1>Itineraries</h1>
+                    </div>
 
-                    <button>
-                        <img src={search_icon} alt='search-icon'/>
-                    </button>
+                    <div className='search-button-container'>
+                        <button className='search-button'>
+                            <img src={search_icon} alt='search-icon'/>
+                        </button>
+                    </div>
                 </header>
 
                 <div className='itineraries-container'>
-
                 </div>
-
+                
                 <footer className='menuBar-footer-container'>
                     <div className='setting-container'>
-                        <button onClick={handleSettingOpen}>
+                        <button className='setting-button' onClick={handleSettingOpen}>
                             <img src={setting_icon} alt='setting-icon'/>
                         </button>
-                        <p>Settings</p>
+                    </div> 
+
+                    <div className='setting-container'>
+                        <h1>Settings</h1>
                     </div>
 
                     <div className='signout-container' onClick={handleLogOut}>
-                        <button>
+                        <button className='signout-button'>
                             <img src={signout_icon} alt='signout-icon'/>
                         </button>
-                        <p>Log Out</p>
+
+                        <div className='logout-container'>
+                            <p>Log Out</p>
+                        </div>
                     </div>
 
                 </footer>

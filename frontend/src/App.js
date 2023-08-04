@@ -9,6 +9,7 @@ import { NewTripGenerate } from "./pages/NewTripGenerate";
 import { HomePage } from "./pages/HomePage";
 import { ItineraryPage } from "./pages/testingchar";
 import { LoginPage } from "./pages/LoginPage";
+import { WelcomePage } from "./pages/WelcomePage";
 
 function App() {
   return(
@@ -23,6 +24,7 @@ function App() {
         <Route path="tripFood" element={<NewTripFood/>}></Route>
         <Route path="tripGenerate" element={<NewTripGenerate/>}></Route>
         <Route path="loginPage" element={<LoginPage/>}></Route>
+        <Route path="WelcomePage" element={<WelcomePage/>}></Route>
       </Routes>
     </BrowserRouter>
   );

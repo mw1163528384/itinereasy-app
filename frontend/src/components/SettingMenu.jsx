@@ -12,45 +12,45 @@ const SettingMenu = ({ handleSettingClose }) => {
         <div>
             <div className='body'>
                 <header className='settingMenu-header-container'>
-                    {/* To Yingyu: if you dont want the title and button tgt, just shift the </h3> beside the title */}
                     <h3>Settings
-                        <button onClick={handleSettingClose}>
-                            <img src={close_icon} alt='close-icon' />
-                        </button>
+                    <button className="close-button" onClick={handleSettingClose}>
+                        <img src={close_icon} alt='close-icon' />
+                    </button>
+
                     </h3>
                 </header>
 
                 <footer className='settingMenu-footer-conatiner'>
                     <div className='dataStorage-container'>
-                        <button>
+                        <button className="storage-button">
                             <img src={storage_icon} alt='storage-icon' />
                         </button>
                         <p>Data and Storage</p>
                     </div>
 
                     <div className='privacySecurity-container'>
-                        <button>
+                        <button className="privacy-button">
                             <img src={security_icon} alt='security-icon' />
                         </button>
                         <p>Privacy and Security</p>
                     </div>
 
                     <div className='language-container'>
-                        <button>
+                        <button className="language-button">
                             <img src={language_icon} alt='language-icon' />
                         </button>
                         <p>Language</p>
                     </div>
 
                     <div className='help-container'>
-                        <button>
+                        <button className="help-button">
                             <img src={help_icon} alt='help-icon' />
                         </button>
                         <p>Help</p>
                     </div>
 
                     <div className='about-container'>
-                        <button className='about-container'>
+                        <button className='about-button'>
                             <img src={about_icon} alt='about-icon' />
                         </button>
                         <p>About</p>
