@@ -15,17 +15,17 @@ html, .type-body {
     display: flex;
     flex-direction: column;
     word-wrap: break-word;
-    margin-top: 20px;
+    margin-top: 40px;
     margin-left: 40px;
     margin-right: 40px;
-    font-size: 20px;
+    font-size: 30px;
     text-align: left;
     font-weight: 100;
     font-family: "CustomFont";
 }
 
 .trip-reason-selection {
-    gap: 15px;
+    gap: 25px;
     justify-content:center;
     flex-direction:column;
     display:flex;
@@ -33,7 +33,7 @@ html, .type-body {
     width:270px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 5px;
+    margin-top: 20px;
 }
 
 button.active {
@@ -50,7 +50,7 @@ button.active {
     border-radius: 25px;
     border-color: transparent;
     background-color: rgba(237,237,237,1);
-    font-size: 11px;
+    font-size: 12px;
     font-family: "CustomFont";
 }
 
@@ -58,10 +58,10 @@ button.active {
     display: flex;
     flex-direction: column;
     word-wrap: break-word;
-    margin-top: 20px;
+    margin-top: 40px;
     margin-left: 40px;
     margin-right: 40px;
-    font-size: 20px;
+    font-size: 30px;
     text-align: left;
     font-weight: 100;
     font-family: "CustomFont";
@@ -75,13 +75,13 @@ button.active {
     justify-content: center;
     align-items: center;
     display: flex;
-    height: 30px;
+    height: 40px;
     width: 270px;
     border-radius: 25px;
     border-color: transparent;
     background-color: rgba(237,237,237,1);
-    font-size: 11px;
-    margin-top: 5px;
+    font-size: 12px;
+    margin-top: 10px;
     font-weight: 100;
     margin-left: auto;
     margin-right: auto;
@@ -90,7 +90,7 @@ button.active {
 
 .location-input {
     background-color: rgba(237,237,237,1);
-    font-size: 11px;
+    font-size: 12px;
     border: none;
 }
 
@@ -103,7 +103,7 @@ button.active {
     border-radius: 25px;
     position: fixed;
     left: 50%;
-    bottom: 15px;
+    bottom: 30px;
     transform: translateX(-50%);
 }
 
