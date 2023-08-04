@@ -1,0 +1,46 @@
+@font-face {
+    font-family: "CustomFont";
+    src: url("../assets/fonts/Lexend-Regular.ttf");
+    font-family: "lexend-light";
+    src: url("../assets/fonts/Lexend-Light.ttf");
+}
+
+html, .completed-body {
+    height: 100%; /* Ensure the html and body elements take up full height */
+    margin: 0;
+    padding: 0; /* Remove any potential default padding */
+}
+
+img[alt="passport-icon"] {
+    max-width: 95%;
+    margin-top: 110px;
+    transform: translateX(20px);
+}
+
+.load-description h3 {
+    position: fixed;
+    top: 620px;
+    display: flex;
+    flex-direction: column;
+    word-wrap: break-word;
+    margin-left: 130px;
+    margin-right: 40px;
+    font-size: 24px;
+    text-align: left;
+    font-weight: 100;
+    color: rgba(110,110,110);
+    font-family: "lexend-light";
+}
+
+.load-description p {
+    position: fixed;
+    top: 650px;
+    font-size: 48px;
+    margin-top: 5px;
+    margin-left: 40px;
+    margin-right: 40px;
+    text-align: left;  
+    transform: translateX(35px);
+    font-family: "CustomFont";
+    color: rgb(229, 151, 0); 
+}

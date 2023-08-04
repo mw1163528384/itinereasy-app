@@ -1,0 +1,111 @@
+@font-face {
+    font-family: "CustomFont";
+    src: url("../assets/fonts/Lexend-Regular.ttf");
+    font-family: "lexend-light";
+    src: url("../assets/fonts/Lexend-Light.ttf");
+}
+
+html, .body {
+    height: 100%; /* Ensure the html and body elements take up full height */
+    margin: 0;
+    padding: 0; /* Remove any potential default padding */
+}
+.input_container {
+    margin-top: 250px; 
+}
+
+.input_container {
+    transform: translateY(-260px); 
+}
+
+.input_container input[type='text'] {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 40px;
+    width: 270px;
+    border-radius: 25px;
+    border-color: transparent;
+    background-color: rgba(237,237,237,1);
+    font-size: 12px;
+    margin-top: 13px;
+    font-weight: 100;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "lexend-light";
+    text-indent: 12px; /* Adjust as needed */
+    letter-spacing: 2px; /* Adjust as needed */
+}
+
+.input_container input[type='text']::placeholder {
+    background-color: rgba(237,237,237,1);
+    font-size: 12px;
+    border: none;
+    color: rgba(110,110,110);
+    font-family: "lexend-light";
+}
+
+.forget_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.forget_container p {
+    color: rgba(110,110,110); /* Change color as needed */
+    font-size: 12px; /* Change font-size as needed */
+    text-decoration: underline; /* This will underline the text */
+    margin-top: -475px; /* This will shift the text upwards. Adjust as needed. */
+    font-family: "lexend-light";
+}
+
+.login-btn {
+    width: 300px;
+    height: 44px;
+    border-color: transparent;
+    border-radius: 25px;
+    background-color: #FFA800;
+    color: #FFFFFF;
+    font-size: 16px;
+    text-align: center;
+    position: absolute;
+    margin-top: -210px;
+    font-family: "CustomFont";
+    transform: translateX(-13px);;
+}
+
+.register_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register_container p {
+    color: rgba(110,110,110); /* Change color as needed */
+    font-size: 12px; /* Change font-size as needed */
+    margin-top: -170px; /* This will shift the text upwards. Adjust as needed. */
+    font-family: "CustomFont";
+    letter-spacing: 1px;
+}
+
+.register_container .orange-text {
+    color: orange; 
+}
+
+.google_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.google_container p {
+    color: rgba(110,110,110); /* Change color as needed */
+    font-size: 12px; /* Change font-size as needed */
+    margin-top: -120px; /* This will shift the text upwards. Adjust as needed. */
+    font-family: "CustomFont";
+    letter-spacing: 1px;
+}
+
+.google_container .orange-text {
+    color: orange; 
+}

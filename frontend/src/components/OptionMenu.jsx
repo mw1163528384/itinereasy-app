@@ -10,34 +10,45 @@ const OptionMenu = ({handleCloseClick}) => {
         <div>
             <div className='body'>
                 <div className='optionMenu-container'>
-                    {/* To Yingyu: if you dont want the title and button tgt, just shift the </h3> beside the title */}
-                    <h3>Itinerary options
-                        <button onClick={handleCloseClick}>
+                    <div className='title-container'>
+                        <h3>Itinerary options</h3>
+                    </div>
+                    <div className='close-button-container'>
+                        <button className='close-button' onClick={handleCloseClick}>
                             <img src={close_icon} alt='close-icon' />
                         </button>
-                    </h3>
+                    </div>
+                </div>
 
-                    <div className='optionMenu-btn-conatiner'>
-                        <div className='regenerateBtn-container'>
-                            <button className='regenerateBtn-container'>
-                                <img src={regenerate_icon} alt='regenerate-icon' />
-                            </button>
-                            <p>Regenerate</p>
-                        </div>
+                <div className='optionMenu-btn-container'>
+                    <div className='regenerateBtn-container'>
+                        <button className='regenerate-button'>
+                            <img src={regenerate_icon} alt='regenerate-icon' />
+                        </button>
+                    </div>
 
-                        <div className='ShareBtn-container'>
-                            <button>
-                                <img src={share_icon} alt='share-icon' />
-                            </button>
-                            <p>Share</p>
-                        </div>
+                    <div className='regenerate-container'>
+                        <h1>Regenerate</h1>
+                    </div>
 
-                        <div className='TrashBtn-container'>
-                            <button>
-                                <img src={trash_icon} alt='trash-icon' />
-                            </button>
-                            <p>Delete</p>
-                        </div>
+                    <div className='ShareBtn-container'>
+                        <button className='share-button'>
+                            <img src={share_icon} alt='share-icon' />
+                        </button>
+                    </div>
+
+                    <div className='share-container'>
+                        <h1>Share</h1>
+                    </div>
+
+                    <div className='TrashBtn-container'>
+                        <button className='trash-button'>
+                            <img src={trash_icon} alt='trash-icon' />
+                        </button>
+                    </div>
+
+                    <div className='delete-container'>
+                        <h1>Delete</h1>
                     </div>
                 </div>
             </div>
