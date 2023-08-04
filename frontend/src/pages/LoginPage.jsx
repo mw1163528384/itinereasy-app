@@ -46,12 +46,14 @@ const LoginPage = () => {
 
                         <div className='register_container'>
                             <p>
-                                Don't have an account? Register
+                                Don't have an account? <span className="orange-text">Register</span>
                             </p>
                         </div>
-
+                        
                         <div className='google_container'>
-                            <p>Or sign in with Google</p>
+                            <p>
+                                Or <span className="orange-text">Sign in with Google</span>
+                            </p>
                         </div>
                     </form>
                 </div>

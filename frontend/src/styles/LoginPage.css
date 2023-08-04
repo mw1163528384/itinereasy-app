@@ -11,11 +11,11 @@ html, .body {
     padding: 0; /* Remove any potential default padding */
 }
 .input_container {
-    margin-top: 250px; /* Adjust as needed */
+    margin-top: 250px; 
 }
 
 .input_container {
-    transform: translateY(-260px); /* Adjust as needed */
+    transform: translateY(-260px); 
 }
 
 .input_container input[type='text'] {
@@ -78,7 +78,6 @@ html, .body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Add any other styles for the container here */
 }
 
 .register_container p {
@@ -89,11 +88,14 @@ html, .body {
     letter-spacing: 1px;
 }
 
+.register_container .orange-text {
+    color: orange; 
+}
+
 .google_container {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Add any other styles for the container here */
 }
 
 .google_container p {
@@ -102,4 +104,8 @@ html, .body {
     margin-top: -120px; /* This will shift the text upwards. Adjust as needed. */
     font-family: "CustomFont";
     letter-spacing: 1px;
+}
+
+.google_container .orange-text {
+    color: orange; 
 }

@@ -1,0 +1,108 @@
+@font-face {
+    font-family: "CustomFont";
+    src: url("../assets/fonts/Lexend-Regular.ttf");
+    font-family: "lexend-light";
+    src: url("../assets/fonts/Lexend-Light.ttf");
+}
+
+html, .body {
+    height: 100%; /* Ensure the html and body elements take up full height */
+    margin: 0;
+    padding: 0; /* Remove any potential default padding */
+}
+
+/* The header container in the menu bar */
+.optionMenu-container h3 {
+    font-size: 20px; /* Change font-size as needed */
+    margin-top: 140px;
+    font-family: "CustomFont";
+    transform: translateX(60px);
+}
+
+.close-button {
+    background-color: transparent;
+    width: 50px;
+    height: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-family: "CustomFont";
+}
+
+
+img[alt="close-icon"] {
+    max-width: 80%;
+    transform: translate(-6px, -63px); 
+}
+
+.regenerate-container h1 {
+    font-size: 14px; /* Change font-size as needed */
+    color: rgba(50,50,50);
+    letter-spacing: 1px;
+    font-family: "lexend-light";
+    transform: translate(60px, -570px);  /* Adjust this value to move the text */
+}
+
+.regenerate-button {
+    background-color: transparent;
+    width: 80px;
+    height: 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-family: "CustomFont";
+    transform: translateX(-140px);
+}
+
+img[alt="regenerate-icon"] {
+    max-width: 30%;
+    transform: translate(130px, -542px);
+}
+
+.share-container h1 {
+    font-size: 14px; /* Change font-size as needed */
+    color: rgba(50,50,50);
+    letter-spacing: 1px;
+    font-family: "lexend-light";
+    transform: translate(60px, -560px);  /* Adjust this value to move the text */
+}
+
+.share-button {
+    background-color: transparent;
+    width: 80px;
+    height: 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-family: "CustomFont";
+    transform: translateX(-140px);
+}
+
+img[alt="share-icon"] {
+    max-width: 30%;
+    transform: translate(130px, -534px);
+}
+
+.delete-container h1 {
+    font-size: 14px; /* Change font-size as needed */
+    color: rgba(50,50,50);
+    letter-spacing: 1px;
+    font-family: "lexend-light";
+    transform: translate(60px, -550px);  /* Adjust this value to move the text */
+}
+
+.trash-button {
+    background-color: transparent;
+    width: 80px;
+    height: 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-family: "CustomFont";
+    transform: translateX(-140px);
+}
+
+img[alt="trash-icon"] {
+    max-width: 30%;
+    transform: translate(130px, -523px);
+}
