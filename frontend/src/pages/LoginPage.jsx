@@ -19,8 +19,8 @@ const LoginPage = () => {
     const handleLoginSubmit = (event) => {
         event.preventDefault();
 
-    console.log('Email:', email);
-    console.log('Password:', password);
+        console.log('Email:', email);
+        console.log('Password:', password);
 }
     return (
         <div>

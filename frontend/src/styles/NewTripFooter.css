@@ -25,7 +25,7 @@
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 15px; /* Adjust this value based on the space you need from the bottom of the page */
+    bottom: 30px; /* Adjust this value based on the space you need from the bottom of the page */
     width: 90%; 
     padding: 0 5%;
 }

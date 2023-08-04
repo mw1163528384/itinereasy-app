@@ -48,6 +48,7 @@ function GenerateTrip() {
         <button onClick={handleOpenModal} id="addTrip-btn" className='addTrip-btn'>
           <img src={add_ring} alt='add_ring'/>
           Click here to add new trip
+          testing testing testing testing
         </button>
 
         <Modal

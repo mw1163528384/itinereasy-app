@@ -1,0 +1,39 @@
+@font-face {
+    font-family: "CustomFont";
+    src: url("../assets/fonts/Lexend-Regular.ttf");
+    font-family: "lexend-light";
+    src: url("../assets/fonts/Lexend-Light.ttf");
+}
+
+html, .body {
+    height: 100%; /* Ensure the html and body elements take up full height */
+    margin: 0;
+    padding: 0; /* Remove any potential default padding */
+}
+
+.homepage-header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFA800;
+    padding-bottom: 10px;
+    padding-top: 50px;
+    padding-bottom: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+img[alt="menu-logo"] {
+width: 40px;
+height: auto; 
+}
+
+img[alt="setting-logo"] {
+width: 40px;
+height: auto; 
+}
+
+.homepage-header-container h1 {
+    font-family: "CustomFont";
+    font-size: 30px;
+}

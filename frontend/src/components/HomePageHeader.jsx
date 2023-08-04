@@ -6,7 +6,6 @@ import setting_logo from '../assets/images/setting-logo.png';
 import { OptionMenu } from './OptionMenu';
 import { SettingMenu } from './SettingMenu';
 
-
 function HomePageHeader({generatedItinerary}) {
   const [isMenubarOpen, setMenubarOpen] = useState(false);
   const [isSettingOpen, setSettingOpen] = useState(false);
@@ -32,7 +31,7 @@ function HomePageHeader({generatedItinerary}) {
 
   return (
     <div>
-      <header className='homepage-header-container'>
+      <header>
         {isMenubarOpen || isSettingOpen || isOptionMenuOpen ? (
         <div>
           {isMenubarOpen && <Menubar handleMenuClose={toggleMenubar} handleSettingOpen={handleSettingOpen}/>}
@@ -40,8 +39,7 @@ function HomePageHeader({generatedItinerary}) {
           {isOptionMenuOpen && <OptionMenu handleCloseClick={toggleOptionMenu}/>}
         </div>
       ) : (
-
-        <div>
+        <div className='homepage-header-container'>
           <button onClick={toggleMenubar}>
               <img src={menu_logo} alt='menu-logo' />
           </button>
