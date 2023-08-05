@@ -14,9 +14,8 @@ html, .body {
 /* The header container in the menu bar */
 .optionMenu-container h3 {
     font-size: 20px; /* Change font-size as needed */
-    margin-top: 140px;
     font-family: "CustomFont";
-    transform: translateX(60px);
+    transform: translate(62px, 115px);
 }
 
 .close-button {
@@ -32,7 +31,7 @@ html, .body {
 
 img[alt="close-icon"] {
     max-width: 80%;
-    transform: translate(-6px, -63px); 
+    transform: translate(90px, 15px); 
 }
 
 .regenerate-container h1 {
