@@ -161,6 +161,11 @@ html, .body {
     font-family: "lexend-light" ;
 }
 
+.budget input:focus {
+    border: 1px solid transparent;
+    outline: none; /* Remove the default focus outline */
+}
+
 
 
 
@@ -172,7 +177,7 @@ html, .body {
 }
 
 .react-datepicker__day--highlighted {
-    background-color: #FFA800;
+    background-color: #FF5F04 !important;
     justify-content: center;
     display: flex;
     color: white;
@@ -183,11 +188,40 @@ html, .body {
 }
 
 .react-datepicker__day--in-range {
-    background-color: #FFA800;
+    background-color: #FF5F04;
     color: white;
 }
 
-.react-datepicker__day--selected {
-    background-color: #FFA800;
-    color: white;
+.react-datepicker__day--in-range {
+    border-radius: none !important;
 }
+
+.react-datepicker__month-container {
+    background-color: #FFA800;
+}
+
+.react-datepicker__month-container .react-datepicker__day {
+    color: #fff !important;
+}
+
+.react-datepicker__header {
+    background-color: #FFA800 !important;
+    border: none !important;
+}
+
+.react-datepicker__header .react-datepicker__current-month,
+.react-datepicker__header .react-datepicker-time__header,
+.react-datepicker__header .react-datepicker__day-name {
+    color: #fff !important;
+}
+
+.react-datepicker {
+    border: none !important;
+    font-weight: bold;
+}
+
+.react-datepicker__current-month {
+    font-size: 20px !important; 
+    font-weight: bold;
+  }
+  

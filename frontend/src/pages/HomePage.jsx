@@ -12,14 +12,17 @@ import { EventDetail } from '../components/EventDetail';
 import { EventEdit } from '../components/EventDetailEdit';
 import { EventBox } from '../components/EventBox';
 
+
 const HomePage = () => {
     const [generatedItinerary,setGenerateditinerary] = useState(null);
-    const scenarioNumber = 1; //JANICE CHANGE THIS TO BE VARIABLE!!!!!!!!!!
+    const [scenarioNumber, setScenarioNumber] = useState(1); //JANICE CHANGE THIS TO BE VARIABLE!!!!!!!!!!
     const [events, setEvents] = useState([]);
     const [isEventDetailOpen, setEventDetailOpen] = useState(false);
     const [isEventDetailEditOpen, setEventDetailEditOpen] = useState(false);
     const [selectedEvent, setSelectedEvent] = useState(null);
     const [isLoading, setIsLoading] = useState(true); 
+    const localizer = momentLocalizer(moment);
+    
     
     const fetchData = () => {
         setIsLoading(true); // Set loading state to true when fetching data
@@ -64,24 +67,46 @@ const HomePage = () => {
                         // Loop through all activities in the day
                         for (const activity of activities) {
                             console.log('Activity:', activity);
-    
-                            const title = activity.Activity || activity.Food;
-                            if (title && title.trim() !== '' && activity.Time) {
-                                const timeParts = activity.Time.split(' - ');
-                                const formattedEvent = {
-                                    title: title,
-                                    start: timeParts[0],
-                                    end: timeParts[1],
-                                    cost: activity.Cost,
-                                    transportation: Array.isArray(activity.Transportation) ? [].concat(...activity.Transportation).join(', ') : activity.Transportation || "Not provided",
-                                };
-                                console.log('Formatted event:', formattedEvent);
-                                formattedEvents.push(formattedEvent);
-                            } else {
-                                console.error('Missing required itinerary item properties for activity:', activity);
-                                throw new Error('Missing required itinerary item properties');
+                        
+                            // Inside the loop processing your activities
+                                const title = activity.Activity || activity.Food || 'No Title'; // add default title
+                                if (title && title.trim() !== '') {
+                                    const timeParts = activity.Time.split(' - ');
+
+                                    const [dayPart, month, year] = day.split('-');
+                                    const startDate = new Date(year, month - 1, dayPart); // JS counts months from 0
+                                    const endDate = new Date(year, month - 1, dayPart);
+
+                                    // Extract hours and minutes from start and end times
+                                    const [startHours, startMinutes] = timeParts[0].split(':');
+                                    const [endHours, endMinutes] = timeParts[1].split(':');
+
+                                    // Create new start and end date objects with merged date and time
+                                    const startDateTime = new Date(startDate.setHours(parseInt(startHours), parseInt(startMinutes)));
+                                    const endDateTime = new Date(endDate.setHours(parseInt(endHours), parseInt(endMinutes)));
+
+                                    const formattedEvent = {
+                                        title: String(title),
+                                        start: startDateTime,
+                                        end: endDateTime,
+                                        cost: activity.Cost,
+                                        transportation: Array.isArray(activity.Transportation) ? [].concat(...activity.Transportation).join(', ') : activity.Transportation || "Not provided",
+                                    };
+                                    console.log('Formatted event:', formattedEvent);
+                                    formattedEvents.push(formattedEvent);
+                                } else {
+                                    console.error('Missing required itinerary item properties for activity:', activity);
+                                    throw new Error('Missing required itinerary item properties');
+                                }
+
+                        
+                            // Check if title is missing or empty
+                            if (!title || title.trim() === '') {
+                                console.log('Activity without title:', activity);
                             }
                         }
+                        
+                        
                     }
     
                     setEvents(formattedEvents);
@@ -91,25 +116,10 @@ const HomePage = () => {
                 console.error('Error formatting events:', error);
             }
         }
+        
     }, [generatedItinerary]);
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
-    
-      
-    const localizer = momentLocalizer(moment);
+  
 
     const handleEventClick = (event) => {
         setSelectedEvent(event);
@@ -137,19 +147,20 @@ const HomePage = () => {
                 <div>Loading...</div> // Display loading message while data is being fetched
             ) : generatedItinerary ? (
                     <div className='homepage-body'>
+                        {console.log('Events:', events)} {/* Log events here */}
+                        {events.forEach((event, index) => console.log(`Title at index ${index}:`, event.title))}
                         <Calendar 
-                        localizer={localizer}
-                        events={events}
-                        startAccessor="start"
-                        endAccessor="end"
-                        views={['week']}
-                        style={{height:500}}
-                        components={{
-                            event: EventBox
-                        }}
-                        onSelectEvent={handleEventClick} 
-                    />
-                        <pre>{JSON.stringify(generatedItinerary, null, 2)}</pre>
+                            localizer={localizer}
+                            events={events}
+                            startAccessor="start"
+                            endAccessor="end"
+                            defaultView='day'
+                            style={{height:500}}
+                            components={{
+                                event: EventBox
+                            }}
+                            onSelectEvent={handleEventClick}
+                        />
 
                         <Modal
                             isOpen={isEventDetailOpen}

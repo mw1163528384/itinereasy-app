@@ -1,12 +1,20 @@
 import React from 'react';
+import moment from 'moment';
 
-const EventBox = ({ event, handleEventClick }) => {
-  const { title, location, startTime, endTime } = event;
-  
-  const eventDuration = (new Date(endTime) - new Date(startTime)) / 3600000;
+const EventBox = ({ event }) => {
+  // Check if event is undefined
+  if (!event) {
+    console.error('Event is undefined.');
+    return <div>Event is undefined.</div>;
+  }
+
+  // Destructure properties from the event object
+  const { title, start, end, cost, transportation } = event;
+
+  // Calculate event duration in hours
+  const eventDuration = (new Date(end) - new Date(start)) / 3600000;
 
   // Define height for a one-hour event
-  {/* Please help adjust */}
   const hourHeight = 60;  // e.g. 60px for one hour
 
   // Calculate event box height
@@ -14,13 +22,14 @@ const EventBox = ({ event, handleEventClick }) => {
 
   return (
     <div style={{ height: `${eventBoxHeight}px`}} 
-          className='eventBox-container'
-          onClick={() => handleEventClick(event)}>
-      <h3>{title}</h3>
-      <p>{location}</p>
-      <p>{`${startTime} - ${endTime}}`}</p>
+          className='eventBox-container'>
+      <h3>{title || 'No Title'}</h3> {/* Use a default value if title is not provided */}
+      <p>{cost}</p>
+      <p>{transportation}</p>
+      <p>{`${moment(start).format('HH:mm')} - ${moment(end).format('HH:mm')}`}</p>
     </div>
   )
 };
 
-export{ EventBox };
+export {EventBox};
+

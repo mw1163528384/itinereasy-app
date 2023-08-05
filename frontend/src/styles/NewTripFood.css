@@ -87,6 +87,12 @@ html, .body {
     font-family: "lexend-light" ;
 }
 
+.add-food input:focus {
+    border: 1px solid transparent;
+    outline: none; /* Remove the default focus outline */
+}
+
+
 .finish-btn {
     background-color: #FFA800;; /* Green color - You can change this to any color you prefer */
     color: white;

@@ -85,3 +85,8 @@ select {
     font-size: 12px;
     font-family: "lexend-light" ;
 }
+
+.add-activities input:focus {
+    border: 1px solid transparent;
+    outline: none; /* Remove the default focus outline */
+}

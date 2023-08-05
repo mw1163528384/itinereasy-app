@@ -94,6 +94,11 @@ button.active {
     border: none;
 }
 
+.location-input:focus {
+    border: 1px solid transparent;
+    outline: none; /* Remove the default focus outline */
+}
+
 .location-input::placeholder {
     color: rgba(110,110,110);
     font-family: "CustomFont";
