@@ -1,0 +1,116 @@
+@font-face {
+    font-family: "CustomFont";
+    src: url("../assets/fonts/Lexend-Regular.ttf");
+    font-family: "lexend-light";
+    src: url("../assets/fonts/Lexend-Light.ttf");
+}
+
+html, .body {
+    height: 100%; /* Ensure the html and body elements take up full height */
+    margin: 0;
+    padding: 0; /* Remove any potential default padding */
+}
+
+/* The header container in the menu bar */
+.title-container {
+    font-size: 13px; /* Change font-size as needed */
+    font-family: "CustomFont";
+    transform: translate(-10px, -10px);
+}
+
+.left-button {
+    background-color: transparent;
+    width: 50px;
+    height: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-family: "CustomFont";
+    transform: translate(-80px, 30px);
+}
+
+img[alt="left-icon"] {
+    max-width: 80%;
+}
+
+.search-button {
+    background-color: transparent;
+    width: 80px;
+    height: 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-family: "CustomFont";
+    margin-bottom: 50px;
+    transform: translateX(180px);
+}
+
+img[alt="search-icon"] {
+    max-width: 30%;
+    transform: translate(-30px, -40px);
+}
+
+.setting-container h1 {
+    font-size: 14px; /* Change font-size as needed */
+    color: rgba(50,50,50);
+    letter-spacing: 1px;
+    font-family: "lexend-light";
+    transform: translate(-60px,180px);
+}
+
+.setting-button {
+    background-color: transparent;
+    width: 80px;
+    height: 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-family: "CustomFont";
+    transform: translate(-120px,60px);
+}
+
+img[alt="setting-icon"] {
+    max-width: 30%;
+    margin-top: 200px;
+    margin-bottom: -145px;
+}
+
+.logout-container p {
+    font-size: 14px; /* Change font-size as needed */
+    color: rgba(50,50,50);
+    letter-spacing: 1px;
+    margin-top: 120px;
+    margin-bottom: 120px; /* This will shift the text upwards. Adjust as needed. */
+    font-family: "lexend-light";
+    transform: translate(-60px,40px);
+}
+
+.signout-button {
+    background-color: transparent;
+    width: 80px;
+    height: 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-family: "CustomFont";
+    transform: translate(-120px, 30px);
+}
+
+img[alt="signout-icon"] {
+    max-width: 30%;
+    color: rgba(50,50,50);
+    margin-top: 170px;
+    margin-bottom: -155px;
+}
+
+
+.noItinerary_msg_container p {
+    font-size: 20px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    text-align: center;
+    transform: translate(-4px, 40px);
+}
+
+.addTrip-btn {
+    transform: translate(-190px, -300px);
+}

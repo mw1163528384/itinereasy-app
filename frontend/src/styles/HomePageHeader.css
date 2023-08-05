@@ -12,7 +12,7 @@ html, .body {
 }
 
 .homepage-header-container {
-    display: flex;
+    display: relative;
     justify-content: space-between;
     align-items: center;
     background-color: #FFA800;
@@ -44,3 +44,43 @@ height: auto;
     font-family: "CustomFont";
     font-size: 30px;
 }
+
+.optionMenuModal {
+    position: absolute;
+    right: 5%;
+    top: 10%;
+    width: 245px; /* Adjust the width as needed */
+    height: 253px; /* Adjust the max-height as needed */
+    background-color: white;
+    border-radius: 25px;
+}
+
+.optionMenuModal-content {
+    margin-top: -30%;
+    margin-left: -15%;
+    margin-right: 40%;
+}
+
+.sidebarModal {
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 80%;
+    height: 100%;
+    padding: 20px;
+    transition: translateX(-100%);;
+    transition: transform 0.5s ease-out;
+}
+
+  
+.overlay-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }

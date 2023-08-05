@@ -4,39 +4,45 @@ import { Calendar, momentLocalizer, Views } from 'react-big-calendar'
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import ReactSlider from 'react-slider';
-import ActivityBox from '../components/ActivitiesBox';
 import { HomePageHeader } from '../components/HomePageHeader';
 
 const ItineraryPage = () => {
+    const [data,setData] = useState(null);
+    const scenarioNumber = 1;
     const location = useLocation();
     const [events, setEvents] = useState([]);
     const [currentDate, setCurrentDate] = useState(new Date());
     const [isLoading, setLoading] = useState(true);
     const [error, setError] = useState(null);
 
-    useEffect(() => {
-        fetch('https://api.example.com/itinerary') 
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw response;
+
+    const fetchData = () => {
+        console.log(`Fetching data for scenario: ${scenarioNumber}`);
+        fetch(`http://localhost:5001/getData/${scenarioNumber}`)
+            .then((response) => {
+                if (!response.ok) { 
+                    throw new Error('Network response was not ok'); 
                 }
+                return response.json();
             })
-            .then(data => {
-                const formattedEvents = data.map((item) => ({
-                    title: item.title,
-                    start: new Date(item.startDate),
-                    end: new Date(item.endDate),
-                }));
-                setEvents(formattedEvents);
-                setLoading(false);
+            .then((data) => {
+                console.log('Data:', data);
+                setData(data);
             })
-            .catch(error => {
-                setError(error);
-                setLoading(false);
+            .catch((error) => {
+                console.error('An error occurred:', error);
             });
+    };
+    
+    
+
+    useEffect(() => {
+
+        fetchData();
+    
     }, []);
+    
+    
 
     const localizer = momentLocalizer(moment)
 
@@ -53,7 +59,7 @@ const ItineraryPage = () => {
 
     return (
         <div className='body'>
-            <HomePageHeader>
+            <HomePageHeader />
                 <div className='homepage-body'>
                     <ReactSlider
                         min={0}
@@ -87,17 +93,17 @@ const ItineraryPage = () => {
                         const endTime = new Date(item.end);
                         const duration = (endTime - startTime) / 60000; // Convert milliseconds to minutes
 
-                        return (
-                            <div key={index}>
-                                <ActivityBox activityTime={duration} />
-                                <span>{moment(startTime).format('HH:mm')} - {moment(endTime).format('HH:mm')}:</span>
-                                <span>{item.title}</span>
-                            </div>
-                        );
-                    })}
-                    <pre>{JSON.stringify(events, null, 2)}</pre>
-                </div>
-            </HomePageHeader>
+                return (
+                    <div key={index}>
+                        <span>{moment(startTime).format('HH:mm')} - {moment(endTime).format('HH:mm')}:</span>
+                        <span>{item.title}</span>
+                    </div>
+                );
+            })}
+
+            <pre>{JSON.stringify(data, null, 2)}</pre>
+            </div>
+
         </div>
     );
 }

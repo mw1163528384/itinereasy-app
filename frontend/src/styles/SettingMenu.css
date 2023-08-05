@@ -1,0 +1,153 @@
+@font-face {
+    font-family: "CustomFont";
+    src: url("../assets/fonts/Lexend-Regular.ttf");
+    font-family: "lexend-light";
+    src: url("../assets/fonts/Lexend-Light.ttf");
+}
+
+html, .type-body {
+    height: 100%; /* Ensure the html and body elements take up full height */
+    margin: 0;
+    padding: 0; /* Remove any potential default padding */
+}
+
+.settingMenu-header-container h3 {
+    font-size: 24px; /* Change font-size as needed */
+    font-family: "CustomFont";
+    transform: translate(-50px, 50px); 
+}
+
+.close-button {
+    background-color: transparent;
+    width: 50px;
+    height: 10px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-family: "CustomFont";
+    transform: translate(40px, -10px); 
+}
+
+img[alt="close-icon"] {
+    max-width: 80%;
+}
+
+.dataStorage-container p {
+    font-size: 14px; /* Change font-size as needed */
+    color: rgba(50,50,50);
+    letter-spacing: 1px;
+    font-family: "lexend-light";
+    transform: translate(-10px, -70px);  /* Adjust this value to move the text */
+}
+
+.storage-button {
+    background-color: transparent;
+    width: 80px;
+    height: 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-family: "CustomFont";
+    transform: translateX(-140px);
+}
+
+img[alt="storage-icon"] {
+    max-width: 30%;
+    transform: translate(60px, -43px);
+}
+
+.privacySecurity-container p {
+    font-size: 14px; /* Change font-size as needed */
+    color: rgba(50,50,50);
+    letter-spacing: 1px;
+    font-family: "lexend-light";
+    transform: translate(-10px, -70px);  /* Adjust this value to move the text */
+}
+
+.privacy-button {
+    background-color: transparent;
+    width: 80px;
+    height: 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-family: "CustomFont";
+    transform: translateX(-140px);
+}
+
+img[alt="security-icon"] {
+    max-width: 30%;
+    transform: translate(60px, -43px);
+}
+
+.language-container p {
+    font-size: 14px; /* Change font-size as needed */
+    color: rgba(50,50,50);
+    letter-spacing: 1px;
+    font-family: "lexend-light";
+    transform: translate(-10px, -70px);  /* Adjust this value to move the text */
+}
+
+.language-button {
+    background-color: transparent;
+    width: 80px;
+    height: 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-family: "CustomFont";
+    transform: translateX(-140px);
+}
+
+img[alt="language-icon"] {
+    max-width: 30%;
+    transform: translate(60px, -43px);
+}
+
+.help-container p {
+    font-size: 14px; /* Change font-size as needed */
+    color: rgba(50,50,50);
+    letter-spacing: 1px;
+    font-family: "lexend-light";
+    transform: translate(-10px, -70px);  /* Adjust this value to move the text */
+}
+
+.help-button {
+    background-color: transparent;
+    width: 80px;
+    height: 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-family: "CustomFont";
+    transform: translateX(-140px);
+}
+
+img[alt="help-icon"] {
+    max-width: 30%;
+    transform: translate(60px, -43px);
+}
+
+.about-container p {
+    font-size: 14px; /* Change font-size as needed */
+    color: rgba(50,50,50);
+    letter-spacing: 1px;
+    font-family: "lexend-light";
+    transform: translate(-10px, -70px);  /* Adjust this value to move the text */
+}
+
+.about-button {
+    background-color: transparent;
+    width: 80px;
+    height: 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-family: "CustomFont";
+    transform: translateX(-140px);
+}
+
+img[alt="about-icon"] {
+    max-width: 30%;
+    transform: translate(60px, -43px);
+}

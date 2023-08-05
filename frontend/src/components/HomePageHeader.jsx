@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import '../styles/HomePageHeader.css';
+import Modal from 'react-modal';
 import menu_logo from '../assets/images/menu-logo.png';
 import { Menubar } from './MenuBar';
 import setting_logo from '../assets/images/setting-logo-btn.png';
 import { OptionMenu } from './OptionMenu';
 import { SettingMenu } from './SettingMenu';
+
+Modal.setAppElement('#root') // this line is important for accessibility purposes
 
 function HomePageHeader({generatedItinerary}) {
   const [isMenubarOpen, setMenubarOpen] = useState(false);
@@ -32,13 +35,6 @@ function HomePageHeader({generatedItinerary}) {
   return (
     <div>
       <header>
-        {isMenubarOpen || isSettingOpen || isOptionMenuOpen ? (
-        <div>
-          {isMenubarOpen && <Menubar handleMenuClose={toggleMenubar} handleSettingOpen={handleSettingOpen}/>}
-          {isSettingOpen && <SettingMenu handleSettingClose={handleSettingClose}/>}
-          {isOptionMenuOpen && <OptionMenu handleCloseClick={toggleOptionMenu}/>}
-        </div>
-      ) : (
         <div className='homepage-header-container'>
           <button className="menu-logo-btn" onClick={toggleMenubar}>
               <img src={menu_logo} alt='menu-logo' />
@@ -56,11 +52,43 @@ function HomePageHeader({generatedItinerary}) {
           <button className="setting-logo-btn" onClick={toggleOptionMenu}>
               <img src={setting_logo} alt='setting-logo' />
           </button>
+
+          <Modal
+            isOpen={isMenubarOpen}
+            onRequestClose={toggleMenubar}
+            overlayClassName="overlay-sidebar"
+            className="sidebarModal"
+          >
+            <div className='sidebarModal-content'>
+              <Menubar handleMenuClose={toggleMenubar} handleSettingOpen={handleSettingOpen}/>
+            </div>
+          </Modal>
+
+          <Modal
+            isOpen={isSettingOpen}
+            onRequestClose={handleSettingClose}
+            overlayClassName="overlay-sidebar"
+            className="sidebarModal"
+          >
+            <SettingMenu handleSettingClose={handleSettingClose}/>
+          </Modal>
+
+          <Modal
+            isOpen={isOptionMenuOpen}
+            onRequestClose={toggleOptionMenu}
+            overlayClassName="overlay-sidebar"
+            className="optionMenuModal"
+          >
+            <div className='optionMenuModal-content'>
+              <OptionMenu handleCloseClick={toggleOptionMenu}/>
+            </div>
+          </Modal>
+
         </div>
-        )}
+
       </header>
     </div>
   );
 }
 
-export{ HomePageHeader };
+export { HomePageHeader };
