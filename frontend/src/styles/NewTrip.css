@@ -25,6 +25,12 @@ html, .new-body {
     justify-content: space-between; /* This will push everything apart */
 }
 
+.closing-btn {
+    position: absolute;
+    margin-top: 40px;
+    right: 20px;
+}  
+
 .body-content {
     display: flex;
     flex-direction: column;

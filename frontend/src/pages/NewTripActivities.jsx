@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/NewTripActivities.css';
 import { NewTripFooter } from '../components/NewTripFooter';
+import closingIcon from '../assets/images/close-icon.png';
 
 const NewTripActivities = () => {
     const navigate = useNavigate();
@@ -35,6 +36,12 @@ const NewTripActivities = () => {
         <div>
             <div className='body'>
                 <div className='body-activities'>
+                <img 
+                    src={closingIcon} 
+                    alt="Close" 
+                    className="closing-btn" 
+                    onClick={() => navigate("/homePage")} 
+                />
                     <h2>Activities</h2>
                     <p>Fill in the number of activities you would like to do in a day</p>
                     

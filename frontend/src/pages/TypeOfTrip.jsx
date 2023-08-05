@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import { useNavigate } from "react-router-dom";
 import '../styles/TypeOfTrip.css';
+import closeIcon from '../assets/images/close-icon.png';
 
 const TypeOfTrip = () => {
     const navigate = useNavigate();
@@ -23,6 +24,12 @@ const TypeOfTrip = () => {
 
     return (
         <div className='type-body'>
+            <img 
+                src={closeIcon} 
+                alt="Close" 
+                className="close-btn" 
+                onClick={() => navigate("/homePage")} 
+            />
             <h2>What is the purpose of your trip?</h2>
 
             <div className='trip-reason-selection'>

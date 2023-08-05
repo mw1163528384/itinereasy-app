@@ -1,5 +1,6 @@
 import React from 'react';
 import ai_logo from '../assets/images/ai-logo.png';
+import closingIcon from '../assets/images/close-icon.png';
 import { useNavigate } from "react-router-dom";
 import '../styles/NewTrip.css';
 
@@ -10,6 +11,12 @@ const NewTrip = () => {
     }
     return (
         <div>
+            <img 
+                src={closingIcon} 
+                alt="Close" 
+                className="closing-btn" 
+                onClick={() => navigate("/homePage")} 
+            />
             <div className='new-body'>
                 <div className='body-content'>
                     <img src={ai_logo} alt='ai-logo'/>

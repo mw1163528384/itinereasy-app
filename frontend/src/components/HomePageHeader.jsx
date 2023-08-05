@@ -3,7 +3,7 @@ import '../styles/HomePageHeader.css';
 import Modal from 'react-modal';
 import menu_logo from '../assets/images/menu-logo.png';
 import { Menubar } from './MenuBar';
-import setting_logo from '../assets/images/setting-logo.png';
+import setting_logo from '../assets/images/setting-logo-btn.png';
 import { OptionMenu } from './OptionMenu';
 import { SettingMenu } from './SettingMenu';
 
@@ -36,7 +36,7 @@ function HomePageHeader({generatedItinerary}) {
     <div>
       <header>
         <div className='homepage-header-container'>
-          <button onClick={toggleMenubar}>
+          <button className="menu-logo-btn" onClick={toggleMenubar}>
               <img src={menu_logo} alt='menu-logo' />
           </button>
 
@@ -49,7 +49,7 @@ function HomePageHeader({generatedItinerary}) {
           <h1>Itinerary</h1>
           )}
           
-          <button onClick={toggleOptionMenu}>
+          <button className="setting-logo-btn" onClick={toggleOptionMenu}>
               <img src={setting_logo} alt='setting-logo' />
           </button>
 

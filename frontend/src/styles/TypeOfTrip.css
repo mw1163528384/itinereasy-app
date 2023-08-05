@@ -24,6 +24,11 @@ html, .type-body {
     font-family: "CustomFont";
 }
 
+.close-btn {
+    position: absolute;
+    right: 20px;
+}
+
 .trip-reason-selection {
     gap: 25px;
     justify-content:center;
