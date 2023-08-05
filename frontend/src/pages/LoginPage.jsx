@@ -21,6 +21,8 @@ const LoginPage = () => {
 
         console.log('Email:', email);
         console.log('Password:', password);
+
+        navigate('/welcomePage');
 }
     return (
         <div>

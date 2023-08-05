@@ -10,8 +10,8 @@ const WelcomePage = () => {
   useEffect(() => {
     const timerId = setTimeout(() => {
       setIsLoading(false);
-      navigate('/HomePage'); // Navigate to the homepage
-    }, 50000); 
+      navigate('/homePage'); // Navigate to the homepage
+    }, 2000); 
     
     return () => {
       clearTimeout(timerId);

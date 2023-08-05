@@ -4,7 +4,6 @@ import { Calendar, momentLocalizer, Views } from 'react-big-calendar'
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import ReactSlider from 'react-slider';
-import ActivityBox from '../components/ActivitiesBox';
 import { HomePageHeader } from '../components/HomePageHeader';
 
 const ItineraryPage = () => {
@@ -96,7 +95,6 @@ const ItineraryPage = () => {
 
                 return (
                     <div key={index}>
-                        <ActivityBox activityTime={duration} />
                         <span>{moment(startTime).format('HH:mm')} - {moment(endTime).format('HH:mm')}:</span>
                         <span>{item.title}</span>
                     </div>

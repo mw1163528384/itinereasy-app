@@ -9,6 +9,7 @@ import language_icon from '../assets/images/language-icon.png';
 import notebook_icon from '../assets/images/notebook-icon.png';
 import calendar_icon from '../assets/images/calendar-icon.png';
 
+
 function EventEdit({ event, onEditSubmit, onEditClose}) {
   const [title, setTitle] = useState(event.title);
   const [date, setDate] = useState(event.date);

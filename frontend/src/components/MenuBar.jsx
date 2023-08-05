@@ -5,8 +5,10 @@ import left_icon from '../assets/images/left-icon.png';
 import search_icon from '../assets/images/search-icon.png';
 import setting_icon from '../assets/images/setting-icon.png';
 import signout_icon from '../assets/images/signout-icon.png';
+import { AddTripButton } from '../components/AddTripButton';
+import { ItinerariesBox } from './ItinerariesBox';
 
-const Menubar = ({ handleMenuClose, handleSettingOpen }) => {
+const Menubar = ({ handleMenuClose, handleSettingOpen, histories }) => {
     const navigate = useNavigate();
 
     const handleLogOut = () => {
@@ -34,8 +36,22 @@ const Menubar = ({ handleMenuClose, handleSettingOpen }) => {
                     </div>
                 </header>
 
+                
+                {histories ? (
+                    <div className='itineraries-container'>
+                        <p>My trips</p>
+                        <ItinerariesBox histories={histories} />
+                        <AddTripButton className='addTrip-MenuBar'/>
+                    </div>
+                ) : ( 
                 <div className='itineraries-container'>
+                    <div className='noItinerary_msg_container'>
+                        <p>You do not have any itineraries</p>
+                    </div>
+                    <AddTripButton className='addTrip-MenuBar'/>
                 </div>
+                )
+                }
                 
                 <footer className='menuBar-footer-container'>
                     <div className='setting-container'>

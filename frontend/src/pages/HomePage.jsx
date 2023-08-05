@@ -1,20 +1,26 @@
 // HomePage.js
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import '../styles/HomePage.css';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
+import Modal from 'react-modal';
 import sorry_img from '../assets/images/sorry-img.png';
-import add_ring from '../assets/images/add_ring_fill.png';
+import { AddTripButton } from '../components/AddTripButton';
 import { HomePageHeader } from '../components/HomePageHeader';
+import { EventDetail } from '../components/EventDetail';
+import { EventEdit } from '../components/EventDetailEdit';
+import { EventBox } from '../components/EventBox';
 
 const HomePage = () => {
-    const navigate = useNavigate();
     const [userItinerary, setuserItinerary] = useState(null);
     const location = useLocation();
     const generatedItinerary = location.state?.generatedItinerary;
     const [events, setEvents] = useState([]);
+    const [isEventDetailOpen, setEventDetailOpen] = useState(false);
+    const [isEventDetailEditOpen, setEventDetailEditOpen] = useState(false);
+    const [selectedEvent, setSelectedEvent] = useState(null);
     
     useEffect(() => {
         fetchUserItinerary();
@@ -44,48 +50,86 @@ const HomePage = () => {
             setEvents(formattedEvents);
         }
     }, [userItinerary])
-
-    const handleAddTripClick = () => {
-        navigate('/');
-    };
       
     const localizer = momentLocalizer(moment);
 
+    const handleEventClick = (event) => {
+        setSelectedEvent(event);
+        setEventDetailOpen(true);
+    }
+
+    const closeEventDetail = () => {
+        setEventDetailOpen(false);
+    }
+
+    const openEventDetailEdit = () => {
+        setEventDetailOpen(false)
+        setEventDetailEditOpen(true);
+    }
+
+    const closeEventDetailEdit = () => {
+        setEventDetailEditOpen(false);
+    }
+
     return (
         <div>
-            <HomePageHeader generatedItinerary={generatedItinerary} />
+            <HomePageHeader />
 
             {generatedItinerary ? (
-                <div className='homepage-body'>
-                    <Calendar 
-                    localizer={localizer}
-                    events={events}
-                    startAccessor="start"
-                    endAccessor="end"
-                    views={['week']}
-                    style={{height:500}} 
-                />
-                <pre>{JSON.stringify(generatedItinerary, null, 2)}</pre>
+                    <div className='homepage-body'>
+                        <Calendar 
+                        localizer={localizer}
+                        events={events}
+                        startAccessor="start"
+                        endAccessor="end"
+                        views={['week']}
+                        style={{height:500}}
+                        components={{
+                            event: EventBox
+                        }}
+                        onSelectEvent={handleEventClick} 
+                    />
+                        <pre>{JSON.stringify(generatedItinerary, null, 2)}</pre>
 
-                </div>
-            ) : (
-            <div className='homepage-body-new'>
-                <div className='sorry_img_container'>
-                    <img src={sorry_img} alt='sorry_img'/>
-                </div>
-                
-                <div className='sorry_msg_container'>
-                    <h3>Oops! Looks like you don't have any itineraries at the moment.</h3>
-                </div>
-                
-                <div className='addTrip_btn_container'>
-                    <button onClick={handleAddTripClick} id="addTrip-btn" className='addTrip-btn'> 
-                        <img src={add_ring} alt='add_ring'/>
-                        Click here to add new trip 
-                    </button>
-                </div>
-            </div>
-            )}
+                        <Modal
+                            isOpen={isEventDetailOpen}
+                            onRequestClose={closeEventDetail}
+                            overlayClassName="overlay-eventDetail"
+                            className="eventDetail-popup"
+                        >
+                            <EventDetail 
+                            event={selectedEvent}
+                            onClose={closeEventDetail}
+                            onEdit={openEventDetailEdit}
+                            />
+                        </Modal>
+
+                        <Modal
+                            isOpen={isEventDetailEditOpen}
+                            onRequestClose={closeEventDetailEdit}
+                            overlayClassName="overlay-eventDetail"
+                            className="eventDetail-popup"
+                        >
+                            <EventEdit
+                            event={selectedEvent}
+                            onClose={closeEventDetailEdit}
+                            />
+                        </Modal>
+                    </div>
+                ) : (
+                    <div className='homepage-body-new'>
+                        <div className='sorry_img_container'>
+                            <img src={sorry_img} alt='sorry_img'/>
+                        </div>
+                        
+                        <div className='sorry_msg_container'>
+                            <h3>Oops! Looks like you don't have any itineraries at the moment.</h3>
+                        </div>
+                        
+                        <AddTripButton />
+                    </div>
+                )
+            }
         </div>
     );
 }
