@@ -14,9 +14,8 @@ html, .body {
 /* The header container in the menu bar */
 .title-container {
     font-size: 13px; /* Change font-size as needed */
-    margin-top: -43px; /* This will shift the text upwards. Adjust as needed. */
     font-family: "CustomFont";
-    transform: translateX(-10px);
+    transform: translate(-10px, -13px);
 }
 
 .left-button {
@@ -27,8 +26,7 @@ html, .body {
     border-radius: 25px;
     font-size: 16px;
     font-family: "CustomFont";
-    margin-top: 40px;
-    transform: translateX(-100px);
+    transform: translate(-80px, 30px);
 }
 
 img[alt="left-icon"] {
@@ -49,8 +47,7 @@ img[alt="left-icon"] {
 
 img[alt="search-icon"] {
     max-width: 30%;
-    margin-top: -60px;
-    margin-bottom: 23px;
+    transform: translate(-30px, -40px);
 }
 
 .setting-container h1 {
@@ -60,7 +57,7 @@ img[alt="search-icon"] {
     margin-top: 120px;
     margin-bottom: -140px; /* This will shift the text upwards. Adjust as needed. */
     font-family: "lexend-light";
-    transform: translateX(-80px);
+    transform: translateX(-60px);
 }
 
 .setting-button {
@@ -72,7 +69,7 @@ img[alt="search-icon"] {
     font-size: 16px;
     font-family: "CustomFont";
     margin-bottom: 50px;
-    transform: translateX(-140px);
+    transform: translateX(-120px);
 }
 
 img[alt="setting-icon"] {
@@ -88,7 +85,7 @@ img[alt="setting-icon"] {
     margin-top: 120px;
     margin-bottom: 120px; /* This will shift the text upwards. Adjust as needed. */
     font-family: "lexend-light";
-    transform: translateX(-80px);
+    transform: translateX(-60px);
 }
 
 .signout-button {
@@ -99,7 +96,7 @@ img[alt="setting-icon"] {
     border-radius: 25px;
     font-size: 16px;
     font-family: "CustomFont";
-    transform: translateX(-140px);
+    transform: translateX(-120px);
 }
 
 img[alt="signout-icon"] {
@@ -107,4 +104,16 @@ img[alt="signout-icon"] {
     color: rgba(50,50,50);
     margin-top: 170px;
     margin-bottom: -145px;
+}
+
+
+.noItinerary_msg_container p {
+    font-size: 20px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    text-align: center;
+    transform: translate(-4px, 40px);
+}
+
+.addTrip-btn {
+    transform: translate(-190px, -300px);
 }
