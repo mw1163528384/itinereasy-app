@@ -21,7 +21,9 @@ const HomePage = () => {
     const [isEventDetailEditOpen, setEventDetailEditOpen] = useState(false);
     const [selectedEvent, setSelectedEvent] = useState(null);
     const [isLoading, setIsLoading] = useState(true); 
+    const [pageToggle, setpageToggle] = useState(false);
     const localizer = momentLocalizer(moment);
+
 
     
     const fetchData = () => {
@@ -30,7 +32,7 @@ const HomePage = () => {
         fetch(`http://localhost:5001/getData/${scenarioNumber}`)
             .then((response) => {
                 if (!response.ok) { 
-                    throw new Error('Network response was not ok'); 
+                    throw new Error('Network response was not returned. Check your scenario number!'); 
                 }
                 return response.json();
             })
@@ -39,6 +41,8 @@ const HomePage = () => {
                 setGenerateditinerary(generatedItinerary);
             })
             .catch((error) => {
+                setIsLoading(false);
+                setpageToggle(false);
                 console.error('An error occurred:', error);
             });
     };
@@ -76,14 +80,31 @@ const HomePage = () => {
                                     const [dayPart, month, year] = day.split('-');
                                     const startDate = new Date(year, month - 1, dayPart); // JS counts months from 0
                                     const endDate = new Date(year, month - 1, dayPart);
+                                    
 
-                                    // Extract hours and minutes from start and end times
-                                    const [startHours, startMinutes] = timeParts[0].split(':');
-                                    const [endHours, endMinutes] = timeParts[1].split(':');
+                                    // Extract hours, minutes and AM/PM from start and end times
+                                    const [startHours, startMinutesPart] = timeParts[0].split(':');
+                                    const [startMinutes, startAmPm] = startMinutesPart.split(' ');
+                                    console.log('Start time init:', parseInt(startHours),startMinutes);
+
+                                    const [endHours, endMinutesPart] = timeParts[1].split(':');
+                                    const [endMinutes, endAmPm] = endMinutesPart.split(' ');
+                                    console.log('End time init:', parseInt(endHours),endMinutes);
+
+                                    // Adjust hours based on AM/PM
+                                    const startHoursAdjusted = startAmPm.toUpperCase() === 'PM' && parseInt(startHours) != 12 ? parseInt(startHours) + 12 : startHours;
+                                    const endHoursAdjusted = endAmPm.toUpperCase() === 'PM' && parseInt(endHours) != 12 ? parseInt(endHours) + 12 : endHours;
+                                    console.log('Start time:', startHoursAdjusted,startMinutes);
+                                    console.log('End time:', endHoursAdjusted,endMinutes);
 
                                     // Create new start and end date objects with merged date and time
-                                    const startDateTime = new Date(startDate.setHours(parseInt(startHours), parseInt(startMinutes)));
-                                    const endDateTime = new Date(endDate.setHours(parseInt(endHours), parseInt(endMinutes)));
+                                    const startDateTime = new Date(startDate.setHours(startHoursAdjusted, parseInt(startMinutes)));
+                                    const endDateTime = new Date(endDate.setHours(endHoursAdjusted, parseInt(endMinutes)));
+
+                                    // Adjust the time to the local time zone
+                                    //startDateTime.setMinutes(startDateTime.getMinutes() - startDateTime.getTimezoneOffset());
+                                    //endDateTime.setMinutes(endDateTime.getMinutes() - endDateTime.getTimezoneOffset());
+
 
                                     const formattedEvent = {
                                         title: String(title),
@@ -92,8 +113,9 @@ const HomePage = () => {
                                         cost: activity.Cost,
                                         transportation: Array.isArray(activity.Transportation) ? [].concat(...activity.Transportation).join(', ') : activity.Transportation || "Not provided",
                                     };
-                                    console.log('Formatted event:', formattedEvent);
+                                    //console.log('Formatted event:', formattedEvent);
                                     formattedEvents.push(formattedEvent);
+                                    setpageToggle(true)  //set me if itinerary is generated
                                 } else {
                                     console.error('Missing required itinerary item properties for activity:', activity);
                                     throw new Error('Missing required itinerary item properties');
@@ -145,11 +167,11 @@ const HomePage = () => {
             <HomePageHeader />
 
             {isLoading ? (
-                <div>Loading...</div> // Display loading message while data is being fetched
-            ) : generatedItinerary ? (
+                <div>Fetching itinerary data...</div> // Display loading message while data is being fetched
+            ) : pageToggle? (
                     <div className='homepage-body'>
-                        {console.log('Events:', events)} {/* Log events here */}
-                        {events.forEach((event, index) => console.log(`Title at index ${index}:`, event.title))}
+                        {/*{console.log('Events:', events)} {/* Log events here */}
+                        {/*{events.forEach((event, index) => console.log(`Title at index ${index}:`, event.title))}*/}
                         <Calendar 
                             localizer={localizer}
                             events={events}
@@ -188,7 +210,7 @@ const HomePage = () => {
                             />
                         </Modal>
                     </div>
-                ) : (
+                ) :  (
                     <div className='homepage-body-new'>
                         <div className='sorry_img_container'>
                             <img src={sorry_img} alt='sorry_img'/>
