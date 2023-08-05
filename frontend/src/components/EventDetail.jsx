@@ -76,7 +76,10 @@ function EventDetail({ event, toggleEventEdit, handleEventDetailClose }) {
                     Replace
                 </button>
 
-                <button className='editBtn' onClick={toggleEventEdit}>
+                <button className='editBtn' onClick={() => {
+                    handleEventDetailClose();
+                    toggleEventEdit();
+                }}>
                     <img src={edit_icon} alt='edit-icon' />
                     Edit
                 </button>
