@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/EventDetail.css';
 import moment from 'moment';
+import event_bg from '../assets/images/event_bg.png';
 import trash_icon from '../assets/images/trash-icon.png';
 import close_icon from '../assets/images/close-icon.png';
 import location_pin from '../assets/images/location-pin.png';
@@ -12,7 +13,7 @@ import notebook_icon from '../assets/images/notebook-icon.png';
 import replace_icon from '../assets/images/replace-icon.png';
 import edit_icon from '../assets/images/edit-icon.png';
 
-function EventDetail({ event, toggleEventEdit, handleEventDetailClose }) {
+function EventDetail({ event, onEventEdit, onEventDetailClose }) {
     if (!event) {
         return null
     }
@@ -21,12 +22,12 @@ function EventDetail({ event, toggleEventEdit, handleEventDetailClose }) {
     <div>
         <div className='body'>
             <header className='eventdetail-header-container'>
-            {/* Image get from database? ---- check */}
+                <img src={event_bg} alt='event-background'/>
                 <div className='eventdetail-header-btn'>
                     <button>
                         <img src={trash_icon} alt='trash-icon' />
                     </button>
-                    <button onClick={handleEventDetailClose}>
+                    <button onClick={onEventDetailClose}>
                         <img src={close_icon} alt='close-icon' />
                     </button>
                 </div>
@@ -45,7 +46,7 @@ function EventDetail({ event, toggleEventEdit, handleEventDetailClose }) {
                     
                     <div className='event-operating-time'>
                         <img src={time_icon} alt='time-icon' />
-                        <p>{event.operatingTime}</p>
+                        <p>Open 8.00am to 9.30pm</p>
                     </div>
                     
                     <div className='event-cost'>
@@ -55,12 +56,12 @@ function EventDetail({ event, toggleEventEdit, handleEventDetailClose }) {
                     
                     <div className='event-transport'>
                         <img src={transport_icon} alt='transport-icon' />
-                        <p>{event.transport}</p>
+                        <p>{event.transportation}</p>
                     </div>
                     
                     <div className='event-website'>
                         <img src={language_icon} alt='website-icon' />
-                        <p>{event.website}</p>
+                        <p>www.itinerasy.com</p>
                     </div>
                     
                     <div className='event-note'>
@@ -77,8 +78,8 @@ function EventDetail({ event, toggleEventEdit, handleEventDetailClose }) {
                 </button>
 
                 <button className='editBtn' onClick={() => {
-                    handleEventDetailClose();
-                    toggleEventEdit();
+                    onEventDetailClose();
+                    onEventEdit();
                 }}>
                     <img src={edit_icon} alt='edit-icon' />
                     Edit

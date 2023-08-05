@@ -16,10 +16,8 @@ function EventEdit({ event, onEditSubmit, onEditClose}) {
   const [start, setStart] = useState(event.start);
   const [end, setEnd] = useState(event.end);
   const [location, setLocation] = useState(event.location);
-  const [operatingTime, setOperatingTime] = useState(event.operatingTime);
   const [cost, setCost] = useState(event.cost);
-  const [transport, setTransport] = useState(event.transport);
-  const [website, setWebite] = useState(event.website);
+  const [transportation, setTransportation] = useState(event.transportation);
   const [notes, setNotes] = useState(event.note);
 
   const handleEditSubmit = (e) => {
@@ -31,10 +29,8 @@ function EventEdit({ event, onEditSubmit, onEditClose}) {
         start: start,
         end: end,
         location: location,
-        operatingTime: operatingTime,
         cost: cost,
-        transport: transport,
-        website: website,
+        transport: transportation,
         notes: notes
     });
   }
@@ -42,16 +38,13 @@ function EventEdit({ event, onEditSubmit, onEditClose}) {
   return (
     <div>
         <div className='body'>
+            <button className='eventdetail-edit-close' onClick={onEditClose}>
+                <img src={close_icon} alt='edit-close'/>
+            </button>
             <form onSubmit={handleEditSubmit} className='eventdetail-edit-form'>
-                <div className='eventdetail-edit-topbar'>
-                    <label className='eventdetail-edit-title'>
-                        <input value={title} onChange={e => setTitle(e.target.value)}/>
-                    </label>
-                    
-                    <button className='eventdetail-edit-close' onClick={onEditClose}>
-                        <img src={close_icon} alt='edit-close'/>
-                    </button>
-                </div>
+                <label className='eventdetail-edit-title'>
+                    <input value={title} onChange={e => setTitle(e.target.value)}/>
+                </label>
                 
                 <div className='eventdetail-edit-content'>
                     <label className='eventdetail-edit-date'>
@@ -71,7 +64,9 @@ function EventEdit({ event, onEditSubmit, onEditClose}) {
                     <label className='eventdetail-edit-operatingTime'>
                         <img src={time_icon} alt='edit-time'/>
                         Opening Hours
-                        <input value={operatingTime} onChange={e => setOperatingTime(e.target.value)}/>
+                        <input value="8.00am"/>
+                        <p>to</p>
+                        <input value="9.30pm" />
                     </label>
 
                     <label className='eventdetail-edit-cost'>
@@ -83,13 +78,13 @@ function EventEdit({ event, onEditSubmit, onEditClose}) {
                     <label className='eventdetail-edit-transportation'>
                         <img src={transport_icon} alt='edit-transportation'/>
                         Transportation
-                        <input value={transport} onChange={e => setTransport(e.target.value)}/>
+                        <input value={transportation} onChange={e => setTransportation(e.target.value)}/>
                     </label>
 
                     <label className='eventdetail-edit-website'>
                         <img src={language_icon} alt='edit-website'/>
                         Website
-                        <input value={website} onChange={e => setWebite(e.target.value)}/>
+                        <input value="www.itinerasy.com"/>
                     </label>
                     
                     <label className='eventdetail-edit-notes'>

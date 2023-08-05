@@ -22,7 +22,7 @@ const HomePage = () => {
     const [selectedEvent, setSelectedEvent] = useState(null);
     const [isLoading, setIsLoading] = useState(true); 
     const localizer = momentLocalizer(moment);
-    
+
     
     const fetchData = () => {
         setIsLoading(true); // Set loading state to true when fetching data
@@ -137,6 +137,7 @@ const HomePage = () => {
 
     const closeEventDetailEdit = () => {
         setEventDetailEditOpen(false);
+        setEventDetailOpen(true);
     }
 
     return (
@@ -170,8 +171,8 @@ const HomePage = () => {
                         >
                             <EventDetail 
                             event={selectedEvent}
-                            onClose={closeEventDetail}
-                            onEdit={openEventDetailEdit}
+                            onEventDetailClose={closeEventDetail}
+                            onEventEdit={openEventDetailEdit}
                             />
                         </Modal>
 
@@ -183,7 +184,7 @@ const HomePage = () => {
                         >
                             <EventEdit
                             event={selectedEvent}
-                            onClose={closeEventDetailEdit}
+                            onEditClose={closeEventDetailEdit}
                             />
                         </Modal>
                     </div>
