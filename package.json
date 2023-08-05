@@ -1,0 +1,17 @@
+{
+  "name": "itinereasy-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "frontend": "cd frontend && npm start",
+    "backend": "cd backend && node App.js",
+    "dev": "concurrently \"npm run frontend\" \"npm run backend\""
+  },
+  "dependencies": {
+
+  },
+  "devDependencies": {
+    "concurrently": "^6.4.0"
+  },
+  "private": true
+}
