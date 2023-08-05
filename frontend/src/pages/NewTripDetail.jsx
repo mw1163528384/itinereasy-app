@@ -5,6 +5,7 @@ import { NewTripFooter } from '../components/NewTripFooter';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { eachDayOfInterval } from 'date-fns';
+import closingIcon from '../assets/images/close-icon.png';
 
 const NewTripDetail = () => {
     const navigate = useNavigate();
@@ -63,6 +64,12 @@ const NewTripDetail = () => {
     <div>
       <div className='body'>
         <div className='body-detail'>
+          <img 
+              src={closingIcon} 
+              alt="Close" 
+              className="closing-btn" 
+              onClick={() => navigate("/homePage")} 
+          />
           <h2>Trip details</h2>
           <p>Fill in your trip dates, arrival and departure times.</p>
           

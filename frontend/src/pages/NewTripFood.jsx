@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/NewTripFood.css';
 import { NewTripFooter } from '../components/NewTripFooter';
+import closingIcon from '../assets/images/close-icon.png';
 
 const NewTripFood = () => {
     const navigate = useNavigate();
@@ -38,6 +39,12 @@ const NewTripFood = () => {
       <div>
         <div className='body'>
           <div className='body-food'>
+          <img 
+              src={closingIcon} 
+              alt="Close" 
+              className="closing-btn" 
+              onClick={() => navigate("/homePage")} 
+          />
             <h2>Food</h2>
             <h5>Food preferences</h5>
             <p>Add your favourite food preferences below, or specific dishes you want to try abroad.</p>

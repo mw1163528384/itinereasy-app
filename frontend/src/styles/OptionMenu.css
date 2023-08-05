@@ -15,23 +15,18 @@ html, .body {
 .optionMenu-container h3 {
     font-size: 20px; /* Change font-size as needed */
     font-family: "CustomFont";
-    transform: translate(62px, 115px);
+    transform: translate(50px, 100px);
 }
 
 .close-button {
-    background-color: transparent;
-    width: 50px;
-    height: 10px;
-    border: none;
-    border-radius: 25px;
-    font-size: 16px;
-    font-family: "CustomFont";
+    position: absolute;
+    top: 37px;  /* adjust as needed */
+    right: 45px;  /* adjust as needed */
 }
-
 
 img[alt="close-icon"] {
     max-width: 80%;
-    transform: translate(90px, 15px); 
+    /* transform: translate(90px, 15px);  */
 }
 
 .regenerate-container h1 {
