@@ -10,7 +10,7 @@ const OptionMenu = ({handleCloseClick}) => {
         <div>
             <div className='body'>
                 <div className='optionMenu-container'>
-                    <div className='title-container'>
+                    <div className='options-container'>
                         <h3>Itinerary options</h3>
                     </div>
                     <div className='close-button-container'>
