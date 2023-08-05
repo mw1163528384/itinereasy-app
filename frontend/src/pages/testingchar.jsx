@@ -100,8 +100,9 @@ const ItineraryPage = () => {
                     </div>
                 );
             })}
-            <pre>{JSON.stringify(events, null, 2)}</pre>
-                </div>
+
+            <pre>{JSON.stringify(data, null, 2)}</pre>
+            </div>
 
         </div>
     );
