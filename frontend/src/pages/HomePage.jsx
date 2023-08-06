@@ -94,8 +94,8 @@ const HomePage = () => {
                                     console.log('End time init:', parseInt(endHours),endMinutes);
 
                                     // Adjust hours based on AM/PM
-                                    const startHoursAdjusted = startAmPm.toUpperCase() === 'PM' && parseInt(startHours) != 12 ? parseInt(startHours) + 12 : startHours;
-                                    const endHoursAdjusted = endAmPm.toUpperCase() === 'PM' && parseInt(endHours) != 12 ? parseInt(endHours) + 12 : endHours;
+                                    const startHoursAdjusted = startAmPm.toUpperCase() === 'PM' && parseInt(startHours) !== 12 ? parseInt(startHours) + 12 : startHours;
+                                    const endHoursAdjusted = endAmPm.toUpperCase() === 'PM' && parseInt(endHours) !== 12 ? parseInt(endHours) + 12 : endHours;
                                     console.log('Start time:', startHoursAdjusted,startMinutes);
                                     console.log('End time:', endHoursAdjusted,endMinutes);
 

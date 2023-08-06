@@ -4,11 +4,12 @@ import '../styles/NewTripActivities.css';
 import { NewTripFooter } from '../components/NewTripFooter';
 import closingIcon from '../assets/images/close-icon.png';
 
-const NewTripActivities = () => {
+const ActivityTestingPage = () => {
   const navigate = useNavigate();
   const [selectedNoActivities, setSelectedNoActivities] = useState('');
   const [activities, setActivities] = useState([]);
   const [currentActivity, setCurrentActivity] = useState('');
+  const presetActivities = ['Cycling', 'Beaches', 'Night markets', 'Museums', 'Hiking', 'Shopping'];
 
   const handleNoActivitiesChange = (event) => {
     setSelectedNoActivities(event.target.value);
@@ -68,22 +69,27 @@ const NewTripActivities = () => {
           <p>
             Add activities or sights you would like to do/see.
             <br />
-            e.g. Cycling, Beaches, Night markets, Etc.
           </p>
+          <br />
+          <br />
 
-          <div className='new-activities-box'>
-            {activities.map((activity, index) => (
-              <div key={index} className='new-activities-content'>
-                {activity}
-                <button 
-                  onClick={() => {
-                    const newActivities = [...activities];
-                    newActivities.splice(index, 1);
-                    setActivities(newActivities);
+          <div className='preset-activities'>
+            {presetActivities.map((activity, index) => (
+              <div key={index}>
+                <input
+                  type='checkbox'
+                  id={`activity-${index}`}
+                  name={activity}
+                  value={activity}
+                  onChange={(event) => {
+                    if (event.target.checked) {
+                      setActivities((prevActivities) => [...prevActivities, activity]);
+                    } else {
+                      setActivities((prevActivities) => prevActivities.filter((a) => a !== activity));
+                    }
                   }}
-                >
-                  x
-                </button>
+                />
+                <label htmlFor={`activity-${index}`}>{activity}</label>
               </div>
             ))}
           </div>
@@ -116,4 +122,4 @@ const NewTripActivities = () => {
   );
 };
 
-export { NewTripActivities };
+export { ActivityTestingPage };

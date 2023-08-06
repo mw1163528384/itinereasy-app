@@ -10,12 +10,14 @@ import { HomePage } from "./pages/HomePage";
 import { ItineraryPage } from "./pages/testingchar";
 import { LoginPage } from "./pages/LoginPage";
 import { WelcomePage } from "./pages/WelcomePage";
+import { ActivityTestingPage } from "./pages/NewTripActivitiesTesting";
 
 function App() {
   return(
     <BrowserRouter>
       <Routes>
         <Route path="testing" element={<ItineraryPage/>}></Route>
+        <Route path="tripActivitiesTest" element={<ActivityTestingPage/>}></Route>
         <Route path="homePage" element={<HomePage/>}></Route>
         <Route path="newTrip" element={<NewTrip/>}></Route>
         <Route path="tripType" element={<TypeOfTrip/>}></Route>
