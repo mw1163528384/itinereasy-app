@@ -16,6 +16,7 @@ import { useScenario } from '../contexts/ScenarioContext';
 
 const HomePage = () => {
     const [generatedItinerary,setGenerateditinerary] = useState(null);
+    const [itineraryIndex, setItineraryIndex] = useState(0);
     const { scenarioNumber } = useScenario();
     const [events, setEvents] = useState([]);
     const [scenarioStartDate, setScenarioStartDate] = useState(new Date());
@@ -57,82 +58,77 @@ const HomePage = () => {
     useEffect(() => {
         fetchData();
     }, [scenarioNumber]);
-    
-
 
     useEffect(() => {
-        if (generatedItinerary) {
+        const itinerary = generatedItinerary?.[itineraryIndex];
+        if (itinerary) {
             console.log('Scenario Data:', generatedItinerary);
+            console.log('Generated Itinerary:', itinerary);
     
-            try {
-                const itinerary1 = generatedItinerary[0];
-                console.log('Generated Itinerary:', itinerary1);
-    
-                if (itinerary1) {
-                    const formattedEvents = [];
-    
-                    // Loop through all days in the itinerary
-                    for (const day in itinerary1) {
-                        const activities = itinerary1[day];
-    
-                        // Loop through all activities in the day
-                        for (const activity of activities) {
-                            console.log('Activity:', activity);
-                        
-                            // Inside the loop processing your activities
-                                const title = activity.Activity || activity.Food || 'No Title'; // add default title
-                                if (title && title.trim() !== '') {
-                                    const timeParts = activity.Time.split(' - ');
+            try {   
+                const formattedEvents = [];
+                // Loop through all days in the itinerary
+                for (const day in itinerary) {
+                    const activities = itinerary[day];
 
-                                    const [dayPart, month, year] = day.split('-');
-                                    const startDate = new Date(year, month - 1, dayPart); // JS counts months from 0
-                                    const endDate = new Date(year, month - 1, dayPart);
-                                    
+                    // Loop through all activities in the day
+                    for (const activity of activities) {
+                        console.log('Activity:', activity);
+                    
+                        // Inside the loop processing your activities
+                            const title = activity.Activity || activity.Food || 'No Title'; // add default title
+                            if (title && title.trim() !== '') {
+                                const timeParts = activity.Time.split(' - ');
 
-                                    // Extract hours, minutes and AM/PM from start and end times
-                                    const [startHours, startMinutesPart] = timeParts[0].split(':');
-                                    const [startMinutes, startAmPm] = startMinutesPart.split(' ');
-                                    console.log('Start time init:', parseInt(startHours),startMinutes);
+                                const [dayPart, month, year] = day.split('-');
+                                const startDate = new Date(year, month - 1, dayPart); // JS counts months from 0
+                                const endDate = new Date(year, month - 1, dayPart);
+                                
 
-                                    const [endHours, endMinutesPart] = timeParts[1].split(':');
-                                    const [endMinutes, endAmPm] = endMinutesPart.split(' ');
-                                    console.log('End time init:', parseInt(endHours),endMinutes);
+                                // Extract hours, minutes and AM/PM from start and end times
+                                const [startHours, startMinutesPart] = timeParts[0].split(':');
+                                const [startMinutes, startAmPm] = startMinutesPart.split(' ');
+                                console.log('Start time init:', parseInt(startHours),startMinutes);
 
-                                    // Adjust hours based on AM/PM
-                                    const startHoursAdjusted = startAmPm.toUpperCase() === 'PM' && parseInt(startHours) !== 12 ? parseInt(startHours) + 12 : startHours;
-                                    const endHoursAdjusted = endAmPm.toUpperCase() === 'PM' && parseInt(endHours) !== 12 ? parseInt(endHours) + 12 : endHours;
-                                    console.log('Start time:', startHoursAdjusted,startMinutes);
-                                    console.log('End time:', endHoursAdjusted,endMinutes);
+                                const [endHours, endMinutesPart] = timeParts[1].split(':');
+                                const [endMinutes, endAmPm] = endMinutesPart.split(' ');
+                                console.log('End time init:', parseInt(endHours),endMinutes);
 
-                                    // Create new start and end date objects with merged date and time
-                                    const startDateTime = new Date(startDate.setHours(startHoursAdjusted, parseInt(startMinutes)));
-                                    const endDateTime = new Date(endDate.setHours(endHoursAdjusted, parseInt(endMinutes)));
+                                // Adjust hours based on AM/PM
+                                const startHoursAdjusted = startAmPm.toUpperCase() === 'PM' && parseInt(startHours) !== 12 ? parseInt(startHours) + 12 : startHours;
+                                const endHoursAdjusted = endAmPm.toUpperCase() === 'PM' && parseInt(endHours) !== 12 ? parseInt(endHours) + 12 : endHours;
+                                console.log('Start time:', startHoursAdjusted,startMinutes);
+                                console.log('End time:', endHoursAdjusted,endMinutes);
 
-                                    // Adjust the time to the local time zone
-                                    //startDateTime.setMinutes(startDateTime.getMinutes() - startDateTime.getTimezoneOffset());
-                                    //endDateTime.setMinutes(endDateTime.getMinutes() - endDateTime.getTimezoneOffset());
+                                // Create new start and end date objects with merged date and time
+                                const startDateTime = new Date(startDate.setHours(startHoursAdjusted, parseInt(startMinutes)));
+                                const endDateTime = new Date(endDate.setHours(endHoursAdjusted, parseInt(endMinutes)));
+
+                                // Adjust the time to the local time zone
+                                //startDateTime.setMinutes(startDateTime.getMinutes() - startDateTime.getTimezoneOffset());
+                                //endDateTime.setMinutes(endDateTime.getMinutes() - endDateTime.getTimezoneOffset());
 
 
-                                    const formattedEvent = {
-                                        title: String(title),
-                                        start: startDateTime,
-                                        end: endDateTime,
-                                        cost: activity.Cost,
-                                        transportation: Array.isArray(activity.Transportation) ? [].concat(...activity.Transportation).join(', ') : activity.Transportation || "Not provided",
-                                    };
-                                    //console.log('Formatted event:', formattedEvent);
-                                    formattedEvents.push(formattedEvent);
-                                    setpageToggle(true)  //set me if itinerary is generated
-                                } else {
-                                    console.error('Missing required itinerary item properties for activity:', activity);
-                                    throw new Error('Missing required itinerary item properties');
-                                }
-
-                        
-                            // Check if title is missing or empty
-                            if (!title || title.trim() === '') {
-                                console.log('Activity without title:', activity);
+                                const formattedEvent = {
+                                    title: String(title),
+                                    start: startDateTime,
+                                    end: endDateTime,
+                                    cost: activity.Cost,
+                                    transportation: Array.isArray(activity.Transportation) ? [].concat(...activity.Transportation).join(', ') : activity.Transportation || "Not provided",
+                                };
+                                //console.log('Formatted event:', formattedEvent);
+                                formattedEvents.push(formattedEvent);
+                                setpageToggle(true)  //set me if itinerary is generated
+                            } else {
+                                console.error('Missing required itinerary item properties for activity:', activity);
+                                throw new Error('Missing required itinerary item properties');
                             }
+
+                    
+                        // Check if title is missing or empty
+                        if (!title || title.trim() === '') {
+                            console.log('Activity without title:', activity);
+                        }
                         }
                         
                         
@@ -141,12 +137,12 @@ const HomePage = () => {
                     setEvents(formattedEvents);
                     setIsLoading(false); // Set loading state to false when data has been loaded and formatted
                 }
-            } catch (error) {
+            catch (error) {
                 console.error('Error formatting events:', error);
             }
         }
         
-    }, [generatedItinerary]);
+    }, [generatedItinerary,itineraryIndex]);
 
   
 
@@ -169,9 +165,27 @@ const HomePage = () => {
         setEventDetailOpen(true);
     }
 
+    const handleRegenerateClick = () => {
+        if (itineraryIndex === 0) {
+            setItineraryIndex(parseInt(1));
+        
+        }
+        else {
+            setItineraryIndex(parseInt(0));
+        
+        }
+
+        
+
+    }
+
+    console.log('itineraryIndex:', itineraryIndex);
+
     return (
         <div>
-            <HomePageHeader />
+            <HomePageHeader 
+                generatedItinerary={generatedItinerary}
+                handleRegenerateClick={handleRegenerateClick}/>
             {isLoading ? (
                 <div>Fetching itinerary data...</div> // Display loading message while data is being fetched
             ) : pageToggle? (
@@ -184,12 +198,27 @@ const HomePage = () => {
                                 startAccessor="start"
                                 endAccessor="end"
                                 defaultView='day'
-                                style={{height:500}}
+                                style={{height:800}}
                                 components={{
                                     event: EventBox
                                 }}
                                 onSelectEvent={handleEventClick}
                                 defaultDate={scenarioStartDate}
+                                eventPropGetter= {
+                                    (event, start, end, isSelected) => {
+                                        let newStyle = {
+                                            backgroundColor: "#FFA800",
+                                            color: 'black',
+                                            borderRadius: "10px",
+                                            border: "none",
+                                        };
+                            
+                                        return {
+                                            className: "",
+                                            style: newStyle
+                                        };
+                                    }
+                                }
                             />
 
                             <Modal

@@ -123,13 +123,7 @@ const ActivityTestingPage = () => {
                     id={`activity-${index}`}
                     name={activity}
                     value={activity}
-                    onChange={(event) => {
-                      if (event.target.checked) {
-                        setActivities((prevActivities) => [...prevActivities, activity]);
-                      } else {
-                        setActivities((prevActivities) => prevActivities.filter((a) => a !== activity));
-                      }
-                    }}
+                    onChange={(event) => handleActivitySelection(activity, event)}
                   />
                   <label htmlFor={`activity-${index}`}>{activity}</label>
                 </div>

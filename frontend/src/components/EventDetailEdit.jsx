@@ -37,7 +37,7 @@ function EventEdit({ event, onEditSubmit, onEditClose}) {
 
   return (
     <div>
-        <div className='body'>
+        <div className='eventdetail-edit-body'>
             <button className='eventdetail-edit-close' onClick={onEditClose}>
                 <img src={close_icon} alt='edit-close'/>
             </button>
@@ -48,48 +48,48 @@ function EventEdit({ event, onEditSubmit, onEditClose}) {
                 
                 <div className='eventdetail-edit-content'>
                     <label className='eventdetail-edit-date'>
+                        <h1>Date & Time</h1>
                         <img src={calendar_icon} alt='edit-calendar'/>
-                        Date & Time
-                        <input value={date} onChange={e => setDate(e.target.value)}/>
-                        <input value={start} onChange={e => setStart(e.target.value)}/>
-                        <input value={end} onChange={e => setEnd(e.target.value)}/>
+                        <input className="calendar" value={date} onChange={e => setDate(e.target.value)}/>
+                        <input className="startDate" value={start} onChange={e => setStart(e.target.value)}/>
+                        <input className="endDate" value={end} onChange={e => setEnd(e.target.value)}/>
                     </label>
 
                     <label className='eventdetail-edit-location'>
+                        <h1>Location</h1>
                         <img src={location_pin} alt='edit-location'/>
-                        Location
                         <input value={location} onChange={e => setLocation(e.target.value)}/>
                     </label>
 
                     <label className='eventdetail-edit-operatingTime'>
+                        <h1>Opening Hours</h1>
                         <img src={time_icon} alt='edit-time'/>
-                        Opening Hours
-                        <input value="8.00am"/>
+                        <input className="startTime" value="8.00am"/>
                         <p>to</p>
-                        <input value="9.30pm" />
+                        <input className="endTime" value="9.30pm" />
                     </label>
 
                     <label className='eventdetail-edit-cost'>
+                        <h1>Cost Estimate</h1>
                         <img src={cost_icon} alt='edit-cost'/>
-                        Cost Estimate
                         <input value={cost} onChange={e => setCost(e.target.value)}/>
                     </label>
 
                     <label className='eventdetail-edit-transportation'>
+                        <h1>Transportation</h1>
                         <img src={transport_icon} alt='edit-transportation'/>
-                        Transportation
                         <input value={transportation} onChange={e => setTransportation(e.target.value)}/>
                     </label>
 
                     <label className='eventdetail-edit-website'>
+                        <h1>Website</h1>
                         <img src={language_icon} alt='edit-website'/>
-                        Website
                         <input value="www.itinerasy.com"/>
                     </label>
                     
                     <label className='eventdetail-edit-notes'>
+                        <h1>Notes</h1>
                         <img src={notebook_icon} alt='edit-notes'/>
-                        Notes
                         <input value={notes} onChange={e => setNotes(e.target.value)}/>
                     </label>
                 </div>
