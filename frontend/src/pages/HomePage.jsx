@@ -11,14 +11,14 @@ import { HomePageHeader } from '../components/HomePageHeader';
 import { EventDetail } from '../components/EventDetail';
 import { EventEdit } from '../components/EventDetailEdit';
 import { EventBox } from '../components/EventBox';
-import { useLocation } from 'react-router-dom';
+import { useScenario } from '../contexts/ScenarioContext';
 
 
 const HomePage = () => {
     const [generatedItinerary,setGenerateditinerary] = useState(null);
-    const { state } = useLocation();
-    const scenarioNumber = state?.scenarioNumber || null;
+    const { scenarioNumber } = useScenario();
     const [events, setEvents] = useState([]);
+    const [scenarioStartDate, setScenarioStartDate] = useState(new Date());
     const [isEventDetailOpen, setEventDetailOpen] = useState(false);
     const [isEventDetailEditOpen, setEventDetailEditOpen] = useState(false);
     const [selectedEvent, setSelectedEvent] = useState(null);
@@ -27,7 +27,6 @@ const HomePage = () => {
     const localizer = momentLocalizer(moment);
 
 
-    
     const fetchData = () => {
         setIsLoading(true); // Set loading state to true when fetching data
         console.log(`Fetching data for scenario: ${scenarioNumber}`);
@@ -41,6 +40,12 @@ const HomePage = () => {
             .then((generatedItinerary) => {
                 console.log('Itinerary Data:', generatedItinerary);
                 setGenerateditinerary(generatedItinerary);
+                let allDates = [];
+                for(let scenario of generatedItinerary){
+                    allDates = [...allDates, ...Object.keys(scenario)];
+                }
+                allDates.sort();
+                setScenarioStartDate(new Date(allDates[0].split("-").reverse().join("-")));
             })
             .catch((error) => {
                 setIsLoading(false);
@@ -94,8 +99,8 @@ const HomePage = () => {
                                     console.log('End time init:', parseInt(endHours),endMinutes);
 
                                     // Adjust hours based on AM/PM
-                                    const startHoursAdjusted = startAmPm.toUpperCase() === 'PM' && parseInt(startHours) != 12 ? parseInt(startHours) + 12 : startHours;
-                                    const endHoursAdjusted = endAmPm.toUpperCase() === 'PM' && parseInt(endHours) != 12 ? parseInt(endHours) + 12 : endHours;
+                                    const startHoursAdjusted = startAmPm.toUpperCase() === 'PM' && parseInt(startHours) !== 12 ? parseInt(startHours) + 12 : startHours;
+                                    const endHoursAdjusted = endAmPm.toUpperCase() === 'PM' && parseInt(endHours) !== 12 ? parseInt(endHours) + 12 : endHours;
                                     console.log('Start time:', startHoursAdjusted,startMinutes);
                                     console.log('End time:', endHoursAdjusted,endMinutes);
 
@@ -167,52 +172,54 @@ const HomePage = () => {
     return (
         <div>
             <HomePageHeader />
-
             {isLoading ? (
                 <div>Fetching itinerary data...</div> // Display loading message while data is being fetched
             ) : pageToggle? (
-                    <div className='homepage-body'>
-                        {/*{console.log('Events:', events)} {/* Log events here */}
-                        {/*{events.forEach((event, index) => console.log(`Title at index ${index}:`, event.title))}*/}
-                        <Calendar 
-                            localizer={localizer}
-                            events={events}
-                            startAccessor="start"
-                            endAccessor="end"
-                            defaultView='day'
-                            style={{height:500}}
-                            components={{
-                                event: EventBox
-                            }}
-                            onSelectEvent={handleEventClick}
-                        />
-
-                        <Modal
-                            isOpen={isEventDetailOpen}
-                            onRequestClose={closeEventDetail}
-                            overlayClassName="overlay-eventDetail"
-                            className="eventDetail-popup"
-                        >
-                            <EventDetail 
-                            event={selectedEvent}
-                            onEventDetailClose={closeEventDetail}
-                            onEventEdit={openEventDetailEdit}
+                        <div className='homepage-body'>
+                            {/*{console.log('Events:', events)} {/* Log events here */}
+                            {/*{events.forEach((event, index) => console.log(`Title at index ${index}:`, event.title))}*/}
+                            <Calendar 
+                                localizer={localizer}
+                                events={events}
+                                startAccessor="start"
+                                endAccessor="end"
+                                defaultView='day'
+                                style={{height:500}}
+                                components={{
+                                    event: EventBox
+                                }}
+                                onSelectEvent={handleEventClick}
+                                defaultDate={scenarioStartDate}
                             />
-                        </Modal>
 
-                        <Modal
-                            isOpen={isEventDetailEditOpen}
-                            onRequestClose={closeEventDetailEdit}
-                            overlayClassName="overlay-eventDetail"
-                            className="eventDetail-popup"
-                        >
-                            <EventEdit
-                            event={selectedEvent}
-                            onEditClose={closeEventDetailEdit}
-                            />
-                        </Modal>
-                    </div>
+                            <Modal
+                                isOpen={isEventDetailOpen}
+                                onRequestClose={closeEventDetail}
+                                overlayClassName="overlay-eventDetail"
+                                className="eventDetail-popup"
+                            >
+                                <EventDetail 
+                                event={selectedEvent}
+                                onEventDetailClose={closeEventDetail}
+                                onEventEdit={openEventDetailEdit}
+                                />
+                            </Modal>
+
+                            <Modal
+                                isOpen={isEventDetailEditOpen}
+                                onRequestClose={closeEventDetailEdit}
+                                overlayClassName="overlay-eventDetail"
+                                className="eventDetail-popup"
+                            >
+                                <EventEdit
+                                event={selectedEvent}
+                                onEditClose={closeEventDetailEdit}
+                                />
+                            </Modal>
+                        </div>
                 ) :  (
+
+
                     <div className='homepage-body-new'>
                         <div className='sorry_img_container'>
                             <img src={sorry_img} alt='sorry_img'/>
@@ -224,6 +231,7 @@ const HomePage = () => {
                         
                         <AddTripButton className="homepage-addtripBtn"/>
                     </div>
+
                 )
             }
         </div>

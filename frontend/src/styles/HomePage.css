@@ -20,23 +20,11 @@ html, .body {
     margin-top: 40px;
 }
 
-.addTrip-btn {
-    width: 300px;
-    height: 50px;
-    border-color: transparent;
-    border-radius: 25px;
-    background-color: #FFA800;
-    color: #FFFFFF;
-    font-size: 16px;
-    text-align: center;
-    font-family: "CustomFont";
-    position: fixed;
-    left: 50%;
-    bottom: 80px;
-    display: flex;
+.homepage-addtripBtn {
+    display: fixed;
     justify-content: center;
     align-items: center;
-    transform: translateX(-50%);
+    transform: translate(-300px, 300px);
 }
 
 .homepage-header-container {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import add_ring from '../assets/images/add_ring_fill.png';
+import '../styles/AddTripButton.css';
 
 
 function AddTripButton() {
