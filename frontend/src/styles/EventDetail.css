@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 10f293df229da43077ef5d67e0dc9127728b3258
 @font-face {
     font-family: "CustomFont";
     src: url("../assets/fonts/Lexend-Regular.ttf");
@@ -50,7 +53,12 @@ img[alt="trashy-icon"] {
 .event-detail-basic h2 {
     font-size: 24px; /* Change font-size as needed */
     font-family: "CustomFont";
+<<<<<<< HEAD
     margin-left: 20px;
+=======
+    transform: translate(20px, 0px);
+    border-right: 20px; 
+>>>>>>> 10f293df229da43077ef5d67e0dc9127728b3258
 }
 
 .event-detail-basic p {
@@ -165,8 +173,13 @@ img[alt="notebook-icon"] {
     position: absolute; /* or try 'fixed' */
     display: flex;
     justify-content: center;
+<<<<<<< HEAD
     width: 80%; /* This might be needed to span the entire width */
     margin-top: 110px;
+=======
+    bottom: -40px;
+    width: 80%; /* This might be needed to span the entire width */
+>>>>>>> 10f293df229da43077ef5d67e0dc9127728b3258
 }
 
 

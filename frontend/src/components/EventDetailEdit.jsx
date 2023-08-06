@@ -37,7 +37,11 @@ function EventEdit({ event, onEditSubmit, onEditClose}) {
 
   return (
     <div>
+<<<<<<< HEAD
         <div className='eventedit-body'>
+=======
+        <div className='eventdetail-edit-body'>
+>>>>>>> 10f293df229da43077ef5d67e0dc9127728b3258
             <button className='eventdetail-edit-close' onClick={onEditClose}>
                 <img src={close_icon} alt='edit-close'/>
             </button>
@@ -50,9 +54,15 @@ function EventEdit({ event, onEditSubmit, onEditClose}) {
                     <label className='eventdetail-edit-date'>
                         <h1>Date & Time</h1>
                         <img src={calendar_icon} alt='edit-calendar'/>
+<<<<<<< HEAD
                         <input className="dateInput" value={date} onChange={e => setDate(e.target.value)}/>
                         <input className="startInput" value={start} onChange={e => setStart(e.target.value)}/>
                         <input className="endInput" value={end} onChange={e => setEnd(e.target.value)}/>
+=======
+                        <input className="calendar" value={date} onChange={e => setDate(e.target.value)}/>
+                        <input className="startDate" value={start} onChange={e => setStart(e.target.value)}/>
+                        <input className="endDate" value={end} onChange={e => setEnd(e.target.value)}/>
+>>>>>>> 10f293df229da43077ef5d67e0dc9127728b3258
                     </label>
 
                     <label className='eventdetail-edit-location'>

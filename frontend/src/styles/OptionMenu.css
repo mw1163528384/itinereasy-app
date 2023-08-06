@@ -5,7 +5,7 @@
     src: url("../assets/fonts/Lexend-Light.ttf");
 }
 
-html, .body {
+html, .option-body {
     height: 100%; /* Ensure the html and body elements take up full height */
     margin: 0;
     padding: 0; /* Remove any potential default padding */
@@ -26,7 +26,6 @@ html, .body {
 
 img[alt="close-icon"] {
     max-width: 80%;
-    /* transform: translate(90px, 15px);  */
 }
 
 .regenerate-container h1 {
@@ -34,23 +33,22 @@ img[alt="close-icon"] {
     color: rgba(50,50,50);
     letter-spacing: 1px;
     font-family: "lexend-light";
-    transform: translate(60px, -570px);  /* Adjust this value to move the text */
+    margin-left: 10px;
 }
 
 .regenerate-button {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    margin-top: 120px;
+    margin-left: 80px;
     background-color: transparent;
-    width: 80px;
-    height: 30px;
     border: none;
-    border-radius: 25px;
-    font-size: 16px;
-    font-family: "CustomFont";
-    transform: translateX(-140px);
 }
 
 img[alt="regenerate-icon"] {
     max-width: 30%;
-    transform: translate(130px, -542px);
+    margin-top: 10px;
 }
 
 .share-container h1 {
@@ -58,23 +56,22 @@ img[alt="regenerate-icon"] {
     color: rgba(50,50,50);
     letter-spacing: 1px;
     font-family: "lexend-light";
-    transform: translate(60px, -560px);  /* Adjust this value to move the text */
+    margin-left: 10px;
 }
 
 .share-button {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-left: 80px;
     background-color: transparent;
-    width: 80px;
-    height: 30px;
     border: none;
-    border-radius: 25px;
-    font-size: 16px;
-    font-family: "CustomFont";
-    transform: translateX(-140px);
 }
 
 img[alt="share-icon"] {
     max-width: 30%;
-    transform: translate(130px, -534px);
+    margin-top: 10px;
 }
 
 .delete-container h1 {
@@ -82,21 +79,20 @@ img[alt="share-icon"] {
     color: rgba(50,50,50);
     letter-spacing: 1px;
     font-family: "lexend-light";
-    transform: translate(60px, -550px);  /* Adjust this value to move the text */
+    margin-left: 10px;
 }
 
 .trash-button {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-left: 80px;
     background-color: transparent;
-    width: 80px;
-    height: 30px;
     border: none;
-    border-radius: 25px;
-    font-size: 16px;
-    font-family: "CustomFont";
-    transform: translateX(-140px);
 }
 
 img[alt="trash-icon"] {
     max-width: 30%;
-    transform: translate(130px, -523px);
+    margin-top: 10px;
 }

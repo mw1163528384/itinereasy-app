@@ -2,12 +2,20 @@ import React, {useState} from 'react';
 import { useNavigate } from "react-router-dom";
 import '../styles/TypeOfTrip.css';
 import closeIcon from '../assets/images/close-icon.png';
+import { useScenario } from '../contexts/ScenarioContext';
 
 const TypeOfTrip = () => {
     const navigate = useNavigate();
     const [selectedButton, setSelectedButton] = useState(null);
+    const { setScenarioNumber } = useScenario();
     const [location, setLocation] = useState('');
     const [activeButton, setActiveButton] = useState(null); // new state
+
+    const scenarios = [
+        {location: 'Bali', scenarioNumber: 1},
+        {location: 'Hawaii', scenarioNumber: 2},
+        {location: 'Amsterdam', scenarioNumber: 3}
+    ]
 
     const handleClick = (button) => {
         setSelectedButton(button);
@@ -18,8 +26,18 @@ const TypeOfTrip = () => {
         setLocation(event.target.value);
     }
 
-    const handleGo = async() => {
-        navigate("/tripDetail")
+    const determineScenarioNumber = () => {
+        const matchedScenario = scenarios.find(
+          (scenario) =>
+            scenario.location.toLowerCase() === location.trim().toLowerCase()
+        );
+        return matchedScenario ? matchedScenario.scenarioNumber : 1; // Default to 1 if no match found
+      };
+
+      const handleGo = async() => {
+        const scenarioNumber = determineScenarioNumber();
+        setScenarioNumber(scenarioNumber);
+        navigate("/tripDetail");
     }
 
     return (

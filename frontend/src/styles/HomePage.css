@@ -20,23 +20,20 @@ html, .body {
     margin-top: 40px;
 }
 
-.addTrip-btn {
-    width: 300px;
-    height: 50px;
-    border-color: transparent;
-    border-radius: 25px;
-    background-color: #FFA800;
-    color: #FFFFFF;
-    font-size: 16px;
-    text-align: center;
-    font-family: "CustomFont";
-    position: fixed;
-    left: 50%;
-    bottom: 80px;
-    display: flex;
+.addTrip_btn_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative; /* Enables absolute positioning for child elements */
+  height: 100%; /* Adjust as needed */
+  
+}
+
+.homepage-addtripBtn {
+    position: relative;
     justify-content: center;
     align-items: center;
-    transform: translateX(-50%);
 }
 
 .homepage-header-container {
@@ -76,6 +73,7 @@ html, .body {
     background-color: rgba(0, 0, 0, 0.5);
   }
   
+<<<<<<< HEAD
   .eventDetail-popup {
     width: 80%;
     height: 80%;
@@ -83,3 +81,30 @@ html, .body {
     box-sizing: border-box;
     border-radius: 25px;
 }
+=======
+.eventDetail-popup {
+width: 80%;
+height: 85%;
+background-color: white;
+box-sizing: border-box;
+border-radius: 25px;
+}
+
+@media only screen and (max-width: 600px) {
+    
+    .rbc-toolbar {
+      flex-direction: column;
+      margin-top: 20px;
+    }
+  
+    .rbc-toolbar .rbc-toolbar-label {
+      margin-bottom: 10px;
+    }
+  
+    .rbc-btn-group {
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+  }
+  
+>>>>>>> 10f293df229da43077ef5d67e0dc9127728b3258

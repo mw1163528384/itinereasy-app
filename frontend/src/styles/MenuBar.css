@@ -111,6 +111,6 @@ img[alt="signout-icon"] {
     transform: translate(-4px, 40px);
 }
 
-.addTrip-btn {
-    transform: translate(-190px, -300px);
+.addTrip-btn{
+    margin-top: 50px;
 }
