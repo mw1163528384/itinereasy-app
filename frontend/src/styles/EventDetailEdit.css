@@ -118,16 +118,16 @@ img[alt="edit-calendar"] {
 
 img[alt="edit-location"] {
     background-color: transparent;
-    width: 20px;
-    height: 20px;
-    border: none;
+
+    width: 23px;
+    height: 23px;
     margin-left: 30px;
 }
 
 /*time*/
+
 .eventdetail-edit-operatingTime h1{
     font-size: 14px; /* Change font-size as needed */
-    font-family: "lexend-light";
     letter-spacing: 1px;
     color: #6E6E6E;
     margin-bottom: 5px;
@@ -248,13 +248,13 @@ img[alt="edit-transportation"] {
 
 img[alt="edit-website"] {
     background-color: transparent;
-    width: 18px;
-    height: 18px;
-    border: none;
+
+    width: 20px;
+    height: 20px;
     margin-left: 30px;
+
 }
 
-/*notes*/
 .eventdetail-edit-notes h1{
     font-size: 14px; /* Change font-size as needed */
     font-family: "lexend-light";
