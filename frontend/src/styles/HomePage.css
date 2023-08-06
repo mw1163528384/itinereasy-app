@@ -89,3 +89,9 @@ border-radius: 25px;
     }
   }
   
+  /* CSS to hide the 'Today' button */
+.rbc-btn-group:nth-child(1) > button:nth-child(1) {
+    display: none;
+}
+
+  

@@ -197,6 +197,7 @@ const HomePage = () => {
                                 events={events}
                                 startAccessor="start"
                                 endAccessor="end"
+                                views={['month', 'week', 'day']}
                                 defaultView='day'
                                 style={{height:800}}
                                 components={{
