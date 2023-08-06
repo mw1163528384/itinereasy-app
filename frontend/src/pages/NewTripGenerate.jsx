@@ -22,7 +22,7 @@ const NewTripGenerate = () => {
     }, [])
 
     const handleCancel = () => {
-        navigate('/');
+        navigate('/tripfood');
     }
 
     const handleView = () => {
