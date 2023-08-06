@@ -61,7 +61,7 @@ function EventDetail({ event, onEventEdit, onEventDetailClose }) {
                     
                     <div className='event-website'>
                         <img src={language_icon} alt='website-icon' />
-                        <p>www.itinerasy.com</p>
+                        <p>www.itinereasy.com</p>
                     </div>
                     
                     <div className='event-note'>
