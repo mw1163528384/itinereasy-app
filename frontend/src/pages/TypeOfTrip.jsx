@@ -9,6 +9,12 @@ const TypeOfTrip = () => {
     const [location, setLocation] = useState('');
     const [activeButton, setActiveButton] = useState(null); // new state
 
+    const scenarios = [
+        {location: 'Bali', scenarioNumber: 1},
+        {location: 'Hawaii', scenarioNumber: 2},
+        {location: 'Amsterdam', scenarioNumber: 3}
+    ]
+
     const handleClick = (button) => {
         setSelectedButton(button);
         setActiveButton(button); // set the active button
@@ -18,8 +24,17 @@ const TypeOfTrip = () => {
         setLocation(event.target.value);
     }
 
-    const handleGo = async() => {
-        navigate("/tripDetail")
+    const determineScenarioNumber = () => {
+        const matchedScenario = scenarios.find(
+          (scenario) =>
+            scenario.location.toLowerCase() === location.trim().toLowerCase()
+        );
+        return matchedScenario ? matchedScenario.scenarioNumber : 1; // Default to 1 if no match found
+      };
+
+      const handleGo = async() => {
+        const scenarioNumber = determineScenarioNumber();
+        navigate("/tripDetail", {state: {scenarioNumber}});
     }
 
     return (

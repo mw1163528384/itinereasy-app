@@ -11,11 +11,13 @@ import { HomePageHeader } from '../components/HomePageHeader';
 import { EventDetail } from '../components/EventDetail';
 import { EventEdit } from '../components/EventDetailEdit';
 import { EventBox } from '../components/EventBox';
+import { useLocation } from 'react-router-dom';
 
 
 const HomePage = () => {
     const [generatedItinerary,setGenerateditinerary] = useState(null);
-    const [scenarioNumber, setScenarioNumber] = useState(1); //JANICE CHANGE THIS TO BE VARIABLE!!!!!!!!!!
+    const { state } = useLocation();
+    const scenarioNumber = state?.scenarioNumber || null;
     const [events, setEvents] = useState([]);
     const [isEventDetailOpen, setEventDetailOpen] = useState(false);
     const [isEventDetailEditOpen, setEventDetailEditOpen] = useState(false);
@@ -220,7 +222,7 @@ const HomePage = () => {
                             <h3>Oops! Looks like you don't have any itineraries at the moment.</h3>
                         </div>
                         
-                        <AddTripButton />
+                        <AddTripButton className="homepage-addtripBtn"/>
                     </div>
                 )
             }
