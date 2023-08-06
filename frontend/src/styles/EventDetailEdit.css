@@ -1,0 +1,301 @@
+@font-face {
+    font-family: "CustomFont";
+    src: url("../assets/fonts/Lexend-Regular.ttf");
+    font-family: "lexend-light";
+    src: url("../assets/fonts/Lexend-Light.ttf");
+}
+
+.eventdetail-edit-body {
+    position: relative;
+}
+
+.eventdetail-edit-form input {
+    background: #EDEDED;
+    border: none;
+    width: 200px; /* Adjust as needed */
+    height: 30px; /* Adjust as needed */
+    border-radius: 20px; /* Adjust as needed */
+    padding-left: 10px;
+}
+
+.eventdetail-edit-form label {
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+}
+
+.eventdetail-edit-title input {
+    font-size: 23px; 
+    font-family: "lexend-light";
+    text-decoration: underline; 
+    color: #6E6E6E;
+    border: none; 
+    outline: none; 
+    background: transparent; 
+    margin-left: 30px;
+    margin-top: 10px;
+}
+
+.eventdetail-edit-close {
+    position: absolute; /* Change from 'relative' to 'absolute' */
+    background-color: transparent;
+    width: 50px;
+    height: 10px;
+    border: none;
+    right: 10px;
+    margin-top: 10px;
+}
+
+
+img[alt="edit-close"] {
+    max-width: 80%;
+}
+
+.eventdetail-edit-content {
+    position: relative;
+}
+
+/*calendar*/
+.eventdetail-edit-date h1{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+    margin-bottom: 5px;
+    margin-left: 70px;
+    margin-top: 15px;
+}
+
+img[alt="edit-calendar"] {
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    border: none;
+    margin-left: 30px;
+}
+
+.calendar {
+    margin-left: 15px;
+    margin-bottom: 8px;
+}
+
+.startDate {
+    margin-left: 65px;
+    margin-bottom: 8px;
+}
+
+.endDate {
+    margin-left: 65px;
+}
+
+.eventdetail-edit-date input{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+}
+
+/*location*/
+.eventdetail-edit-location h1{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+    margin-bottom: 5px;
+    margin-left: 70px;
+    margin-top: 15px;
+}
+
+.eventdetail-edit-location input{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+    margin-bottom: 5px;
+    margin-left: 15px;
+}
+
+img[alt="edit-location"] {
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    border: none;
+    margin-left: 30px;
+}
+
+/*time*/
+.eventdetail-edit-operatingTime h1{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+    margin-bottom: 5px;
+    margin-left: 70px;
+    margin-top: 10px;
+}
+
+.startTime {
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+    margin-bottom: 5px;
+    margin-left: 15px;
+}
+
+.endTime {
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+    margin-bottom: 5px;
+    margin-left: 65px;
+}
+
+img[alt="edit-time"] {
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    border: none;
+    margin-left: 30px;
+}
+
+.eventdetail-edit-operatingTime p{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+    margin-bottom: 5px;
+    margin-left: 70px;
+}
+
+/*cost*/
+.eventdetail-edit-cost h1{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+    margin-bottom: 5px;
+    margin-left: 70px;
+    margin-top: 10px;
+}
+
+.eventdetail-edit-cost input{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+    margin-bottom: 5px;
+    margin-left: 15px;
+}
+
+img[alt="edit-cost"] {
+    background-color: transparent;
+    width: 18px;
+    height: 18px;
+    border: none;
+    margin-left: 30px;
+}
+
+/*transportation*/
+.eventdetail-edit-transportation h1{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+    margin-bottom: 5px;
+    margin-left: 70px;
+    margin-top: 10px;
+}
+
+.eventdetail-edit-transportation input{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+    margin-bottom: 5px;
+    margin-left: 15px;
+}
+
+img[alt="edit-transportation"] {
+    background-color: transparent;
+    width: 18px;
+    height: 18px;
+    border: none;
+    margin-left: 30px;
+}
+
+/*website*/
+.eventdetail-edit-website h1{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+    margin-bottom: 5px;
+    margin-left: 70px;
+    margin-top: 10px;
+}
+
+.eventdetail-edit-website input{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+    margin-bottom: 5px;
+    margin-left: 15px;
+}
+
+img[alt="edit-website"] {
+    background-color: transparent;
+    width: 18px;
+    height: 18px;
+    border: none;
+    margin-left: 30px;
+}
+
+/*notes*/
+.eventdetail-edit-notes h1{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+    margin-bottom: 5px;
+    margin-left: 70px;
+    margin-top: 10px;
+}
+
+.eventdetail-edit-notes input{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+    margin-bottom: 5px;
+    margin-left: 15px;
+}
+
+img[alt="edit-notes"] {
+    background-color: transparent;
+    width: 18px;
+    height: 18px;
+    border: none;
+    margin-left: 30px;
+}
+
+.saveEditBtn {
+    width: 270px;
+    height: 37px;
+    border-color: transparent;
+    border-radius: 25px;
+    background-color: #FFA800;
+    color: #FFFFFF;
+    font-size: 16px;
+    text-align: center;
+    font-family: "CustomFont";
+    line-height:35px;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+}

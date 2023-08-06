@@ -34,7 +34,7 @@ img[alt="close-icon"] {
     color: rgba(50,50,50);
     letter-spacing: 1px;
     font-family: "lexend-light";
-    transform: translate(60px, -570px);  /* Adjust this value to move the text */
+    transform: translate(60px, -630px);  /* Adjust this value to move the text */
 }
 
 .regenerate-button {
@@ -45,7 +45,7 @@ img[alt="close-icon"] {
     border-radius: 25px;
     font-size: 16px;
     font-family: "CustomFont";
-    transform: translateX(-140px);
+    transform: translate(-140px, -60px);
 }
 
 img[alt="regenerate-icon"] {
