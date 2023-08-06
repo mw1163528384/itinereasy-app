@@ -1,0 +1,292 @@
+@font-face {
+    font-family: "CustomFont";
+    src: url("../assets/fonts/Lexend-Regular.ttf");
+    font-family: "lexend-light";
+    src: url("../assets/fonts/Lexend-Light.ttf");
+}
+
+.eventedit-body {
+    position: relative;
+}
+
+.eventdetail-edit-form input {
+    background: #EDEDED;
+    border: none;
+    width: 200px; /* Adjust as needed */
+    height: 30px; /* Adjust as needed */
+    border-radius: 20px; /* Adjust as needed */
+    padding-left: 10px;
+}
+
+.eventdetail-edit-title input {
+    font-size: 23px; 
+    font-family: "lexend-light";
+    text-decoration: underline; 
+    color: #6E6E6E;
+    border: none; 
+    outline: none; 
+    background: transparent; 
+    margin-left: 40px;
+    margin-top: 5px;
+}
+
+/* close button */ 
+.eventdetail-edit-close {
+    position: absolute; 
+    top: 10px; 
+    right: 10px; 
+    background-color: transparent;
+    width: 50px;
+    height: 10px;
+    border: none;
+}
+
+img[alt="edit-close"] {
+    max-width: 80%;
+}
+
+.eventdetail-edit-content {
+    position: relative;
+}
+
+/*calendar function*/
+.eventdetail-edit-date h1{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+    margin-left: 70px;
+    margin-top: 5px;
+}
+
+img[alt="edit-calendar"] {
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 25px;
+    color: rgba(0, 0, 0, 0.5);
+    margin-top: 5px;
+    margin-left: 30px;
+}
+
+.dateInput {
+    margin-left: 20px;
+    margin-bottom: 5px;
+}
+
+.startInput {
+    margin-left: 70px;
+    margin-bottom: 5px;
+}
+
+.endInput {
+    margin-left: 70px;
+}
+
+.eventdetail-edit-date input{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+}
+
+/*location*/
+.eventdetail-edit-location h1{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+    margin-left: 70px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.eventdetail-edit-location input{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+    margin-left: 15px;
+}
+
+img[alt="edit-location"] {
+    background-color: transparent;
+    width: 23px;
+    height: 23px;
+    border: none;
+    border-radius: 25px;
+    margin-left: 30px;
+}
+
+/*operating time*/
+.eventdetail-edit-operatingTime h1{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+    margin-left: 70px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.eventdetail-edit-operatingTime input{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+}
+
+img[alt="edit-time"] {
+    background-color: transparent;
+    width: 23px;
+    height: 23px;
+    border: none;
+    border-radius: 25px;
+    margin-left: 30px;
+    margin-right: 15px;
+}
+
+.eventdetail-edit-operatingTime p{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+    margin-left: 70px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.endTime {
+    margin-left: 70px;
+}
+
+/*cost*/
+.eventdetail-edit-cost h1{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+    margin-left: 70px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.eventdetail-edit-cost input{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+}
+
+img[alt="edit-cost"] {
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 25px;
+    margin-left: 30px;
+    margin-right: 15px;
+}
+
+/*transportation*/
+.eventdetail-edit-transportation h1{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+    margin-left: 70px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.eventdetail-edit-transportation input{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+}
+
+img[alt="edit-transportation"] {
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 25px;
+    margin-left: 30px;
+    margin-right: 15px;
+}
+
+/*website*/
+.eventdetail-edit-website h1{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+    margin-left: 70px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.eventdetail-edit-website input{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+}
+
+img[alt="edit-website"] {
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 25px;
+    margin-left: 30px;
+    margin-right: 15px;
+}
+
+/*notes*/
+.eventdetail-edit-notes h1{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+    margin-left: 70px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.eventdetail-edit-notes input{
+    font-size: 14px; /* Change font-size as needed */
+    font-family: "lexend-light";
+    letter-spacing: 1px;
+    color: #6E6E6E;
+}
+
+img[alt="edit-notes"] {
+    background-color: transparent;
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 25px;
+    margin-left: 30px;
+    margin-right: 15px;
+}
+
+.saveEditBtn {
+    width: 270px;
+    height: 37px;
+    border-color: transparent;
+    border-radius: 25px;
+    background-color: #FFA800;
+    color: #FFFFFF;
+    font-size: 16px;
+    text-align: center;
+    font-family: "CustomFont";
+    line-height:35px;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}

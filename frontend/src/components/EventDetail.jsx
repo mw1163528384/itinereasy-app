@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/EventDetail.css';
 import moment from 'moment';
 import event_bg from '../assets/images/event_bg.png';
-import trash_icon from '../assets/images/trash-icon.png';
+import trashy_icon from '../assets/images/trash-icon.png';
 import close_icon from '../assets/images/close-icon.png';
 import location_pin from '../assets/images/location-pin.png';
 import time_icon from '../assets/images/time-icon.png';
@@ -20,14 +20,14 @@ function EventDetail({ event, onEventEdit, onEventDetailClose }) {
 
   return (
     <div>
-        <div className='body'>
+        <div className='eventdetail-body'>
             <header className='eventdetail-header-container'>
                 <img src={event_bg} alt='event-background'/>
                 <div className='eventdetail-header-btn'>
-                    <button>
-                        <img src={trash_icon} alt='trash-icon' />
+                    <button className='trashy-btn'>
+                        <img src={trashy_icon} alt='trashy-icon' />
                     </button>
-                    <button onClick={onEventDetailClose}>
+                    <button className='EventClose-btn' onClick={onEventDetailClose}>
                         <img src={close_icon} alt='close-icon' />
                     </button>
                 </div>
@@ -61,7 +61,7 @@ function EventDetail({ event, onEventEdit, onEventDetailClose }) {
                     
                     <div className='event-website'>
                         <img src={language_icon} alt='website-icon' />
-                        <p>www.itinerasy.com</p>
+                        <p>www.itinereasy.com</p>
                     </div>
                     
                     <div className='event-note'>
