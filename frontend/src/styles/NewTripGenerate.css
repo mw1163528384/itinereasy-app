@@ -121,11 +121,11 @@ img[alt="flying-airplane"] {
 }
 
 .cancel-btn {
-    width: 300px;
+    width: 100px;
     height: 45px;
     border-color: transparent;
     border-radius: 25px;
-    background-color: #FFA800;
+    background-color: #646464;
     color: #FFFFFF;
     font-size: 16px;
     text-align: center;
