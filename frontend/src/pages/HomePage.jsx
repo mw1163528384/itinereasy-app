@@ -184,12 +184,27 @@ const HomePage = () => {
                                 startAccessor="start"
                                 endAccessor="end"
                                 defaultView='day'
-                                style={{height:500}}
+                                style={{height:800}}
                                 components={{
                                     event: EventBox
                                 }}
                                 onSelectEvent={handleEventClick}
                                 defaultDate={scenarioStartDate}
+                                eventPropGetter= {
+                                    (event, start, end, isSelected) => {
+                                        let newStyle = {
+                                            backgroundColor: "#FFA800",
+                                            color: 'black',
+                                            borderRadius: "10px",
+                                            border: "none",
+                                        };
+                            
+                                        return {
+                                            className: "",
+                                            style: newStyle
+                                        };
+                                    }
+                                }
                             />
 
                             <Modal
