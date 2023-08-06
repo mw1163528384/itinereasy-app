@@ -12,7 +12,7 @@ const Menubar = ({ handleMenuClose, handleSettingOpen, histories }) => {
     const navigate = useNavigate();
 
     const handleLogOut = () => {
-        navigate('/LoginPage');
+        navigate('/');
     };
     
     return (
