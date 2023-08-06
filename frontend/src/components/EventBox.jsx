@@ -1,5 +1,5 @@
 import React from 'react';
-import moment from 'moment';
+import '../styles/EventBox.css'
 
 const EventBox = ({ event }) => {
   // Check if event is undefined
@@ -23,10 +23,7 @@ const EventBox = ({ event }) => {
   return (
     <div style={{ height: `${eventBoxHeight}px`}} 
           className='eventBox-container'>
-      <h3>{title || 'No Title'}</h3> {/* Use a default value if title is not provided */}
-      <p>{cost}</p>
-      <p>{transportation}</p>
-      <p>{`${moment(start).format('HH:mm')} - ${moment(end).format('HH:mm')}`}</p>
+      <h4>{title || 'No Title'}</h4> {/* Use a default value if title is not provided */}
     </div>
   )
 };

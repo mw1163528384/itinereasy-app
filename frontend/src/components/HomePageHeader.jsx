@@ -9,7 +9,7 @@ import { SettingMenu } from './SettingMenu';
 
 Modal.setAppElement('#root') // this line is important for accessibility purposes
 
-function HomePageHeader({generatedItinerary}) {
+function HomePageHeader({generatedItinerary, handleRegenerateClick}) {
   const [isMenubarOpen, setMenubarOpen] = useState(false);
   const [isSettingOpen, setSettingOpen] = useState(false);
   const [isOptionMenuOpen, setOptionMenuOpen]  = useState(false);
@@ -80,7 +80,7 @@ function HomePageHeader({generatedItinerary}) {
             className="optionMenuModal"
           >
             <div className='optionMenuModal-content'>
-              <OptionMenu handleCloseClick={toggleOptionMenu}/>
+              <OptionMenu handleCloseClick={toggleOptionMenu} handleRegenerateClick={handleRegenerateClick}/>
             </div>
           </Modal>
 

@@ -5,7 +5,7 @@ import share_icon from '../assets/images/share-icon.png';
 import trash_icon from '../assets/images/trash-icon.png';
 import close_icon from '../assets/images/close-icon.png';
 
-const OptionMenu = ({handleCloseClick}) => {
+const OptionMenu = ({ handleCloseClick, handleRegenerateClick }) => {
     return (
         <div>
             <div className='body'>
@@ -22,33 +22,31 @@ const OptionMenu = ({handleCloseClick}) => {
 
                 <div className='optionMenu-btn-container'>
                     <div className='regenerateBtn-container'>
-                        <button className='regenerate-button'>
+                        <button className='regenerate-button' onClick={handleRegenerateClick}>
                             <img src={regenerate_icon} alt='regenerate-icon' />
                         </button>
+                        <div className='regenerate-container'>
+                            <h1>Regenerate</h1>
+                        </div>
                     </div>
 
-                    <div className='regenerate-container'>
-                        <h1>Regenerate</h1>
-                    </div>
 
                     <div className='ShareBtn-container'>
                         <button className='share-button'>
                             <img src={share_icon} alt='share-icon' />
                         </button>
-                    </div>
-
-                    <div className='share-container'>
-                        <h1>Share</h1>
+                        <div className='share-container'>
+                            <h1>Share</h1>
+                        </div>
                     </div>
 
                     <div className='TrashBtn-container'>
                         <button className='trash-button'>
                             <img src={trash_icon} alt='trash-icon' />
                         </button>
-                    </div>
-
-                    <div className='delete-container'>
-                        <h1>Delete</h1>
+                        <div className='delete-container'>
+                            <h1>Delete</h1>
+                        </div>
                     </div>
                 </div>
             </div>

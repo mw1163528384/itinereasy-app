@@ -74,7 +74,16 @@ const NewTripActivities = () => {
           <div className='new-activities-box'>
             {activities.map((activity, index) => (
               <div key={index} className='new-activities-content'>
-              {activity}
+                {activity}
+                <button 
+                  onClick={() => {
+                    const newActivities = [...activities];
+                    newActivities.splice(index, 1);
+                    setActivities(newActivities);
+                  }}
+                >
+                  x
+                </button>
               </div>
             ))}
           </div>
@@ -87,7 +96,18 @@ const NewTripActivities = () => {
               onKeyDown={handleKeyDown}
               placeholder='Type here to add activities'
             />
+            <button 
+              onClick={() => {
+                if (currentActivity.trim() !== '') {
+                  setActivities((prevActivities) => [...prevActivities, currentActivity]);
+                  setCurrentActivity(''); // Clear the input after adding the activity
+                }
+              }}
+            >
+              Add activity
+            </button>
           </label>
+
 
           <NewTripFooter handleBack={handleBack} handleNext={handleNext} />
         </div>
