@@ -73,15 +73,6 @@ html, .body {
     background-color: rgba(0, 0, 0, 0.5);
   }
   
-<<<<<<< HEAD
-  .eventDetail-popup {
-    width: 80%;
-    height: 80%;
-    background-color: white;
-    box-sizing: border-box;
-    border-radius: 25px;
-}
-=======
 .eventDetail-popup {
 width: 80%;
 height: 85%;
@@ -107,4 +98,3 @@ border-radius: 25px;
     }
   }
   
->>>>>>> 10f293df229da43077ef5d67e0dc9127728b3258
