@@ -7,9 +7,11 @@ const LoginPage = () => {
     const navigate = useNavigate()
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [emailError, setEmailError] = useState(''); // Add this line
 
     const handleEmailChange = (event) => {
         setEmail(event.target.value);
+        setEmailError(''); // Clear the error when the user types
     };
 
     const handlePasswordChange = (event) => {
@@ -22,8 +24,14 @@ const LoginPage = () => {
         console.log('Email:', email);
         console.log('Password:', password);
 
+        // Check if the email is valid
+        if (!email.includes('@') || !email.includes('.')) {
+            setEmailError('Please enter a valid email'); // Set the error message
+            return; // Don't navigate to the welcome page
+        }
+
         navigate('/welcomePage');
-}
+    }
     return (
         <div>
             <div className='body'>
@@ -35,6 +43,7 @@ const LoginPage = () => {
                     <form onSubmit={handleLoginSubmit}>
                         <div className='input_container'>
                             <input type="text" value={email} onChange={handleEmailChange} placeholder='Email' />
+                            {emailError && <div style={{ color: 'red' }}>{emailError}</div>} {/* Show the error message */}
                             <input type="text" value={password} onChange={handlePasswordChange} placeholder='Password' />
                         </div>
                         
