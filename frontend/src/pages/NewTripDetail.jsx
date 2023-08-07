@@ -57,7 +57,7 @@ const NewTripDetail = () => {
     };
 
     // Pass userPreferences to the next component (e.g., NewTripFood)
-    navigate('/tripActivities', { state: { userPreferences } });
+    navigate('/tripActivitiesTest', { state: { userPreferences } });
   };
 
   return (

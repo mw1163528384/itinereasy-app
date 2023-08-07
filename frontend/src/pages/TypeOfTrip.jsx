@@ -37,7 +37,7 @@ const TypeOfTrip = () => {
       const handleGo = async() => {
         const scenarioNumber = determineScenarioNumber();
         setScenarioNumber(scenarioNumber);
-        navigate("/tripActivitiesTest");
+        navigate("/tripDetail");
     }
 
     return (
