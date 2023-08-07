@@ -47,7 +47,6 @@ const HomePage = () => {
                 }
                 allDates.sort();
                 setScenarioStartDate(new Date(allDates[0].split("-").reverse().join("-")));
-
             })
             .catch((error) => {
                 setIsLoading(false);

@@ -10,12 +10,14 @@ import { NewTripGenerate } from "./pages/NewTripGenerate";
 import { HomePage } from "./pages/HomePage";
 import { LoginPage } from "./pages/LoginPage";
 import { WelcomePage } from "./pages/WelcomePage";
+import { ActivityTestingPage } from "./pages/NewTripActivitiesTesting";
 
 function App() {
   return(
     <ScenarioProvider>
       <BrowserRouter>
         <Routes>
+          <Route path="tripActivitiesTest" element={<ActivityTestingPage/>}></Route>
           <Route path="homePage" element={<HomePage/>}></Route>
           <Route path="newTrip" element={<NewTrip/>}></Route>
           <Route path="tripType" element={<TypeOfTrip/>}></Route>
